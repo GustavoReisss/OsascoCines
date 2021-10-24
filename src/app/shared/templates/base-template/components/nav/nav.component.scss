@@ -16,3 +16,19 @@
   top: 0;
   z-index: 1;
 }
+
+.logo {
+  cursor: pointer;
+  transition: all 0.1s;
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+}
+
+.rotaAtiva {
+  color: #e91e63;
+}
+
+
+

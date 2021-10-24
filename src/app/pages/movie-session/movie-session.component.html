@@ -1,0 +1,25 @@
+<section class="Sessions-container">
+    <div *ngFor="let session of movieSessions" class="SessionDay">
+        
+        <h1>{{ session.dayOfWeek }}</h1>
+        
+        <div *ngFor="let theater of session.theaters" class="Theater">
+
+            <h2>{{ theater.name }}</h2>
+            
+            <div *ngFor="let room of theater.rooms" class="Room">
+                
+                <h3>{{ room.name }}</h3>
+
+                <div *ngFor="let session of room.sessions" class="Session">
+                    <p>Horário: {{ session.time }}</p>
+                    <p>{{ session.price | currency:'BRL' }}</p>
+                    <a href="{{ session.siteURL }}" target="_blank">Comprar</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,5 @@
+<section class="movies-container">
+    <div *ngFor="let movie of movies?.items" class="grid-item">
+        <img src="{{ movie.images![0].url }}" routerLink="/movie/{{ movie.id }}">
+    </div>
+</section>

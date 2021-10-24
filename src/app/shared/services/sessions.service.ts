@@ -30,9 +30,9 @@ export class SessionsService {
                       );
   }
 
-  getMovieSessions(movieId: string): Observable<MovieSessions> {
+  getMovieSessions(movieId: string): Observable<MovieSessions[]> {
     let url = `/api${ingressoApi.movieSessions}${movieId}${ingressoApi.partner}`
-    return this.client.get<MovieSessions>(url).pipe(
+    return this.client.get<MovieSessions[]>(url).pipe(
       map(obj => obj), 
       
       catchError(e => {
