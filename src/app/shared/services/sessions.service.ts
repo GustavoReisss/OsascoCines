@@ -1,49 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-
-import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators'
-import { Movie, MoviesEntity } from './../models/interfaces/movie.interface';
+
+import { ingressoApi } from '../../../environments/environment'
+import { AllSession } from '../models/interfaces/allSessions.interface'; 
+import { MovieSessions } from '../models/interfaces/movieSessions.interface';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionsService {
 
-  constructor(private client: HttpClient) {
-    let allMovies: MoviesEntity[] = [];
+  constructor(private client: HttpClient) { }
+
+  getAllTheatherSections(theatherId: string): Observable<AllSession[]> {
+    let url = `/api${ingressoApi.theaterSessions}${theatherId}${ingressoApi.partner}`
     
-    this.getAllSections('845').subscribe(movies => {
-      
-      movies.map(moviesArray => {
-        moviesArray.movies?.map(movie => allMovies.push(movie))
-        this.movies.next(allMovies);
-      })
-    });
-
-    this.getAllSections('340').subscribe(movies => {
-      
-      movies.map(moviesArray => {
-        moviesArray.movies?.map(movie => allMovies.push(movie))
-        this.movies.next(allMovies);
-        console.log(this.movies);
-      })
-    });
-
-  }
-
-  private movies = new BehaviorSubject<MoviesEntity[] | any >(null);
-
-
-  getMovies(): Observable<MoviesEntity[]> {
-    return this.movies.asObservable();
-  }
-
-
-  private getAllSections(theatherId: string): Observable<Movie[]> {
-    let url: string = `/api/v0/sessions/city/42/theater/${theatherId}/partnership/faetec_felipedosantos`
-    
-    return this.client.get<Movie[]>(url)
+    return this.client.get<AllSession[]>(url)
                       .pipe(
                           map(obj => obj), 
                           
@@ -53,4 +29,16 @@ export class SessionsService {
                           })
                       );
   }
-}
+
+  getMovieSessions(movieId: string): Observable<MovieSessions> {
+    let url = `/api${ingressoApi.movieSessions}${movieId}${ingressoApi.partner}`
+    return this.client.get<MovieSessions>(url).pipe(
+      map(obj => obj), 
+      
+      catchError(e => {
+        console.log(e);
+        return EMPTY;
+      })
+  );;
+  }
+} 

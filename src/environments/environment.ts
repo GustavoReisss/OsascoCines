@@ -1,7 +1,13 @@
 export const environment = {
   production: false,
-
-  baseUrl: 'https://api-content.ingresso.com/v0/',
-  title: 'OsascoCines'
+  title: 'OsascoCines',
 };
 
+export const ingressoApi = {
+
+  partner: '/partnership/faetec_felipedosantos',
+
+  allMovie: '/v0/events/city/42',
+  movieSessions: '/v0/sessions/city/42/event/',
+  theaterSessions: '/v0/sessions/city/42/theater/'
+};

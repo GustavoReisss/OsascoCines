@@ -1,35 +1,49 @@
 export interface Movie {
-    movies?: (MoviesEntity)[] | null;
-    date: string;
-    dateFormatted: string;
-    dayOfWeek: string;
-    isToday: boolean;
+    items?: (ItemsEntity)[] | null;
+    count: number;
   }
-  export interface MoviesEntity {
+  export interface ItemsEntity {
     id: string;
     title: string;
     originalTitle: string;
     movieIdUrl: string;
+    ancineId: string;
+    countryOrigin: string;
+    priority: number;
+    contentRating: string;
+    duration: string;
+    rating: number;
+    synopsis: string;
+    cast: string;
+    director: string;
+    distributor: string;
     inPreSale: boolean;
     isReexhibition: boolean;
-    duration: string;
-    contentRating: string;
-    distributor: string;
     urlKey: string;
+    isPlaying: boolean;
+    countIsPlaying: number;
+    premiereDate: PremiereDate;
+    creationDate: string;
+    city: string;
     siteURL: string;
     nationalSiteURL: string;
-    siteURLByTheater: string;
-    nationalSiteURLByTheater: string;
-    boxOfficeId: string;
-    ancineId: string;
     images?: (ImagesEntity)[] | null;
-    trailers?: (TrailersEntity)[] | null;
     genres?: (string)[] | null;
     ratingDescriptors?: (string | null)[] | null;
-    tags?: (null)[] | null;
     completeTags?: (null)[] | null;
-    rooms?: (RoomsEntity)[] | null;
+    tags?: (null)[] | null;
+    trailers?: (TrailersEntity | null)[] | null;
+    boxOfficeId?: null;
+    partnershipType?: null;
     rottenTomatoe: RottenTomatoe;
+  }
+  export interface PremiereDate {
+    localDate: string;
+    isToday: boolean;
+    dayOfWeek: string;
+    dayAndMonth: string;
+    hour: string;
+    year: string;
   }
   export interface ImagesEntity {
     url: string;
@@ -39,44 +53,6 @@ export interface Movie {
     type: string;
     url: string;
     embeddedUrl: string;
-  }
-  export interface RoomsEntity {
-    name: string;
-    type?: null;
-    sessions?: (SessionsEntity)[] | null;
-  }
-  export interface SessionsEntity {
-    id: string;
-    price: number;
-    type?: (string)[] | null;
-    types?: (TypesEntity)[] | null;
-    date: DateOrRealDate;
-    realDate: DateOrRealDate;
-    time: string;
-    defaultSector: string;
-    midnightMessage?: null;
-    siteURL: string;
-    nationalSiteURL?: null;
-    hasSeatSelection: boolean;
-    driveIn: boolean;
-    streaming: boolean;
-    maxTicketsPerCar: number;
-    enabled: boolean;
-    blockMessage: string;
-  }
-  export interface TypesEntity {
-    id: number;
-    name: string;
-    alias: string;
-    display: boolean;
-  }
-  export interface DateOrRealDate {
-    localDate: string;
-    isToday: boolean;
-    dayOfWeek: string;
-    dayAndMonth: string;
-    hour: string;
-    year: string;
   }
   export interface RottenTomatoe {
     id: string;

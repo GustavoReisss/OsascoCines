@@ -1,5 +1,5 @@
 <section class="movies-container">
-    <div *ngFor="let movie of movies" class="grid-item">
+    <div *ngFor="let movie of movies?.items" class="grid-item" (click)="testeMovieSections(movie.id)">
         <img src="{{ movie.images![0].url }}">
     </div>
 </section>    

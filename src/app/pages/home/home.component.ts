@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SessionsService } from './../../shared/services/sessions.service';
-import { Movie, MoviesEntity } from 'src/app/shared/models/interfaces/movie.interface';
+
+import { SessionsService } from 'src/app/shared/services/sessions.service';
+import { MoviesService } from 'src/app/shared/services/movies.service';
+
+import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
+
 
 @Component({
   selector: 'app-home',
@@ -11,16 +15,19 @@ import { Movie, MoviesEntity } from 'src/app/shared/models/interfaces/movie.inte
 export class HomeComponent implements OnInit {
 
   private subs: Subscription[] = []
-  //movies: Movie[] = []
-  movies: MoviesEntity[] = []
+  movies!: Movie;
 
-
-  constructor(private sessionsService: SessionsService) { }
+  constructor(
+    private sessionsService: SessionsService,
+    private moviesService: MoviesService
+    ) { }
 
   ngOnInit(): void {
-    //this.subs.push(this.sessionsService.getAllSections('845').subscribe(movies => {this.movies = movies; console.log(this.movies)}))
-    this.subs.push(this.sessionsService.getMovies().subscribe( movies => this.movies = movies ));
+    this.subs.push(this.moviesService.getAllMovies().subscribe(movies => this.movies = movies))
+  }
   
+  testeMovieSections(movieId: string): void {
+    this.sessionsService.getMovieSessions(movieId).subscribe(sessions => console.log(sessions))
   }
 
 }
