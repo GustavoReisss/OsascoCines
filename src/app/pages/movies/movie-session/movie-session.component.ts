@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SessionsService } from 'src/app/shared/services/sessions.service';
-import { MovieSessions } from './../../shared/models/interfaces/movieSessions.interface';
 import { Subscription } from 'rxjs';
+
+import { SessionsService } from 'src/app/shared/services/sessions.service';
+import { MovieSessions } from './../../../shared/models/interfaces/movieSessions.interface';
 
 @Component({
   selector: 'app-movie-session',
