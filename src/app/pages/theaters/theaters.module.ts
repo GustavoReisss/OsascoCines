@@ -2,24 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home.component';
-import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
 import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-template.module';
+
+import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
+
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: BaseTemplateComponent,
-    children: [
-      { path: "", component: HomeComponent }
-    ] 
+    loadChildren: () => import("./all-theaters/all-theaters.module").then(m => m.AllTheatersModule)
+  },
+  {
+    path: 'theater',
+    component: BaseTemplateComponent,
+    loadChildren: () => import("./theater-sessions/theater-sessions.module").then(m => m.TheaterSessionsModule)
   }
 ]
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -29,4 +31,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class HomeModule { }
+export class TheatersModule { }

@@ -1,0 +1,8 @@
+<h1 style="text-align: center; color: red; font-weight: bold;">{{ theater?.name }}</h1>
+
+<div *ngFor="let session of sessions" style="border: 3px solid white; margin: 10px; padding: 10px;">
+    <h2>{{ session?.dayOfWeek }}</h2>
+    <li *ngFor="let movie of session?.movies"> 
+        {{ movie?.title }}
+    </li>
+</div>

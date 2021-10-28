@@ -13,6 +13,7 @@ export class MoviesService {
   constructor( private client: HttpClient ) { }
 
   getAllMovies(): Observable<Movie> {
-    return this.client.get<Movie>("/api" + ingressoApi.allMovie + ingressoApi.partner ) 
+    let url = "/api" + ingressoApi.allMovie + ingressoApi.partner
+    return this.client.get<Movie>(url) 
   }
 }

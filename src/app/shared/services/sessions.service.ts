@@ -4,7 +4,7 @@ import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators'
 
 import { ingressoApi } from '../../../environments/environment'
-import { AllSession } from '../models/interfaces/allSessions.interface'; 
+import { AllSessions } from '../models/interfaces/allSessions.interface'; 
 import { MovieSessions } from '../models/interfaces/movieSessions.interface';
 
 
@@ -16,10 +16,10 @@ export class SessionsService {
 
   constructor(private client: HttpClient) { }
 
-  getAllTheatherSections(theatherId: string): Observable<AllSession[]> {
-    let url = `/api${ingressoApi.theaterSessions}${theatherId}${ingressoApi.partner}`
+  getAllTheatherSections(theatherId: string): Observable<AllSessions[]> {
+    let url = "/api" + ingressoApi.theaterSessions + theatherId + ingressoApi.partner
     
-    return this.client.get<AllSession[]>(url)
+    return this.client.get<AllSessions[]>(url)
                       .pipe(
                           map(obj => obj), 
                           
@@ -31,7 +31,9 @@ export class SessionsService {
   }
 
   getMovieSessions(movieId: string): Observable<MovieSessions[]> {
-    let url = `/api${ingressoApi.movieSessions}${movieId}${ingressoApi.partner}`
+    
+    let url = "/api" + ingressoApi.movieSessions + movieId + ingressoApi.partner
+    
     return this.client.get<MovieSessions[]>(url).pipe(
       map(obj => obj), 
       

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
+import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-template.module';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    BaseTemplateModule
   ],
   exports: [
     RouterModule
