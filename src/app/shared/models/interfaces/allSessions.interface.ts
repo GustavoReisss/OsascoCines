@@ -1,4 +1,4 @@
-export interface AllSession {
+export interface AllSessions {
     movies?: (MoviesEntity)[] | null;
     date: string;
     dateFormatted: string;

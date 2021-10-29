@@ -1,0 +1,6 @@
+<div *ngFor="let theater of theaters?.items">
+    <div [routerLink]="['theater', theater.id]">
+        <h1>{{ theater.name }}</h1>
+        <img src="{{ theater.images![0].url }}">
+    </div>
+</div>

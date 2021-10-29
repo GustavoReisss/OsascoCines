@@ -1,0 +1,31 @@
+.comingSoon {
+    border: 3px solid white;
+    margin: 10px;
+    padding: 10px;
+
+    h1 {
+        color: red;
+        font-weight: bold;
+    }
+}
+
+.comingSoonMovies {
+    display: flex;
+    gap: 30px;
+    overflow-x: scroll;
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: 250px;
+        padding: 5px;
+        border: 2px solid white;
+    }
+}
+
+img {
+    width: 200px;
+}
