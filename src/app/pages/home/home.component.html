@@ -3,3 +3,13 @@
         <h1>Seja Bem-Vindo ao <span style="color: #c2185b;">OsascoCines</span></h1>
     </header>
 </section>
+
+<section class="comingSoon">
+    <h1>Em Breve!</h1>
+    <div class="comingSoonMovies">
+        <div *ngFor="let soonMovie of soonMovies?.items">
+            <h2>{{soonMovie?.title}}</h2>
+            <img src="{{ soonMovie?.images![0].url }}">
+        </div>
+    </div>
+</section>

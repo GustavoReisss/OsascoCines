@@ -11,5 +11,6 @@ export const ingressoApi = {
   theater: '/v0/theaters/',
   theaterSessions: '/v0/sessions/city/42/theater/',
   allMovie: '/v0/events/city/42',
-  movieSessions: '/v0/sessions/city/42/event/'
+  movieSessions: '/v0/sessions/city/42/event/',
+  comingSoon: '/v0/templates/soon/42'
 };
