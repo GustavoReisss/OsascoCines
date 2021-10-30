@@ -9,7 +9,7 @@
     <div class="comingSoonMovies">
         <div *ngFor="let soonMovie of soonMovies?.items">
             <h2>{{soonMovie?.title}}</h2>
-            <img src="{{ soonMovie?.images![0].url }}">
+            <img src="{{ soonMovie?.images![0].url }}" [routerLink]="['/movies/movie', soonMovie.id]">
         </div>
     </div>
 </section>

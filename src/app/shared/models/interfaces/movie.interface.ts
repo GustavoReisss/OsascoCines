@@ -1,8 +1,6 @@
+import { RottenTomatoe } from "./rottenTomatoe.interface";
+
 export interface Movie {
-    items?: (ItemsEntity)[] | null;
-    count: number;
-  }
-  export interface ItemsEntity {
     id: string;
     title: string;
     originalTitle: string;
@@ -35,8 +33,9 @@ export interface Movie {
     trailers?: (TrailersEntity | null)[] | null;
     boxOfficeId?: null;
     partnershipType?: null;
-    rottenTomatoe: RottenTomatoe;
+    rottenTomatoe?: RottenTomatoe | null;
   }
+
   export interface PremiereDate {
     localDate: string;
     isToday: boolean;
@@ -45,21 +44,14 @@ export interface Movie {
     hour: string;
     year: string;
   }
+
   export interface ImagesEntity {
     url: string;
     type: string;
   }
+  
   export interface TrailersEntity {
     type: string;
     url: string;
     embeddedUrl: string;
   }
-  export interface RottenTomatoe {
-    id: string;
-    criticsRating: string;
-    criticsScore: string;
-    audienceRating: string;
-    audienceScore: string;
-    originalUrl: string;
-  }
-  

@@ -1,3 +1,5 @@
+import { RottenTomatoe } from "./rottenTomatoe.interface";
+
 export interface AllSessions {
     movies?: (MoviesEntity)[] | null;
     date: string;
@@ -78,12 +80,3 @@ export interface AllSessions {
     hour: string;
     year: string;
   }
-  export interface RottenTomatoe {
-    id: string;
-    criticsRating: string;
-    criticsScore: string;
-    audienceRating: string;
-    audienceScore: string;
-    originalUrl: string;
-  }
-  

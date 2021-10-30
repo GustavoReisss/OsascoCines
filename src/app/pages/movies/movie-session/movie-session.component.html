@@ -1,25 +1,40 @@
-<section class="Sessions-container">
-    <div *ngFor="let session of movieSessions" class="SessionDay">
-        
-        <h1>{{ session.dayOfWeek }}</h1>
-        
-        <div *ngFor="let theater of session.theaters" class="Theater">
-
-            <h2>{{ theater.name }}</h2>
-            
-            <div *ngFor="let room of theater.rooms" class="Room">
-                
-                <h3>{{ room.name }}</h3>
-
-                <div *ngFor="let session of room.sessions" class="Session">
-                    <p>Horário: {{ session.time }}</p>
-                    <p>{{ session.price | currency:'BRL' }}</p>
-                    <a href="{{ session.siteURL }}" target="_blank">Comprar</a>
-                </div>
-
-            </div>
-
+<section style="background: url('{{ movie?.images![1].url }}') no-repeat center; background-size: cover">
+    <div class="movie-container">
+        <div>
+            <img src="{{ movie?.images![0].url }}" alt="">
         </div>
 
+        <div>
+            <h3>{{ movie.title }}</h3>
+        </div>
     </div>
+</section>
+
+<section class="Sessions-container">
+    <mat-tab-group>
+
+        <mat-tab *ngFor="let session of movieSessions" label="{{ session.dayOfWeek }}">
+            
+            
+            
+            <div *ngFor="let theater of session.theaters" class="Theater">
+
+                <h2>{{ theater.name }}</h2>
+                
+                <div *ngFor="let room of theater.rooms" class="Room">
+                    
+                    <h3>{{ room.name }}</h3>
+
+                    <div *ngFor="let session of room.sessions" class="Session">
+                        <p>Horário: {{ session.time }}</p>
+                        <p>{{ session.price | currency:'BRL' }}</p>
+                        <a href="{{ session.siteURL }}" target="_blank">Comprar</a>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+        </mat-tab>
+    </mat-tab-group>
 </section>
