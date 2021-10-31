@@ -7,6 +7,7 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 
 import { MovieSessions } from './../../../shared/models/interfaces/movieSessions.interface';
 import { Movie } from './../../../shared/models/interfaces/movie.interface';
+import { Theater } from './../../../shared/models/interfaces/theater.interface';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   movieId!: string;
   movie!: Movie;
   movieSessions!: MovieSessions[];
+  kinoplex: any[] = [];
+  cinemark: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -36,22 +39,48 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
         movieSessions => {
           this.movieSessions = movieSessions; 
           console.log(this.movieSessions);
-        })
+          
+          this.movieSessions?.forEach(session => {
+
+            session.theaters?.forEach(theater => {
+              
+              if(theater.name.includes('Cinemark')){
+                this.cinemark.push(theater)
+                let len = this.cinemark.length;
+                this.cinemark[len-1].dayOfWeek = session.dayOfWeek;
+              }
+              else {
+                this.kinoplex.push(theater)
+                let len = this.kinoplex.length;
+                this.kinoplex[len-1].dayOfWeek = session.dayOfWeek;
+              }
+
+            })
+
+          })
+          console.log(this.kinoplex)
+          console.log(this.cinemark)
+      })
     )
 
     this.subs.push(
-      this.moviesService.getMovie(this.movieId).subscribe(
-        movie => {
-          this.movie = movie; 
+      this.moviesService.getMovie(this.movieId).subscribe( movie => {
+          this.movie = movie;
+      
+          if (this.movie.images![1]){
+            this.movie.images![1].url =  ` '${this.movie.images![1].url}' `
+          }
+      
           console.log(this.movie);
-        })
+      })
     )
-
-}
+    
+  }
 
   ngOnDestroy(): void {
     this.subs.map(
       sub => sub.unsubscribe()
     );
   }
+
 }

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { MovieSessionComponent } from './movie-session.component';
+import { TheaterSessionsComponent } from './components/theater-sessions/theater-sessions.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    MovieSessionComponent
+    MovieSessionComponent,
+    TheaterSessionsComponent
   ],
   imports: [
     CommonModule,

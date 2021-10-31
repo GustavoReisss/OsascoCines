@@ -1,4 +1,9 @@
-<section style="background: url('{{ movie?.images![1].url }}') no-repeat center; background-size: cover">
+<section *ngIf="movie"
+ [ngStyle]="{
+    'background-image': (movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'grey' ),
+    'background-size': 'cover',
+    'background-reapet': 'no-repeat'
+}">
     <div class="movie-container">
         <div>
             <img src="{{ movie?.images![0].url }}" alt="">
@@ -11,30 +16,6 @@
 </section>
 
 <section class="Sessions-container">
-    <mat-tab-group>
-
-        <mat-tab *ngFor="let session of movieSessions" label="{{ session.dayOfWeek }}">
-            
-            
-            
-            <div *ngFor="let theater of session.theaters" class="Theater">
-
-                <h2>{{ theater.name }}</h2>
-                
-                <div *ngFor="let room of theater.rooms" class="Room">
-                    
-                    <h3>{{ room.name }}</h3>
-
-                    <div *ngFor="let session of room.sessions" class="Session">
-                        <p>Horário: {{ session.time }}</p>
-                        <p>{{ session.price | currency:'BRL' }}</p>
-                        <a href="{{ session.siteURL }}" target="_blank">Comprar</a>
-                    </div>
-
-                </div>
-                
-            </div>
-            
-        </mat-tab>
-    </mat-tab-group>
+    <app-theater-sessions *ngIf="kinoplex.length > 0" [theater]="kinoplex"></app-theater-sessions>
+    <app-theater-sessions *ngIf="cinemark.length > 0"[theater]="cinemark"></app-theater-sessions>
 </section>

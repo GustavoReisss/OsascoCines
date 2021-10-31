@@ -1,0 +1,19 @@
+<h1>{{ theater![0].name }}</h1>
+
+<mat-tab-group>
+    <mat-tab *ngFor="let sessionDay of theater" label="{{ sessionDay.dayOfWeek }}">
+        
+        <div>
+            <div *ngFor="let room of sessionDay?.rooms">
+                <p>{{ room.name }}</p>
+                <ul *ngFor="let session of room.sessions">
+                    <li>{{ session.time }}</li>
+                    <li>{{ session.price | currency: 'BRL' }}</li>
+                    <li *ngFor="let type of session.types"> {{ type.name }}</li>
+                    <a href="{{ session.siteURL }}" target="blank_">Comprar</a>
+                </ul>
+            </div>
+        </div>
+    
+    </mat-tab>
+</mat-tab-group>
