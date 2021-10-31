@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { MoviesService } from 'src/app/shared/services/movies.service';
 
-import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
+import { AllMovies } from 'src/app/shared/models/interfaces/allMovies.interface';
 
 @Component({
   selector: 'app-all-movies',
@@ -13,7 +13,7 @@ import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
 export class AllMoviesComponent implements OnInit, OnDestroy {
 
   private subs: Subscription[] = [];
-  movies!: Movie;
+  movies!: AllMovies;
 
   constructor(
     private moviesService: MoviesService

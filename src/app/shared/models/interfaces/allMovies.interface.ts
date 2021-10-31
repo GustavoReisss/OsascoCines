@@ -1,7 +1,6 @@
 import { Movie } from "./movie.interface";
 
-
-export interface ComingSoonMovies {
+export interface AllMovies {
     items?: (Movie)[] | null;
     count: number;
-}
+  }
