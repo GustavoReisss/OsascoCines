@@ -1,9 +1,8 @@
-<section *ngIf="movie"
- [ngStyle]="{
+<section *ngIf="movie" [ngStyle]="{
     'background-image': (movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'grey' ),
     'background-size': 'cover',
-    'background-reapet': 'no-repeat'
-}">
+    'background-reapet': 'no-repeat' }">
+    
     <div class="movie-container">
         <div>
             <img src="{{ movie?.images![0].url }}" alt="">

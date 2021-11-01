@@ -15,4 +15,8 @@ export class TheaterSessionsComponent implements OnInit {
     console.log(this.theater)
   }
 
+  ComprarIngresso(url: string): void {
+    window.open(url)
+  }
+
 }

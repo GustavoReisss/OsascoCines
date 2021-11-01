@@ -48,11 +48,13 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
                 this.cinemark.push(theater)
                 let len = this.cinemark.length;
                 this.cinemark[len-1].dayOfWeek = session.dayOfWeek;
+                this.cinemark[len-1].dateFormatted = session.dateFormatted;
               }
               else {
                 this.kinoplex.push(theater)
                 let len = this.kinoplex.length;
                 this.kinoplex[len-1].dayOfWeek = session.dayOfWeek;
+                this.kinoplex[len-1].dateFormatted = session.dateFormatted;
               }
 
             })
