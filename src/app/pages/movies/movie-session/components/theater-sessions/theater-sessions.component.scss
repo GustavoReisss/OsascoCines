@@ -53,30 +53,36 @@ mat-tab-group {
 
 .type {
     border-radius: 3px;
+    border: 1px solid;
     padding: 3px;
 }
 
 .type-Normal {
-    border: 1px solid orange;
+    border-color: orange;
     color: orange;
 }
 
 .type-Dublado {
-    border: 1px solid cyan;
+    border-color: cyan;
     color: cyan;
 }
 
 .type-Legendado {
-    border: 1px solid #00d640;
+    border-color: #00d640;
     color: #00d640;
 }
 
 .type-3D {
-    border: 1px solid red;
+    border-color: red;
     color: red;
 }
 
 .type-XD {
-    border: 1px solid yellow;
+    border-color: #d400ff;
+    color: #d400ff;
+}
+
+.type-Nacional {
+    border-color: yellow;
     color: yellow;
 }

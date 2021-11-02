@@ -8,6 +8,7 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 import { MovieSessions } from './../../../shared/models/interfaces/movieSessions.interface';
 import { Movie } from './../../../shared/models/interfaces/movie.interface';
 import { Theater } from './../../../shared/models/interfaces/theater.interface';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -16,6 +17,9 @@ import { Theater } from './../../../shared/models/interfaces/theater.interface';
   styleUrls: ['./movie-session.component.scss']
 })
 export class MovieSessionComponent implements OnInit, OnDestroy {
+
+  popup: number = 0;
+  trailerUrl: any = "";
 
   subs: Subscription[] = [];
 
@@ -28,7 +32,8 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private sessionsService: SessionsService,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private sanitizer: DomSanitizer
   ) {
     this.movieId = this.route.snapshot.params["id"];
   }
@@ -74,9 +79,21 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
           }
       
           console.log(this.movie);
+          this.getVideoId(this.movie?.trailers![0]!.url)
+          console.log(this.trailerUrl)
+
       })
     )
     
+  }
+
+  popupMode(numDiv: number): void {
+    this.popup = numDiv;
+  }
+
+  getVideoId(videoUrl: string): void {
+    let videoUrlSplitted = videoUrl.split("watch?v=");
+    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + videoUrlSplitted[1]);
   }
 
   ngOnDestroy(): void {
