@@ -1,92 +1,14 @@
-<div class="content" [ngClass]="{'sinopse-mode': popup != 0 }">
-    
-    <section *ngIf="movie" [ngStyle]="{
-        'background-image': (movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'grey' ),
-        'background-size': 'cover',
-        'background-reapet': 'no-repeat',
-        'background-position': 'center'
-    }">
-        
-        <!-- BANNER DO FILME -->
-        
-        <div class="movie-container">
+<!-- Movie Banner -->
+<section>
+    <app-movie-banner (valorPopUp)="atualizaPopUp($event)"></app-movie-banner>
+</section>
 
-            <!-- TITULO DO FILME -->
-
-            <div class="movie-title">
-                <span>{{ movie.title }}</span>
-            </div>
-
-            <!-- CARTAZ DO FILME -->
-
-            <div class="movie-poster">
-                <img src="{{ movie.images![0].url }}" alt="">
-            </div>
-
-            <!-- INFORMAÇÕES DO FILME -->
-
-            <div class="movie-infos">
-
-                <div class="generos-container">
-                    <span 
-                    *ngFor="let genre of movie.genres" 
-                    class="genero genero-{{ genre }}"> 
-                        {{ genre }} 
-                    </span>
-                </div>
-
-                <span 
-                class="contentRating">
-                    Restrição de Idade: {{ movie.contentRating }}
-                </span>
-                <span 
-                class="duration">
-                    Duração: {{ movie.duration }} minutos 
-                </span>
-                
-                <span 
-                class="cast"> 
-                    Elenco: {{ movie.cast }} 
-                </span>
-                
-                <div class="buttons-container">
-                    <button *ngIf="movie.trailers!.length > 0" class="sinopse-button" (click)="popupMode(1)"> Assistir Trailer</button>
-                    <button class="trailer-button" (click)="popupMode(2)">Ler sinopse</button>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
+<div class="content" [bgBlur]="popup != 0">
 
     <!-- SESSÕES DO FILME NOS CINEMAS -->
-
-    <section class="Sessions-container">
+    <section class="Sessions-container" >
         <app-theater-sessions *ngIf="kinoplex.length > 0" [theater]="kinoplex"></app-theater-sessions>
         <app-theater-sessions *ngIf="cinemark.length > 0"[theater]="cinemark"></app-theater-sessions>
     </section>
 
-</div>
-
-<!-- POPUP PARA O BOTÃO DE TRAILER -->
-<div class="popup trailer-popup" [class.active]="popup == 1">
-    <!-- <span class="popup-title"> Trailer </span> -->
-    <div class="iframe-container">
-        <iframe *ngIf="movie != undefined && movie.trailers!.length > 0"
-            [src]="trailerUrl"
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; 
-            encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <button class="close-button" (click)="popupMode(0)">Fechar</button>
-</div>
-
-<!-- POPUP PARA O BOTÃO DE SINOPSE -->
-<div class="popup sinopse-popup" [class.active]="popup == 2">
-    <span class="popup-title"> Sinopse </span>
-    <span class="synopsis"> {{ movie?.synopsis }} </span>
-    <button class="close-button" (click)="popupMode(0)">Fechar</button>
 </div>
