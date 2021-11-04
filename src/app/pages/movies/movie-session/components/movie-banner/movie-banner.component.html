@@ -1,6 +1,6 @@
 <!-- BANNER DO FILME -->
 <section *ngIf="movie" class="banner-container" [bgBlur]="popup != 0"
-[style.background-image]="(movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'grey' )">    
+[style.background-image]="(movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'url(' + movie.images![0].url + ')' )">    
     
     <!-- CONTEÚDO DO BANNER -->
     <div class="movie-container" >
@@ -31,16 +31,20 @@
 
             <span 
             class="contentRating">
-                Restrição de Idade: {{ movie.contentRating }}
+                <span class="propertie-title-span"> Restrição de Idade: </span> <br>
+                {{ movie.contentRating }}
             </span>
+
             <span 
             class="duration">
-                Duração: {{ movie.duration }} minutos 
+                <span class="propertie-title-span">Duração:</span> <br>  
+                {{ movie.duration }} minutos 
             </span>
             
             <span 
             class="cast"> 
-                Elenco: {{ movie.cast }} 
+                <span class="propertie-title-span"> Elenco:</span> <br>
+                {{ movie.cast }} 
             </span>
             
             <div class="buttons-container">

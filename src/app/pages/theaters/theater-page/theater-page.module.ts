@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TheaterSessionsComponent } from './theater-sessions.component';
+import { TheaterPageComponent } from './theater-page.component';
+import { TheaterDetailsComponent } from './components/theater-details/theater-details.component';
 
 const routes: Routes = [
   {
@@ -12,17 +13,18 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: TheaterSessionsComponent
+    component: TheaterPageComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    TheaterSessionsComponent
+    TheaterPageComponent,
+    TheaterDetailsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ]
 })
-export class TheaterSessionsModule { }
+export class TheaterPageModule { }

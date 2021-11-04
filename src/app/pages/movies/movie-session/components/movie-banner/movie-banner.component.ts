@@ -42,8 +42,12 @@ export class MovieBannerComponent implements OnInit, OnDestroy {
           if (this.movie.images![1]){
             this.movie.images![1].url =  ` '${this.movie.images![1].url}' `
           }
-    
-          this.getTrailerUrl(this.movie?.trailers![0]!.url)
+          
+          console.log(this.movie);
+
+          if(this.movie.trailers!.length > 0){
+            this.getTrailerUrl();
+          }
       })
     )
     
@@ -54,9 +58,8 @@ export class MovieBannerComponent implements OnInit, OnDestroy {
     this.valorPopUp.emit(numDiv);
   }
 
-  getTrailerUrl(videoUrl: string): void {
-    let videoUrlSplitted = videoUrl.split("watch?v=");
-    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + videoUrlSplitted[1]);
+  getTrailerUrl(): void {
+    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.movie.trailers![0]!.embeddedUrl);
   }
 
   ngOnDestroy(): void {
