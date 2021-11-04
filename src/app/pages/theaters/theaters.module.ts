@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'theater',
     component: BaseTemplateComponent,
-    loadChildren: () => import("./theater-sessions/theater-sessions.module").then(m => m.TheaterSessionsModule)
+    loadChildren: () => import("./theater-page/theater-page.module").then(m => m.TheaterPageModule)
   }
 ]
 
