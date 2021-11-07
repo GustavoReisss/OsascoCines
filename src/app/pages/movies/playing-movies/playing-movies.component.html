@@ -1,9 +1,11 @@
 <h1 style="font-size: 2rem; font-weight: 900; text-align: center; margin-top: 1rem;">SOMENTE OS FILMES EM CARTAZ</h1>
 
 
-<section class="movies-container">
-    <div *ngFor="let movie of movies" class="grid-item">
-        <!-- <img src="{{movie.images![1].url }}"> -->
-        <img src="{{ movie.images![0].url }}" [routerLink]="['/movies/movie', movie.id]">
+<section class="all-movies-container">
+    <div *ngFor="let movie of movies" class="movie-container">
+
+        <div *ngIf="movie.isPlaying" class="movie-poster">
+            <img src="{{ movie.images![0].url }}" [routerLink]="['movie', movie.id]">
+        </div>
     </div>
 </section>

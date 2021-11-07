@@ -1,19 +1,9 @@
 <h1 style="font-size: 2rem; font-weight: 900; text-align: center; margin-top: 1rem;">
-    TODOS OS FILMES (EM CARTAZ e EM BREVE)
+    TODOS OS FILMES EM BREVE
 </h1>
 
-<!-- Filtros dos filmes -->
-<div *ngIf="movies.length > 0">
-
-    <button (click)="reverteArray('a-z')">a-z</button>
-    <button (click)="reverteArray('z-a')">z-a</button>
-    
-    <input type="text" [(ngModel)]="filtro">
-</div>
-
 <section class="all-movies-container">
-    
-    <div *ngFor="let movie of obterFilmes()" class="movie-container">
+    <div *ngFor="let movie of soonMovies" class="movie-container">
 
         <div class="movie-poster">
             <span *ngIf="!movie.isPlaying" class="em-breve">Em Breve!</span>

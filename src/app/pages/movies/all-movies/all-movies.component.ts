@@ -14,6 +14,8 @@ export class AllMoviesComponent implements OnInit, OnDestroy {
 
   private subs: Subscription[] = [];
   movies: Movie[] = [];
+  moviesSorting: string = "a-z";  // "a-z" & "z-a"
+  filtro: string = "";
 
   constructor(
     private moviesService: MoviesService
@@ -26,10 +28,26 @@ export class AllMoviesComponent implements OnInit, OnDestroy {
       ));
   }
 
+  reverteArray(sortingType: string): void {
+    if(this.moviesSorting != sortingType){
+      this.movies.reverse();
+      this.moviesSorting = sortingType;
+    }
+  }
+
+  obterFilmes(): Movie[] {
+    if (this.filtro.length === 0 || this.filtro == undefined || this.filtro.trim() === ''){
+      return this.movies;
+    }
+
+    return this.movies.filter(movie => {
+      return (movie.title.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0)
+    })
+  }
+
   ngOnDestroy(): void {
     this.subs.map(sub => sub.unsubscribe);
   }
-
 }
 
 
