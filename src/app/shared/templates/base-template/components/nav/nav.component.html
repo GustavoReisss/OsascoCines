@@ -27,17 +27,17 @@
 
       <a 
         mat-list-item 
-        [routerLinkActiveOptions]="{exact: true}"
         routerLinkActive="rotaAtiva" 
-        routerLink="/movies"
+        routerLink="/movies/comming-soon-movies"
       >
-        Página Inicial
+        Em breve!
       </a>
 
       <a 
         mat-list-item 
         routerLinkActive="rotaAtiva" 
         routerLink="/movies"
+        [routerLinkActiveOptions]="{exact: true}"
       >
         Todos os Filmes
       </a>
@@ -45,9 +45,9 @@
       <a 
         mat-list-item 
         routerLinkActive="rotaAtiva" 
-        routerLink="/movies/teste-generos"
+        routerLink="/movies/genres"
       >
-        Teste Gêneros
+        Gêneros
       </a>
 
       
