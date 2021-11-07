@@ -1,0 +1,32 @@
+<h1 style="font-size: 2rem; font-weight: 900; text-align: center; margin-top: 1rem;">
+    TODOS OS FILMES (EM CARTAZ e EM BREVE) SEPARADOS POR GÊNERO
+</h1>
+
+
+<div  *ngFor="let genero of generos" style="padding: 2rem">
+    
+    <h1 style="font-size: 5rem; margin-bottom: 2rem;"> 
+        {{ genero.name }} 
+    </h1>
+    
+    <div style="display: flex; align-items: flex-end; gap: 2rem; overflow-x: auto;" >
+    
+        <div *ngFor="let movie of genero.movies" >
+            
+            <span >
+                {{ movie.title }}
+            </span>
+            
+            <br>
+            
+            <a [routerLink]="['/movies/movie', movie.id]">
+                <img src="{{ movie.images[0].url }}" style="width: 150px;" alt="">
+            </a>
+            
+        </div>
+    </div>
+    
+
+    <br>
+
+</div>

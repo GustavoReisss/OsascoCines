@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { MoviesService } from 'src/app/shared/services/movies.service';
 
-import { AllMovies } from 'src/app/shared/models/interfaces/allMovies.interface';
+import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
 
 @Component({
   selector: 'app-all-movies',
@@ -13,14 +13,17 @@ import { AllMovies } from 'src/app/shared/models/interfaces/allMovies.interface'
 export class AllMoviesComponent implements OnInit, OnDestroy {
 
   private subs: Subscription[] = [];
-  movies!: AllMovies;
+  movies: Movie[] = [];
 
   constructor(
     private moviesService: MoviesService
   ) { }
 
   ngOnInit(): void {
-    this.subs.push(this.moviesService.getAllMovies().subscribe(movies => this.movies = movies))
+    this.subs.push(
+      this.moviesService.getAllMovies().subscribe(
+        allMovies => this.movies = allMovies
+      ));
   }
 
   ngOnDestroy(): void {
@@ -28,3 +31,16 @@ export class AllMoviesComponent implements OnInit, OnDestroy {
   }
 
 }
+
+
+
+// inscrição para o segundo teste do getAllMovies
+// this.moviesService.getAllMovies2().subscribe(res => console.log(res))
+
+
+// inscrição para o terceiro teste do getAllMovies
+// this.moviesService.getAllMovies3().subscribe(res => console.log(res))
+
+
+// inscrição para o quarto teste do getAllMovies
+// this.moviesService.getAllMovies4().subscribe(res => console.log(res))

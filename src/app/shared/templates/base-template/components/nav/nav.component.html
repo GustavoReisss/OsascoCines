@@ -20,6 +20,15 @@
       <a 
         mat-list-item 
         routerLinkActive="rotaAtiva" 
+        routerLink="/movies/playing-movies"
+      >
+        Em cartaz!
+      </a>
+
+      <a 
+        mat-list-item 
+        [routerLinkActiveOptions]="{exact: true}"
+        routerLinkActive="rotaAtiva" 
         routerLink="/movies"
       >
         Todos os Filmes
@@ -31,6 +40,14 @@
         routerLink="/theaters"
       >
         Todos os Cinemas
+      </a>
+
+      <a 
+        mat-list-item 
+        routerLinkActive="rotaAtiva" 
+        routerLink="/movies/teste-generos"
+      >
+        Teste Gêneros
       </a>
 
       
