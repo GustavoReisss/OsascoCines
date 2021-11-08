@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { MoviesService } from './../../../shared/services/movies.service';
 
 import { generoMovies } from 'src/app/shared/models/classes/generoMovies.class';
+import { Movie } from './../../../shared/models/interfaces/movie.interface';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
   private subs: Subscription[] = [];
 
   generos: generoMovies[] = [];
+  filtroGenero: string = "Todos";
 
   constructor(
     private moviesService: MoviesService
@@ -23,7 +25,6 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-
 
     // FAZER UMA FUNÇÃO NO movies.service.ts RETORNANDO OS DADOS JÁ MAPEADOS
     this.subs.push(
@@ -34,7 +35,7 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
         allMovies.forEach(movie => {    
           
           movie.genres?.forEach(genre => {
-            let movies: any[] | undefined = [];
+            let movies: Movie[] | undefined = [];
 
             if(generos.has(genre)){
               movies = generos.get(genre);
@@ -53,6 +54,16 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
 
       })
     )
+  }
+
+  obterGeneros(): generoMovies[] {
+    if(this.filtroGenero == 'Todos' || this.filtroGenero == undefined || this.filtroGenero == null){
+      return this.generos;
+    }
+
+    return this.generos.filter(genero => {
+      return (genero.name == this.filtroGenero)
+    })
   }
 
   ngOnDestroy(): void {

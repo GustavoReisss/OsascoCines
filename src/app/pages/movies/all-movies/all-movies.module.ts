@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
+import { ComponentsModule } from 'src/app/shared/components/components.module';
+
 import { AllMoviesComponent } from './all-movies.component';
 
 const routes: Routes = [
@@ -19,7 +21,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    ComponentsModule
   ]
 })
 export class AllMoviesModule { }

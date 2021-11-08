@@ -2,31 +2,22 @@
     TODOS OS FILMES (EM CARTAZ e EM BREVE) SEPARADOS POR GÊNERO
 </h1>
 
+<div>
+    <span style="display: block;">Gênero</span>
+    <select name="generos" [(ngModel)]="filtroGenero">
+        <option value="Todos">Todos</option>
+        <option 
+        *ngFor="let genero of generos" 
+        value="{{ genero.name }}">{{ genero.name }} </option>
+    </select>
+</div>
 
-<div  *ngFor="let genero of generos" style="padding: 2rem">
+<div  *ngFor="let genero of obterGeneros()" style="padding: 2rem">
     
-    <h1 style="font-size: 5rem; margin-bottom: 2rem;"> 
+    <h1 style="font-size: 3rem; margin-bottom: 2rem;"> 
         {{ genero.name }} 
     </h1>
-    
-    <div style="display: flex; align-items: flex-end; gap: 2rem; overflow-x: auto;" >
-    
-        <div *ngFor="let movie of genero.movies" >
-            
-            <span >
-                {{ movie.title }}
-            </span>
-            
-            <br>
-            
-            <a [routerLink]="['/movies/movie', movie.id]">
-                <img src="{{ movie.images[0].url }}" style="width: 150px;" alt="">
-            </a>
-            
-        </div>
-    </div>
-    
 
-    <br>
+    <app-movie-list [movies]="genero.movies" [filtros]="false"></app-movie-list>
 
 </div>

@@ -2,13 +2,4 @@
     TODOS OS FILMES EM BREVE
 </h1>
 
-<section class="all-movies-container">
-    <div *ngFor="let movie of soonMovies" class="movie-container">
-
-        <div class="movie-poster">
-            <span *ngIf="!movie.isPlaying" class="em-breve">Em Breve!</span>
-            <img src="{{ movie.images![0].url }}" [routerLink]="['movie', movie.id]">
-        </div>
-    </div>
-</section>
-
+<app-movie-list [movies]="soonMovies"></app-movie-list>
