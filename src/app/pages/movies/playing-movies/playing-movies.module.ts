@@ -1,28 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 
-import { AllMoviesComponent } from './all-movies.component';
+import { PlayingMoviesComponent } from './playing-movies.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: AllMoviesComponent
+    component: PlayingMoviesComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    AllMoviesComponent
+    PlayingMoviesComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule,
     ComponentsModule
   ]
 })
-export class AllMoviesModule { }
+export class PlayingMoviesModule { }

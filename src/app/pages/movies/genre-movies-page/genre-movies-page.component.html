@@ -1,0 +1,23 @@
+<h1 style="font-size: 2rem; font-weight: 900; text-align: center; margin-top: 1rem;">
+    TODOS OS FILMES (EM CARTAZ e EM BREVE) SEPARADOS POR GÊNERO
+</h1>
+
+<div>
+    <span style="display: block;">Gênero</span>
+    <select name="generos" [(ngModel)]="filtroGenero">
+        <option value="Todos">Todos</option>
+        <option 
+        *ngFor="let genero of generos" 
+        value="{{ genero.name }}">{{ genero.name }} </option>
+    </select>
+</div>
+
+<div  *ngFor="let genero of obterGeneros()" style="padding: 2rem">
+    
+    <h1 style="font-size: 3rem; margin-bottom: 2rem;"> 
+        {{ genero.name }} 
+    </h1>
+
+    <app-movie-list [movies]="genero.movies" [filtros]="false"></app-movie-list>
+
+</div>

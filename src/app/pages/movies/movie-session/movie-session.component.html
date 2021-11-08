@@ -1,40 +1,14 @@
-<section style="background: url('{{ movie?.images![1].url }}') no-repeat center; background-size: cover">
-    <div class="movie-container">
-        <div>
-            <img src="{{ movie?.images![0].url }}" alt="">
-        </div>
-
-        <div>
-            <h3>{{ movie.title }}</h3>
-        </div>
-    </div>
+<!-- Movie Banner -->
+<section>
+    <app-movie-banner (valorPopUp)="atualizaPopUp($event)"></app-movie-banner>
 </section>
 
-<section class="Sessions-container">
-    <mat-tab-group>
+<div class="content" [bgBlur]="popup != 0">
 
-        <mat-tab *ngFor="let session of movieSessions" label="{{ session.dayOfWeek }}">
-            
-            
-            
-            <div *ngFor="let theater of session.theaters" class="Theater">
+    <!-- SESSÕES DO FILME NOS CINEMAS -->
+    <section class="Sessions-container" >
+        <app-theater-sessions *ngIf="kinoplex.length > 0" [theater]="kinoplex"></app-theater-sessions>
+        <app-theater-sessions *ngIf="cinemark.length > 0"[theater]="cinemark"></app-theater-sessions>
+    </section>
 
-                <h2>{{ theater.name }}</h2>
-                
-                <div *ngFor="let room of theater.rooms" class="Room">
-                    
-                    <h3>{{ room.name }}</h3>
-
-                    <div *ngFor="let session of room.sessions" class="Session">
-                        <p>Horário: {{ session.time }}</p>
-                        <p>{{ session.price | currency:'BRL' }}</p>
-                        <a href="{{ session.siteURL }}" target="_blank">Comprar</a>
-                    </div>
-
-                </div>
-                
-            </div>
-            
-        </mat-tab>
-    </mat-tab-group>
-</section>
+</div>

@@ -1,28 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 
-import { AllMoviesComponent } from './all-movies.component';
+import { GenreMoviesPageComponent } from './genre-movies-page.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: AllMoviesComponent
+    component: GenreMoviesPageComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    AllMoviesComponent
+    GenreMoviesPageComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
     FormsModule,
+    RouterModule.forChild(routes),
     ComponentsModule
+  ],
+  exports: [
+    RouterModule
   ]
 })
-export class AllMoviesModule { }
+export class GenreMoviesPageModule { }

@@ -3,11 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { SessionsService } from 'src/app/shared/services/sessions.service';
-import { MoviesService } from 'src/app/shared/services/movies.service';
-
-import { MovieSessions } from './../../../shared/models/interfaces/movieSessions.interface';
-import { Movie } from './../../../shared/models/interfaces/movie.interface';
-
 
 @Component({
   selector: 'app-movie-session',
@@ -15,17 +10,19 @@ import { Movie } from './../../../shared/models/interfaces/movie.interface';
   styleUrls: ['./movie-session.component.scss']
 })
 export class MovieSessionComponent implements OnInit, OnDestroy {
-
+  
   subs: Subscription[] = [];
 
-  movieId!: string;
-  movie!: Movie;
-  movieSessions!: MovieSessions[];
+  movieId: string;
+  popup: number = 0;
+  trailerUrl: any = "";
+
+  kinoplex: any[] = [];
+  cinemark: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private sessionsService: SessionsService,
-    private moviesService: MoviesService
   ) {
     this.movieId = this.route.snapshot.params["id"];
   }
@@ -34,24 +31,42 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
     this.subs.push(
       this.sessionsService.getMovieSessions(this.movieId).subscribe(
         movieSessions => {
-          this.movieSessions = movieSessions; 
-          console.log(this.movieSessions);
-        })
-    )
+          console.log(movieSessions);
+          
+          movieSessions?.forEach(session => {
 
-    this.subs.push(
-      this.moviesService.getMovie(this.movieId).subscribe(
-        movie => {
-          this.movie = movie; 
-          console.log(this.movie);
-        })
-    )
+            session.theaters?.forEach(theater => {
+              
+              if(theater.name.includes('Cinemark')){
+                this.cinemark.push(theater)
+                let len = this.cinemark.length;
+                this.cinemark[len-1].dayOfWeek = session.dayOfWeek;
+                this.cinemark[len-1].dateFormatted = session.dateFormatted;
+              }
+              else {
+                this.kinoplex.push(theater)
+                let len = this.kinoplex.length;
+                this.kinoplex[len-1].dayOfWeek = session.dayOfWeek;
+                this.kinoplex[len-1].dateFormatted = session.dateFormatted;
+              }
 
-}
+            })
+
+          })
+          console.log(this.kinoplex)
+          console.log(this.cinemark)
+      })
+    )
+  }
+
+  atualizaPopUp(numDiv: number): void {
+    this.popup = numDiv;
+  }
 
   ngOnDestroy(): void {
     this.subs.map(
       sub => sub.unsubscribe()
     );
   }
+
 }

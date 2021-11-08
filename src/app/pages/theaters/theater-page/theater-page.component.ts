@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { SessionsService } from './../../../shared/services/sessions.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { SessionsService } from '../../../shared/services/sessions.service';
 import { ActivatedRoute } from '@angular/router';
-import { AllSessions } from './../../../shared/models/interfaces/allSessions.interface';
+import { AllSessions } from '../../../shared/models/interfaces/allSessions.interface';
 import { Subscription } from 'rxjs';
-import { Theater } from './../../../shared/models/interfaces/theater.interface';
-import { TheatersService } from './../../../shared/services/theaters.service';
+import { Theater } from '../../../shared/models/interfaces/theater.interface';
+import { TheatersService } from '../../../shared/services/theaters.service';
 
 @Component({
-  selector: 'app-theater-sessions',
-  templateUrl: './theater-sessions.component.html',
-  styleUrls: ['./theater-sessions.component.scss']
+  selector: 'app-theater-page',
+  templateUrl: './theater-page.component.html',
+  styleUrls: ['./theater-page.component.scss']
 })
-export class TheaterSessionsComponent implements OnInit {
+export class TheaterPageComponent implements OnInit, OnDestroy {
 
   private id!: string;
   private subs: Subscription[] = [];
@@ -37,6 +37,10 @@ export class TheaterSessionsComponent implements OnInit {
       this.theatersService.getTheater(this.id).subscribe(
         theater => {this.theater = theater; console.log(this.theater)}
     ))
+  }
+
+  ngOnDestroy(): void {
+    this.subs.map(sub => sub.unsubscribe());
   }
 
 }

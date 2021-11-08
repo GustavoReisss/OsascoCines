@@ -11,9 +11,24 @@ const routes: Routes = [
     loadChildren: () => import("./all-movies/all-movies.module").then(m => m.AllMoviesModule)
   },
   {
+    path: "playing-movies",
+    component: BaseTemplateComponent,
+    loadChildren: () => import("./playing-movies/playing-movies.module").then(m => m.PlayingMoviesModule)
+  },
+  {
+    path: "comming-soon-movies",
+    component: BaseTemplateComponent,
+    loadChildren: () => import("./comming-soon-movies/comming-soon-movies.module").then(m => m.CommingSoonMoviesModule)
+  },
+  {
     path: "movie",
     component: BaseTemplateComponent,
     loadChildren: () => import("./movie-session/movie-session.module").then(m => m.MovieSessionModule)
+  },
+  {
+    path: "genres",
+    component: BaseTemplateComponent,
+    loadChildren: () => import("./genre-movies-page/genre-movies-page.module").then(m => m.GenreMoviesPageModule)
   }
 ]
 

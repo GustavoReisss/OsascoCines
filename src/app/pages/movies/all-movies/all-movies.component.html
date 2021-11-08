@@ -1,6 +1,5 @@
-<section class="movies-container">
-    <div *ngFor="let movie of movies?.items" class="grid-item">
-        <!-- <img src="{{movie.images![1].url }}"> -->
-        <img src="{{ movie.images![0].url }}" [routerLink]="['movie', movie.id]">
-    </div>
-</section>
+<h1 style="font-size: 2rem; font-weight: 900; text-align: center; margin-top: 1rem;">
+    TODOS OS FILMES (EM CARTAZ e EM BREVE)
+</h1>
+
+<app-movie-list [movies]="movies"></app-movie-list>
