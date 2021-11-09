@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    //canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
     children: [
       {
         path: "",

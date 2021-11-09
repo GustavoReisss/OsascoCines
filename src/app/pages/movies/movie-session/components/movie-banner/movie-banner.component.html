@@ -23,7 +23,8 @@
 
             <div class="generos-container">
                 <span 
-                *ngFor="let genre of movie.genres" 
+                *ngFor="let genre of movie.genres"
+                [routerLink]="['/movies/genres']" [queryParams]="{ genre: genre}" 
                 class="genero genero-{{ genre }}"> 
                     {{ genre }} 
                 </span>

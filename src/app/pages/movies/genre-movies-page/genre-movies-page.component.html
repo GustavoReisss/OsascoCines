@@ -2,7 +2,7 @@
     TODOS OS FILMES (EM CARTAZ e EM BREVE) SEPARADOS POR GÊNERO
 </h1>
 
-<div>
+<div *ngIf="!hasQueryParam">
     <span style="display: block;">Gênero</span>
     <select name="generos" [(ngModel)]="filtroGenero">
         <option value="Todos">Todos</option>
@@ -10,6 +10,12 @@
         *ngFor="let genero of generos" 
         value="{{ genero.name }}">{{ genero.name }} </option>
     </select>
+</div>
+
+<div *ngIf="hasQueryParam">
+    <h1>Filmes encontrados com o gênero {{ filtroGenero }}:</h1>
+    <span>Ver todos os gêneros</span>
+    <button (click)="TodosGeneros()">Ver</button>
 </div>
 
 <div  *ngFor="let genero of obterGeneros()">
