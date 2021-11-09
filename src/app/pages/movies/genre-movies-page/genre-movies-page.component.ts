@@ -5,6 +5,7 @@ import { MoviesService } from './../../../shared/services/movies.service';
 
 import { generoMovies } from 'src/app/shared/models/classes/generoMovies.class';
 import { Movie } from './../../../shared/models/interfaces/movie.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,11 +19,19 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
 
   generos: generoMovies[] = [];
   filtroGenero: string = "Todos";
+  hasQueryParam: boolean = false;
 
   constructor(
-    private moviesService: MoviesService
-  ) { }
-
+    private moviesService: MoviesService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    let genero = this.route.snapshot.queryParams['genre'];
+    if(genero){
+      this.filtroGenero = genero;
+      this.hasQueryParam = true;
+    }
+   }
 
   ngOnInit(): void {
 
@@ -64,6 +73,12 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
     return this.generos.filter(genero => {
       return (genero.name == this.filtroGenero)
     })
+  }
+
+  TodosGeneros(): void {
+    this.filtroGenero = 'Todos'
+    this.router.navigate(['/movies/genres'])
+    this.hasQueryParam = false;
   }
 
   ngOnDestroy(): void {

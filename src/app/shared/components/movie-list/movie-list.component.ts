@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Movie } from '../../models/interfaces/movie.interface';
 
@@ -9,12 +10,16 @@ import { Movie } from '../../models/interfaces/movie.interface';
 })
 export class MovieListComponent {
   
-  @Input() movies: Movie[] = [];
+  @Input() movies: any[] = [];
   @Input() filtros: boolean = true;
+  @Input() queryParams: boolean = false;
+  @Input() theater?: string;
+  @Input() date?: string;
   
   moviesSorting: string = "a-z";  // "a-z" & "z-a"
   filtro: string = "";
 
+  constructor(private router: Router) { }
 
   reverteArray(sortingType: string): void {
     if(this.moviesSorting != sortingType){
@@ -31,5 +36,20 @@ export class MovieListComponent {
     return this.movies.filter(movie => {
       return (movie.title.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0)
     })
+  }
+
+  AcessarFilme(movieId: string): void {
+    if(this.queryParams && this.theater && this.date) {
+      this.router.navigate(
+        ['/movies/movie', movieId],
+        { queryParams: {
+            theater: this.theater,
+            date: this.date
+          }
+        })
+
+    } else {
+      this.router.navigate(['/movies/movie', movieId])
+    }
   }
 }

@@ -1,23 +1,24 @@
-<div class="theater-sessions">
-    <p class="theater-name">{{ theater![0].name }}</p>
+<div class="theater-sessions" *ngIf="theaterSessions.length > 0">
+    <p class="theater-name">{{ theaterSessions[0].name }}</p>
 
     <mat-tab-group>
-        <mat-tab *ngFor="let sessionDay of theater" label="{{ sessionDay.dayOfWeek }} {{ sessionDay.dateFormatted}}">
+        <mat-tab *ngFor="let sessionDay of obterSessoes()" 
+        label="{{ sessionDay.dayOfWeek }} {{ sessionDay.dateFormatted}}">
             
             <div>
-            <div *ngFor="let room of sessionDay?.rooms" class="room">
-                
-                <span class="room-name">{{ room.name }}</span>
-                
-                <div *ngFor="let session of room.sessions" class="session-row" (click)="ComprarIngresso(session.siteURL)">
-                    <span> {{ session.time }} </span>
-                    <span *ngFor="let type of session.types" class="type type-{{ type.name }}"> 
-                        {{ type.name }}
-                    </span>
-                    <span>{{ session.price | currency: 'BRL' }}</span>
+                <div *ngFor="let room of sessionDay?.rooms" class="room">
+                    
+                    <span class="room-name">{{ room.name }}</span>
+                    
+                    <div *ngFor="let session of room.sessions" class="session-row" (click)="ComprarIngresso(session.siteURL)">
+                        <span> {{ session.time }} </span>
+                        <span *ngFor="let type of session.types" class="type type-{{ type.name }}"> 
+                            {{ type.name }}
+                        </span>
+                        <span>{{ session.price | currency: 'BRL' }}</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </mat-tab>
-</mat-tab-group>
+        </mat-tab>
+    </mat-tab-group>
 </div>

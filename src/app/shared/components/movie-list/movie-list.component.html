@@ -1,6 +1,8 @@
 <!-- Filtros dos filmes -->
-<div *ngIf="movies.length > 0 && filtros">
 
+    
+<div *ngIf="movies && movies.length > 0 && filtros">
+    
     <button (click)="reverteArray('a-z')">a-z</button>
     <button (click)="reverteArray('z-a')">z-a</button>
     
@@ -12,8 +14,8 @@
     <div *ngFor="let movie of obterFilmes()" class="movie-container">
 
         <div class="movie-poster">
-            <span *ngIf="!movie.isPlaying" class="em-breve">Em Breve!</span>
-            <img src="{{ movie.images![0].url }}" [routerLink]="['/movies/movie', movie.id]">
+            <span *ngIf="movie.isPlaying != undefined && !movie.isPlaying" class="em-breve">Em Breve!</span>
+            <img src="{{ movie.images![0].url }}" (click)="AcessarFilme(movie.id)">
         </div>
     </div>
 </section>
