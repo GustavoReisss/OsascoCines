@@ -2,7 +2,7 @@
     TODOS OS FILMES (EM CARTAZ e EM BREVE) SEPARADOS POR GÊNERO
 </h1>
 
-<div *ngIf="!hasQueryParam">
+<div class="select-genre" *ngIf="!hasQueryParam">
     <span style="display: block;">Gênero</span>
     <select name="generos" [(ngModel)]="filtroGenero">
         <option value="Todos">Todos</option>

@@ -6,3 +6,20 @@
 carousel {
     z-index: 10;
 }
+
+.select-genre{
+    margin: 25px 15px;
+
+    font-size: medium;
+    
+    select{
+        width: 10%;
+        height: 30px;
+        font-size: small;
+        border-radius: 3px;
+    }
+    select:hover{
+        background-color: #00000000;
+        color: #c2185c;
+    }
+}

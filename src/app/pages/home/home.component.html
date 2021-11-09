@@ -7,9 +7,9 @@
 <section class="comingSoon">
     <h1>Em Breve!</h1>
     <div class="comingSoonMovies">
-        <div *ngFor="let soonMovie of soonMovies">
+        <div class="home-soonmovies" *ngFor="let soonMovie of soonMovies">
             <h2>{{soonMovie?.title}}</h2>
-            <img src="{{ soonMovie?.images![0].url }}" [routerLink]="['/movies/movie', soonMovie.id]">
+            <img class="img-carousel-home" src="{{ soonMovie?.images![0].url }}" [routerLink]="['/movies/movie', soonMovie.id]">
         </div>
     </div>
 </section>

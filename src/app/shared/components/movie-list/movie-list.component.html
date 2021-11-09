@@ -1,7 +1,7 @@
 <!-- Filtros dos filmes -->
 
     
-<div *ngIf="movies && movies.length > 0 && filtros">
+<div class="button-filtro" *ngIf="movies && movies.length > 0 && filtros">
     
     <button (click)="reverteArray('a-z')">a-z</button>
     <button (click)="reverteArray('z-a')">z-a</button>

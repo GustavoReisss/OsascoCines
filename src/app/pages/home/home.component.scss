@@ -1,10 +1,14 @@
+header{
+    margin: 15px 10px;
+}
+
 .comingSoon {
     border: 3px solid white;
     margin: 10px;
     padding: 10px;
 
     h1 {
-        color: red;
+        color: #c2185c;
         font-weight: bold;
     }
 }
@@ -26,6 +30,10 @@
     }
 }
 
-img {
+.img-carousel-home {
     width: 200px;
+}
+
+.home-soonmovies{
+    margin-bottom: 15px;
 }

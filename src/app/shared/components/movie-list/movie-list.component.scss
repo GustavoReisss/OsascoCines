@@ -53,3 +53,27 @@
     box-shadow: -3px 3px 5px 0px #00000087;
     border-radius: 0 0 0 10px;
 }
+
+.button-filtro{
+    margin-left: 15px;
+    input, button{
+        height: 30px;
+        border-radius: 4px;
+        
+    }
+    input{
+        width: 30%;
+    }
+    input:hover{
+        background-color: #00000000;
+        color: #c2185c;
+    }
+
+    button{
+        margin-right: 5px;
+    }
+    button:hover{
+        background-color: #00000000;
+        color: #c2185c;
+    }
+}
