@@ -4,9 +4,24 @@
     <app-theater-details [theater]="theater"></app-theater-details>
 </section>
 
-<div *ngFor="let session of sessions" style="border: 3px solid white; margin: 10px; padding: 10px;">
-    <h2>{{ session?.dayOfWeek }}</h2>
-    <li *ngFor="let movie of session?.movies"> 
-        {{ movie?.title }}
-    </li>
-</div>
+<!-- <select name="dia" [(ngModel)]="dia">
+    <option value="Todos">Todos</option>
+    <option *ngFor="let session of sessions" 
+    value="{{ session?.dayOfWeek }}">
+        {{ session?.dayOfWeek }}
+    </option>
+</select> -->
+
+<mat-tab-group>
+
+    <mat-tab *ngFor="let session of obterSessoes()" label="{{ session.dayOfWeek }} {{ session.dateFormatted}}">
+        <app-movie-list 
+            [movies]="session?.movies!" 
+            [filtros]="false"
+            [queryParams]="true"
+            [theater]="theaterid"
+            [date]="session.dateFormatted">
+        </app-movie-list>
+    </mat-tab>
+        
+</mat-tab-group>

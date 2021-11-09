@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { SessionsService } from 'src/app/shared/services/sessions.service';
 
 @Component({
   selector: 'app-movie-session',
@@ -15,48 +14,32 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
 
   movieId: string;
   popup: number = 0;
-  trailerUrl: any = "";
-
-  kinoplex: any[] = [];
-  cinemark: any[] = [];
+  theaters: string[] = ['340', '845']; // cinemark e kinoplex
+  date: any = null;
 
   constructor(
     private route: ActivatedRoute,
-    private sessionsService: SessionsService,
+    private router: Router
   ) {
-    this.movieId = this.route.snapshot.params["id"];
+    this.movieId = this.route.snapshot.params["id"]
+    
+    let theater = this.route.snapshot.queryParams["theater"];
+    if(theater){
+      this.theaters = [theater]
+    }
+
+    let date = this.route.snapshot.queryParams["date"];
+    if(date){
+      this.date = date
+    }
   }
 
-  ngOnInit(): void {
-    this.subs.push(
-      this.sessionsService.getMovieSessions(this.movieId).subscribe(
-        movieSessions => {
-          console.log(movieSessions);
-          
-          movieSessions?.forEach(session => {
+  ngOnInit(): void { }
 
-            session.theaters?.forEach(theater => {
-              
-              if(theater.name.includes('Cinemark')){
-                this.cinemark.push(theater)
-                let len = this.cinemark.length;
-                this.cinemark[len-1].dayOfWeek = session.dayOfWeek;
-                this.cinemark[len-1].dateFormatted = session.dateFormatted;
-              }
-              else {
-                this.kinoplex.push(theater)
-                let len = this.kinoplex.length;
-                this.kinoplex[len-1].dayOfWeek = session.dayOfWeek;
-                this.kinoplex[len-1].dateFormatted = session.dateFormatted;
-              }
-
-            })
-
-          })
-          console.log(this.kinoplex)
-          console.log(this.cinemark)
-      })
-    )
+  mostrarTodasSessoes(){
+    this.theaters = ['340', '845']; // cinemark e kinoplex
+    this.date = null;
+    this.router.navigate([`/movies/movie`, this.movieId])
   }
 
   atualizaPopUp(numDiv: number): void {
@@ -70,3 +53,37 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   }
 
 }
+
+
+
+
+
+// this.subs.push(
+    //   this.sessionsService.getMovieSessions(this.movieId).subscribe(
+    //     movieSessions => {
+    //       // console.log(movieSessions);
+          
+    //       movieSessions?.forEach(session => {
+
+    //         session.theaters?.forEach(theater => {
+              
+    //           if(theater.name.includes('Cinemark')){
+    //             this.cinemark.push(theater)
+    //             let len = this.cinemark.length;
+    //             this.cinemark[len-1].dayOfWeek = session.dayOfWeek;
+    //             this.cinemark[len-1].dateFormatted = session.dateFormatted;
+    //           }
+    //           else {
+    //             this.kinoplex.push(theater)
+    //             let len = this.kinoplex.length;
+    //             this.kinoplex[len-1].dayOfWeek = session.dayOfWeek;
+    //             this.kinoplex[len-1].dateFormatted = session.dateFormatted;
+    //           }
+
+    //         })
+
+    //       })
+          // console.log(this.kinoplex)
+          // console.log(this.cinemark)
+      // })
+    // )

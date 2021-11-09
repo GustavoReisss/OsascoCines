@@ -13,30 +13,42 @@ import { TheatersService } from '../../../shared/services/theaters.service';
 })
 export class TheaterPageComponent implements OnInit, OnDestroy {
 
-  private id!: string;
+  theaterid!: string;
   private subs: Subscription[] = [];
   sessions: AllSessions[] = [];
   theater!: Theater;
 
+  dia: string = "Todos";
 
   constructor(
     private sessionsService: SessionsService,
     private theatersService: TheatersService,
     private activatedRoute: ActivatedRoute
   ) { 
-    this.id = this.activatedRoute.snapshot.params["id"];
+    this.theaterid = this.activatedRoute.snapshot.params["id"];
   }
 
   ngOnInit(): void {
     this.subs.push(
-      this.sessionsService.getAllTheatherSections(this.id).subscribe(
+      this.sessionsService.getAllTheatherSections(this.theaterid).subscribe(
         sessions => {this.sessions = sessions; console.log(this.sessions)}
     ))
 
     this.subs.push(
-      this.theatersService.getTheater(this.id).subscribe(
+      this.theatersService.getTheater(this.theaterid).subscribe(
         theater => {this.theater = theater; console.log(this.theater)}
     ))
+  }
+
+  obterSessoes(): AllSessions[] {
+    if (this.dia == 'Todos'){
+      return this.sessions;
+    }
+
+    return this.sessions.filter(session => {
+      console.log(session)
+      return (session.dayOfWeek == this.dia)
+    }) 
   }
 
   ngOnDestroy(): void {

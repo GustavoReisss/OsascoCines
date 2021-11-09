@@ -43,7 +43,7 @@ export class MovieBannerComponent implements OnInit, OnDestroy {
             this.movie.images![1].url =  ` '${this.movie.images![1].url}' `
           }
           
-          console.log(this.movie);
+          // console.log(this.movie);
 
           if(this.movie.trailers!.length > 0){
             this.getTrailerUrl();

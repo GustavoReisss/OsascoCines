@@ -5,10 +5,22 @@
 
 <div class="content" [bgBlur]="popup != 0">
 
+    <div *ngIf="theaters && date">
+        <h1>Sessões encontradas para o dia {{ date }} no:</h1>
+    </div>
+
     <!-- SESSÕES DO FILME NOS CINEMAS -->
     <section class="Sessions-container" >
-        <app-theater-sessions *ngIf="kinoplex.length > 0" [theater]="kinoplex"></app-theater-sessions>
-        <app-theater-sessions *ngIf="cinemark.length > 0"[theater]="cinemark"></app-theater-sessions>
+        <app-theater-sessions 
+            *ngFor="let theater of theaters"
+            [movieId]="movieId" 
+            [theaterId]="theater"
+            [date]="date">
+        </app-theater-sessions>
     </section>
 
+    <div *ngIf="theaters && date">
+        <h2>Ver todas as sessões</h2>
+        <button (click)="mostrarTodasSessoes()">Ver</button>
+    </div>
 </div>

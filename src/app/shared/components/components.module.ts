@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    MovieListComponent
+    MovieListComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     RouterModule
   ],
   exports: [
-    MovieListComponent
+    MovieListComponent,
+    NotFoundComponent
   ]
 })
 export class ComponentsModule { }
