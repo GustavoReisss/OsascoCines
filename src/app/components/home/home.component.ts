@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SessionsService } from './../../shared/services/sessions.service';
+import { SessionsService } from '../../shared/services/sessions.service';
 import { Movie, MoviesEntity } from 'src/app/shared/models/interfaces/movie.interface';
 
 @Component({
