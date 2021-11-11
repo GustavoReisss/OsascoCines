@@ -8,6 +8,7 @@ import { ingressoApi } from './../../../environments/environment';
 import { MovieList } from '../models/interfaces/movieList.interface'
 import { Movie } from '../models/interfaces/movie.interface';
 import { flatten } from '@angular/compiler';
+import { Highlights } from './../models/interfaces/hightLights.interface';
 
 
 @Injectable({
@@ -50,6 +51,11 @@ export class MoviesService {
         .sort((movieA, movieB) => // ordenando os filmes do array pelo título
             movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1 )
       ));
+  }
+
+  getHightlightMovies(): Observable<Highlights[]> {
+    let url = "/api" + ingressoApi.Highlights + ingressoApi.partner + '/?justEvents=true';
+    return this.client.get<Highlights[]>(url);
   }
 }
 

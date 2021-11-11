@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 
 import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,16 +12,18 @@ import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
 export class HomeComponent implements OnInit, OnDestroy {
 
   subs: Subscription[] = [];
-  soonMovies!: Movie[];
+  highlights: Movie[] = [];
 
   constructor(
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
   ) { }
 
   ngOnInit(): void {
     this.subs.push(
-      this.moviesService.getComingSoonMovies().subscribe(
-        soonMovies => {this.soonMovies = soonMovies; console.log(this.soonMovies)}
+      this.moviesService.getHightlightMovies().subscribe(highlights => { 
+        highlights.forEach(highlight => this.highlights.push(highlight.event)); 
+        console.log(this.highlights)
+      }
     ))
   }
 

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home.component';
-import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
+import { DirectivesModule } from 'src/app/shared/directives/directives.module';
 import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-template.module';
+
+import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
+import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
@@ -23,7 +25,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    BaseTemplateModule
+    BaseTemplateModule,
+    DirectivesModule
   ],
   exports: [
     RouterModule
