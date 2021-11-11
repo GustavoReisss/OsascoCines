@@ -9,6 +9,11 @@
         <h1>Sessões encontradas para o dia {{ date }} no:</h1>
     </div>
 
+    <div *ngIf="theaters && date">
+        <!-- <h2>Ver todas as sessões</h2> -->
+        <button class="btn-oc" (click)="mostrarTodasSessoes()">Ver todas as sessões</button>
+    </div>
+
     <!-- SESSÕES DO FILME NOS CINEMAS -->
     <section class="Sessions-container" >
         <app-theater-sessions 
@@ -18,9 +23,4 @@
             [date]="date">
         </app-theater-sessions>
     </section>
-
-    <div *ngIf="theaters && date">
-        <h2>Ver todas as sessões</h2>
-        <button (click)="mostrarTodasSessoes()">Ver</button>
-    </div>
 </div>

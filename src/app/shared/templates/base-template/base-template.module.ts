@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
+import { DirectivesModule } from '../../directives/directives.module';
+
 import { BaseTemplateComponent } from './base-template.component';
 import { NavComponent } from './components/nav/nav.component';
 
@@ -25,7 +27,8 @@ import { NavComponent } from './components/nav/nav.component';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    DirectivesModule
   ],
   exports: [
     BaseTemplateComponent,

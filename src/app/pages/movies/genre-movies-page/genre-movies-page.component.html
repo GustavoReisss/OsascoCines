@@ -4,7 +4,7 @@
 
 <div class="select-genre" *ngIf="!hasQueryParam">
     <span style="display: block;">Gênero</span>
-    <select name="generos" [(ngModel)]="filtroGenero">
+    <select name="generos" class="slct-oc" [(ngModel)]="filtroGenero">
         <option value="Todos">Todos</option>
         <option 
         *ngFor="let genero of generos" 
@@ -14,13 +14,13 @@
 
 <div *ngIf="hasQueryParam">
     <h1>Filmes encontrados com o gênero {{ filtroGenero }}:</h1>
-    <span>Ver todos os gêneros</span>
-    <button (click)="TodosGeneros()">Ver</button>
+    <!-- <span>Ver todos os gêneros</span> -->
+    <button class="btn-oc" (click)="TodosGeneros()">Ver todos os gêneros</button>
 </div>
 
-<div  *ngFor="let genero of obterGeneros()">
+<div  *ngFor="let genero of obterGeneros()" class="genre-container">
     
-    <h1 style="font-size: 3rem; margin-bottom: 2rem; padding: 1rem 0.5rem;"> 
+    <h1 class="genre-title" neonText primaryColor="#fff" [camadas]="1"> 
         {{ genero.name }} 
     </h1>
 

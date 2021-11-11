@@ -1,8 +1,15 @@
  .cinemas{
     display: flex;
+    flex-wrap: wrap;
  }
 .cinema{
     border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cinema:hover{
+    transform: scale(1.05);
 }
 
 .itens-cinema{

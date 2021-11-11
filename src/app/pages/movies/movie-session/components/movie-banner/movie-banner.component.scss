@@ -13,7 +13,7 @@
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.11);
     backdrop-filter: blur(3px) brightness(66%);
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
 
     div {
         display: flex;
@@ -30,7 +30,7 @@
         font-size: 1.8rem;
         font-weight: bold;
         line-height: 120%;
-        padding: 1.2rem 0;
+        margin-bottom: 1rem;
     }
 }
 
@@ -250,22 +250,22 @@
     }
 
     .movie-poster img {
-        width: 20rem;
+        width: 17rem;
     }
 
     .movie-title span {
-        font-size: 3rem;
+        font-size: 2.6rem;
     }
     
     .movie-infos {
 
         span {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
         }
 
         .propertie-title-span{
-            font-size: 1.7rem;
+            font-size: 1.6rem;
         }
         
         button {
@@ -277,7 +277,7 @@
         }
         
         .buttons-container {
-            margin-top: 3rem;
+            margin-top: 1rem;
             gap: 1rem;   
         }
         

@@ -16,16 +16,14 @@ export class MovieListComponent {
   @Input() theater?: string;
   @Input() date?: string;
   
-  moviesSorting: string = "a-z";  // "a-z" & "z-a"
   filtro: string = "";
+  sorting: string = "-alt";
 
   constructor(private router: Router) { }
 
-  reverteArray(sortingType: string): void {
-    if(this.moviesSorting != sortingType){
-      this.movies.reverse();
-      this.moviesSorting = sortingType;
-    }
+  reverteArray(): void {
+    this.movies.reverse();
+    this.sorting = (this.sorting === '-alt') ? '' : '-alt'
   }
 
   obterFilmes(): Movie[] {

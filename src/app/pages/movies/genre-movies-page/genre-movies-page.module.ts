@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 import { GenreMoviesPageComponent } from './genre-movies-page.component';
+import { DirectivesModule } from 'src/app/shared/directives/directives.module';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
+    DirectivesModule
   ],
   exports: [
     RouterModule

@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BgBlurDirective } from './bg-blur.directive';
+import { NeonTextDirective } from './neon-text.directive';
 
 
 @NgModule({
   declarations: [
-    BgBlurDirective
+    BgBlurDirective,
+    NeonTextDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    BgBlurDirective
+    BgBlurDirective,
+    NeonTextDirective
   ]
 })
 export class DirectivesModule { }

@@ -6,7 +6,11 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-toolbar class="menu-bar">
+      <span>
+        Menu
+      </span>
+    </mat-toolbar>
     
     <mat-nav-list>
       <a mat-list-item 
@@ -71,7 +75,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span routerLink="/" class="logo">OsascoCines</span>
+      <span routerLink="/" class="logo" neonText 
+      primaryColor="#fff" 
+      secondaryColor="#640c2f"
+      [camadas]="7">OsascoCines</span>
     </mat-toolbar>
 
     <!--AQUI ENTRA O CONTEÚDO QUE SERÁ EXIBIDO NA PAGINA ABAIXO DO HEADER-->  

@@ -12,7 +12,7 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: #353535;
+    background-color: #1f1f1f;
     box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
     border-radius: 4px;
     transition: all 500ms;
@@ -29,6 +29,7 @@
     width: fit-content;
     height: 100%;
     cursor: pointer;
+    box-shadow: 0px 0px 19px 7px black;
     
     span {
         position: absolute;
@@ -54,26 +55,27 @@
     border-radius: 0 0 0 10px;
 }
 
-.button-filtro{
-    margin-left: 15px;
-    input, button{
-        height: 30px;
-        border-radius: 4px;
-        
-    }
-    input{
-        width: 30%;
-    }
-    input:hover{
-        background-color: #00000000;
-        color: #c2185c;
+.filtros-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 3rem;
+    padding: 0 1rem;
+
+    input {
+        height: 2.45rem;
+        width: fill;
+        max-width: 500px;
     }
 
-    button{
-        margin-right: 5px;
-    }
-    button:hover{
-        background-color: #00000000;
-        color: #c2185c;
+    button {
+        width: 4.5rem;
+        height: 2.5rem;
+
+        i {
+            font-size: 2rem;
+        }
     }
 }

@@ -24,12 +24,19 @@ export class MoviesService {
 
   getAllPlayingMovies(): Observable<Movie[]> {
     let url = "/api" + ingressoApi.allMovie + ingressoApi.partner;
-    return this.client.get<MovieList>(url).pipe(map(movieList => movieList.items));
+    return this.client.get<MovieList>(url).pipe(map(movieList => movieList.items.sort(
+      (movieA, movieB) =>
+        movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1 
+    )));
   }
 
   getComingSoonMovies(): Observable<Movie[]> {
     let url = "/api" + ingressoApi.comingSoon + ingressoApi.partner;
-    return this.client.get<MovieList>(url).pipe(map(movieList => movieList.items));;
+    return this.client.get<MovieList>(url).pipe(
+      map(movieList => movieList.items.sort(
+        (movieA, movieB) =>
+          movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1 
+      )));
   }
 
   getAllMovies(): Observable<Movie[]> {
