@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,5 +17,7 @@ export class NavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver, 
+    public authService: AuthService) {}
 }

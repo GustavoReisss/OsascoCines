@@ -1,1 +1,43 @@
-<button mat-raised-button color="primary" (click)="fazerLogin()" >Logar</button>
+<div class="sign-in-container">
+  <div class="sign-in-box">
+
+    <div class="authBlock">
+      <h3>Sign In</h3>
+      <div class="formGroup">
+        <input type="text" class="ipt-txt-oc" placeholder="Username" #userName required>
+      </div>
+
+      <div class="formGroup">
+        <input type="password" class="ipt-txt-oc" placeholder="Password" #userPassword required>
+      </div>
+
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="formGroup">
+        <input type="button" class="btn-oc" value="Log in"
+          (click)="authService.SignIn(userName.value, userPassword.value)">
+      </div>
+
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="formGroup">
+        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Log in with Google
+        </button>
+      </div>
+
+      <div class="forgotPassword">
+        <span routerLink="/login/esqueci-a-senha">Forgot Password?</span>
+      </div>
+    </div>
+
+    <div class="redirectToLogin">
+      <span>Don't have an account?<span class="redirect" routerLink="/login/cadastrar"> Sign Up</span></span>
+    </div>
+
+  </div>
+
+</div>
