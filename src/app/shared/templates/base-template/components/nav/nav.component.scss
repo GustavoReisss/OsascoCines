@@ -2,66 +2,17 @@
   height: 100%;
 }
 
-.mat-list-base {
-  padding-top: 4px;
-}
-
-.menu-bar {
-  background-color: #1a1a1a;
-  font-family: 'Red Hat Display', sans-serif;
-  box-shadow: inset 0px 0px 20px 0px #05050596;
-  z-index: 1000;
-}
-
 .sidenav {
   width: 200px;
-  background-color: rgb(36, 36, 36);
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.418);
 }
 
-.mat-drawer-side {
-  border-right: solid 1px #41001a38;
+.sidenav .mat-toolbar {
+  background: inherit;
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: inset 2px 0px 7px 0px #000000;
-}
-
-.logo {
-  cursor: pointer;
-  color: white;
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-  margin-left: 1rem;
-}
-
-.mat-list-item {
-  font-family: 'Red Hat Display', sans-serif;
-  font-weight: 500;
-}
-
-.mat-list-item:hover {
-  box-shadow: 0px 0px 6px 0px #05050596;
-  // box-shadow: 0px 0px 5px -1px #3a3a3a;
-  background-color: #1a1a1a;
-}
-
-.rotaAtiva {
-  color: white;
-  // box-shadow: 0px 0px 5px -1px #3a3a3a;
-  box-shadow: 0px 0px 6px 0px #05050596;
-  background-color: #1a1a1a;
-  z-index: 100;
-}
-
-
-.mat-list-item.rotaAtiva:hover{
-  background-color: #131313;
-}
-
-
-mat-sidenav-content {
-  background-color: rgb(22, 21, 21);
+  z-index: 1;
 }

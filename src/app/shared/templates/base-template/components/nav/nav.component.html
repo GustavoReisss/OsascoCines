@@ -6,59 +6,11 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     
-    <mat-toolbar class="menu-bar">
-      <span>
-        Menu
-      </span>
-    </mat-toolbar>
-    
+    <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item 
-         routerLinkActive="rotaAtiva" 
-         routerLink="/home"
-      >
-        Página Inicial
-      </a>
-
-      <a mat-list-item 
-         routerLinkActive="rotaAtiva" 
-         routerLink="/theaters"
-         [routerLinkActiveOptions]="{exact: true}"
-      >
-        Cinemas
-      </a>
-
-      <a mat-list-item 
-         routerLinkActive="rotaAtiva" 
-         routerLink="/movies/playing-movies"
-      >
-        Em cartaz!
-      </a>
-
-      <a mat-list-item 
-         routerLinkActive="rotaAtiva" 
-         routerLink="/movies/comming-soon-movies"
-      >
-        Em breve!
-      </a>
-
-      <a mat-list-item 
-         routerLinkActive="rotaAtiva" 
-         routerLink="/movies"
-         [routerLinkActiveOptions]="{exact: true}"
-      >
-        Todos os Filmes
-      </a>
-
-      <a mat-list-item 
-         routerLinkActive="rotaAtiva" 
-         routerLink="/movies/genres"
-      >
-        Gêneros
-      </a>
-
-      
-
+      <a mat-list-item >Link 1</a>
+      <a mat-list-item >Link 2</a>
+      <a mat-list-item >Link 3</a>
     </mat-nav-list>
 
   </mat-sidenav>
@@ -75,10 +27,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span routerLink="/" class="logo" neonText 
-      primaryColor="#fff" 
-      secondaryColor="#640c2f"
-      [camadas]="7">OsascoCines</span>
+      <span>OsascoCines</span>
+      <div>
+         <button (click)="authService.SignOut()">Deslogar</button> 
+      </div>
     </mat-toolbar>
 
     <!--AQUI ENTRA O CONTEÚDO QUE SERÁ EXIBIDO NA PAGINA ABAIXO DO HEADER-->  
