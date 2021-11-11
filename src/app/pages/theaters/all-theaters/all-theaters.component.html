@@ -1,0 +1,19 @@
+<div class="cinemas">
+<div class="itens-cinema"*ngFor="let theater of theaters?.items">
+    <div [routerLink]="['theater', theater.id]">
+        <h1>{{ theater.name }}</h1>
+        <div class="cineinfos"></div>
+        <img class="cinema" src="{{ theater.images![0].url }}">
+        <div class="theater-container">
+            <span>Nome: {{ theater.name }}</span> <br>
+            <!-- <span>Cidade: {{ theater.cityName }}</span> <br>
+            <span>UF: {{ theater.uf }}</span> <br> -->
+            <span>Endereço: {{ theater.address }}, {{ theater.number }}</span> <br>
+            <span>Bairro: {{ theater.neighborhood }}</span> <br>
+            <!-- <span>Número: {{ theater.number }}</span> <br> -->
+            <span *ngFor="let telefone of theater.telephones">Telefone: {{ telefone }}</span> <br>
+            <span>Geo Location:{{ theater.geolocation | json }}</span> <br>
+        </div>
+    </div>
+</div>
+</div>

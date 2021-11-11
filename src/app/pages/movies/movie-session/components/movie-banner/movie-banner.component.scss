@@ -1,0 +1,352 @@
+.banner-container{
+    background-size: cover;
+    background-position: center;
+
+    font-weight: bold;
+    text-shadow: 0px 0px 5px black, 0px 0px 10px black;
+}
+
+.movie-container {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.11);
+    backdrop-filter: blur(3px) brightness(66%);
+    padding: 0.5rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+.movie-title {
+    width: 100%;
+    
+    span {
+        font-size: 1.8rem;
+        font-weight: bold;
+        line-height: 120%;
+        margin-bottom: 1rem;
+    }
+}
+
+.movie-poster {
+    width: 100%;
+
+    img {
+        width: 10rem;
+        box-shadow: 0px 0px 15px 5px rgb(0, 0, 0);
+    }
+}
+
+.movie-infos {
+    padding-top: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    span {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 140%;
+    }
+
+    button {
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 0.1rem solid;
+        background-color: rgba(0, 0, 0, 0.76);
+        transition: all 0.1s;
+
+    }
+
+    button:hover {
+        background-color: black;
+        transform: scale(1.1);
+    }
+
+    .propertie-title-span{
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fd0065;
+    }
+
+    .generos-container{
+        gap: 0.5rem;
+    }
+
+    .buttons-container {
+        gap: 0.7rem;   
+    
+        .trailer-button {
+            border-color: #a10041;
+            color: #fd0065;
+        }
+
+        .sinopse-button {
+            border-color: #004ba0;
+            color: #0071f3;
+        }        
+    }
+}
+
+// POP-UP STYLES
+
+.popup {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    gap: 1rem;
+
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    max-height: 80%;
+    padding: 30px;
+    
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.30);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.288);
+    text-align: center;
+
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    overflow-y: auto;
+
+    .popup-title {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 0px 0px 5px black, 0 0 10px black;
+    }
+
+    .close-button {
+        border-radius: 10%;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: #fd0065;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 0.1rem solid #a10041;
+        background-color: rgba(0, 0, 0, 0.369);
+    }
+
+}
+
+.popup.active {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.trailer-popup {
+    .iframe-container{
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; 
+        height: 0;
+      }
+      .iframe-container iframe{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+}
+
+.sinopse-popup {
+    span {
+        font-size: 1rem;
+        line-height: 150%;
+        font-weight: 500;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .movie-container{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-areas:
+        "poster title title"
+        "poster infos infos"
+        "poster infos infos";
+    }
+
+    .movie-poster {
+        grid-area: poster;
+    }
+    
+    .movie-title {
+        grid-area: title;
+    }
+    
+    .movie-infos {
+        grid-area: infos;
+        display: inline-grid;
+        justify-content: start;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+    .movie-poster img {
+        width: 12rem;
+    }
+
+    .movie-title span {
+        font-size: 2.1rem;
+    }
+
+    .movie-infos {
+        span {
+            font-size: 1.1rem;
+        }
+        
+        .propertie-title-span{
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 650px) {
+    
+    .movie-poster img {
+        width: 15rem;
+    }
+    
+    .movie-title span {
+        font-size: 2.3rem;
+    }
+    
+    .movie-infos {
+        span {
+            font-size: 1.2rem;
+        }
+
+        .propertie-title-span{
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) and (min-height: 800px) {
+    
+    .movie-container{
+        padding: 2rem;
+        justify-content: space-evenly;
+    }
+
+    .movie-poster img {
+        width: 17rem;
+    }
+
+    .movie-title span {
+        font-size: 2.6rem;
+    }
+    
+    .movie-infos {
+
+        span {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .propertie-title-span{
+            font-size: 1.6rem;
+        }
+        
+        button {
+            font-size: 2rem;
+        }
+        
+        .generos-container{
+            gap: 1rem;
+        }
+        
+        .buttons-container {
+            margin-top: 1rem;
+            gap: 1rem;   
+        }
+        
+    }
+}
+
+.genero{
+    border: 1px solid;
+    padding: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.336);
+    cursor: pointer;
+    transition: all 0.1s;
+}
+.genero:hover{
+    background-color: rgba(0, 0, 0, 0.644);
+    transform: scale(1.1);
+}
+
+.genero-Ação {
+    border-color: #3945b1;
+    color: #5365ff;
+}
+
+.genero-Animação {
+    border-color: #00a31b;
+    color: #00ff2a;
+}
+
+.genero-Aventura {
+    border-color: #a37d00;
+    color: #ffc400;
+}
+
+.genero-Drama {
+    border-color: #794286;
+    color: #bb65d1;
+}
+
+.genero-Documentário {
+    border-color: #00704f;
+    color: #00b47e;
+}
+
+.genero-Fantasia {
+    border-color: #006666;
+    color: #02ffff;
+}
+
+.genero-Ficção {
+    border-color: #01b7ff;
+    color: #01b7ff;
+}
+
+.genero-Musical {
+    border-color: #008d6a;
+    color: #00d49f;
+}
+
+.genero-Policial {
+    border-color: #1b4781;
+    color: #296cc4;
+}
+
+.genero-Terror {
+    border-color: #9a00a8;
+    color: #ea01ff;
+}
+
+.genero-Suspense {
+    border-color: #3b5361;
+    color: #628aa1;
+}

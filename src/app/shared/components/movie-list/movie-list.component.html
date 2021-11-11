@@ -1,0 +1,23 @@
+<!-- Filtros dos filmes -->
+
+    
+<div class="filtros-container" *ngIf="movies && movies.length > 0 && filtros">
+    
+    
+    <button class="btn-oc" (click)="reverteArray()">
+        <i class="bi bi-sort-alpha-down{{ sorting }}"></i>
+    </button>
+    <input type="text" class="ipt-txt-oc" [(ngModel)]="filtro">
+    
+</div>
+
+<section class="all-movies-container">
+    
+    <div *ngFor="let movie of obterFilmes()" class="movie-container">
+
+        <div class="movie-poster">
+            <span *ngIf="movie.isPlaying != undefined && !movie.isPlaying" class="em-breve">Em Breve!</span>
+            <img src="{{ movie.images![0].url }}" (click)="AcessarFilme(movie.id)">
+        </div>
+    </div>
+</section>
