@@ -1,42 +1,53 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <div class="sign-in-container">
   <div class="sign-in-box">
 
     <div class="authBlock">
-      <h3>Sign In</h3>
-      <div class="formGroup">
-        <input type="text" class="ipt-txt-oc" placeholder="Username" #userName required>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #userName required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
 
-      <div class="formGroup">
-        <input type="password" class="ipt-txt-oc" placeholder="Password" #userPassword required>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1"placeholder="Password"#userPassword required>
       </div>
 
       <!-- Calling SignIn Api from AuthService -->
       <div class="formGroup">
-        <input type="button" class="btn-oc" value="Log in"
-          (click)="authService.SignIn(userName.value, userPassword.value)">
+        <input type="button" class="btn btn-light btn-lg"  id="btnlogar" value="Logar"
+          (click)="logar(userName.value, userPassword.value)">
       </div>
 
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
+      <div class="or-container">
+        <div class="line-separator"></div>
+        <div class="or-label">or</div>
+        <div class="line-separator"></div>
+    </div>
 
       <!-- Calling GoogleAuth Api from AuthService -->
       <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
-          Log in with Google
-        </button>
+          <div class="row">
+            <div class="col-md-12" (click)="authService.GoogleAuth()"> <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" ><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a> </div>
+          </div>
+        </div>
+        <br>
+      <div class="row">
+        <div class="forgotPassword">
+          <span routerLink="/login/esqueci-a-senha">Forgot Password?</span>
+        </div>
       </div>
-
-      <div class="forgotPassword">
-        <span routerLink="/login/esqueci-a-senha">Forgot Password?</span>
-      </div>
-    </div>
-
+  </div>
+    
+  <div class="row">
     <div class="redirectToLogin">
+      <br>
       <span>Don't have an account?<span class="redirect" routerLink="/login/cadastrar"> Sign Up</span></span>
     </div>
+  </div>
 
   </div>
 
