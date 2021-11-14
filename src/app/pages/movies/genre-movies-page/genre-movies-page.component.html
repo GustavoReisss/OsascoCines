@@ -18,6 +18,10 @@
     <button class="btn-oc" (click)="TodosGeneros()">Ver todos os gêneros</button>
 </div>
 
+<div *ngIf="!hasMovies && hasQueryParam">
+    <app-genre-not-found></app-genre-not-found>
+</div>
+
 <div  *ngFor="let genero of obterGeneros()" class="genre-container">
     
     <h1 class="genre-title" neonText primaryColor="#fff" [camadas]="1"> 

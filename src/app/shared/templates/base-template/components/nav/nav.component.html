@@ -84,9 +84,9 @@
         [camadas]="7">OsascoCines</span>
       </div>
       
-      <div>
-        <button (click)="authService.SignOut()">Deslogar</button>
-        <button routerLink="/user/perfil" >Perfil</button> 
+      <div *ngIf="authService.userData as user" class="user-box">
+        <button (click)="deslogar()">Deslogar</button>
+        <img [src]="user.photoURL" routerLink="/user/perfil" class="user-photo"> 
       </div>
     </mat-toolbar>
 

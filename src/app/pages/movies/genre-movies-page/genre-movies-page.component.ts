@@ -20,6 +20,7 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
   generos: generoMovies[] = [];
   filtroGenero: string = "Todos";
   hasQueryParam: boolean = false;
+  hasMovies: boolean = false;
 
   constructor(
     private moviesService: MoviesService,
@@ -54,10 +55,23 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
             generos.set(genre, movies!);
           })
         })
-          
+        
         generos.forEach((value, key) => {
           this.generos.push(new generoMovies(key, value));
         })
+
+        this.generos.sort(
+          (genreA, genreB) => 
+            genreA.name.toLowerCase() > genreB.name.toLowerCase() ? 1 : -1 
+        )
+
+        if(this.hasQueryParam){
+          this.generos.forEach(genre => {
+            if(genre.name == this.filtroGenero) {
+              this.hasMovies = true;
+            }
+          })
+        }
 
         console.log(this.generos);
 
@@ -76,6 +90,7 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
   }
 
   TodosGeneros(): void {
+    this.hasMovies = true;
     this.filtroGenero = 'Todos'
     this.router.navigate(['/movies/genres'])
     this.hasQueryParam = false;

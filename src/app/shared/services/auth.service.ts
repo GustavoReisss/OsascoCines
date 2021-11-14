@@ -107,7 +107,9 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result : any) => {
        this.ngZone.run(() => {
-          this.router.navigate(['home']);
+         setTimeout(() => {
+           this.router.navigate(['home']);
+         }, 1000)
         })
       this.SetUserData(result.user);
     }).catch((error: any) => {
@@ -136,7 +138,9 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      setTimeout(() => {
+        this.router.navigate(['login']);
+      }, 1000)
     })
   }
   

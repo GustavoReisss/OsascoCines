@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './shared/guards/auth.guard';
+import { UserLoggedGuard } from './shared/guards/user-logged.guard';
 
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component'; 
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () => import("./pages/pages.module").then(m => m.PagesModule)
   },
   {

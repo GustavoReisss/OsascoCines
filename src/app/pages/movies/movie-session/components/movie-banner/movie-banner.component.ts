@@ -16,7 +16,9 @@ import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
 export class MovieBannerComponent implements OnInit, OnDestroy {
   
   @Output() valorPopUp = new EventEmitter<number>();
-  
+  @Output() hasSessions = new EventEmitter<boolean>();
+  @Output() hasMovie = new EventEmitter<boolean>();
+
   popup: number = 0;
   trailerUrl: any = "";
 
@@ -38,19 +40,21 @@ export class MovieBannerComponent implements OnInit, OnDestroy {
     this.subs.push(
       this.moviesService.getMovie(this.movieId).subscribe( movie => {
           this.movie = movie;
-      
+          console.log("filme:" + this.movie)
+          this.hasSessions.emit(this.movie.isPlaying)
+
           if (this.movie.images![1]){
             this.movie.images![1].url =  ` '${this.movie.images![1].url}' `
           }
-          
-          // console.log(this.movie);
-
+        
           if(this.movie.trailers!.length > 0){
             this.getTrailerUrl();
           }
+      }, () => {
+        this.hasMovie.emit(false);
       })
     )
-    
+
   }
 
   popupMode(numDiv: number): void {

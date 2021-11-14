@@ -7,6 +7,7 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 import { GenreMoviesPageComponent } from './genre-movies-page.component';
 import { DirectivesModule } from 'src/app/shared/directives/directives.module';
+import { GenreNotFoundComponent } from './components/genre-not-found/genre-not-found.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    GenreMoviesPageComponent
+    GenreMoviesPageComponent,
+    GenreNotFoundComponent
   ],
   imports: [
     CommonModule,

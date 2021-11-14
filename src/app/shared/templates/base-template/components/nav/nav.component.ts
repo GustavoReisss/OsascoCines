@@ -20,4 +20,8 @@ export class NavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver, 
     public authService: AuthService) {}
+
+    deslogar(): void {
+      this.authService.SignOut()
+    }
 }
