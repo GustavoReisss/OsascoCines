@@ -34,13 +34,32 @@
     }
 }
 
-.movie-poster {
+.movie-poster-container {
     width: 100%;
+}
+
+.movie-poster {
+    position:  relative;
 
     img {
         width: 10rem;
         box-shadow: 0px 0px 15px 5px rgb(0, 0, 0);
     }
+}
+
+.em-breve {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    font-size: 0.7rem;
+    font-weight: 500;
+    height: min-content;
+    padding: 0.2rem;
+    background-color: #c2185c;
+    border-left: 2px solid rgba(0, 0, 0, 0.102);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.29);
+    box-shadow: -3px 3px 5px 0px #00000087;
+    border-radius: 3px 0 0 10px;
 }
 
 .movie-infos {
@@ -103,16 +122,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 1000;
+    z-index: 100;
     gap: 1rem;
 
-    top: 55%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% + 32px));
     width: 100%;
-    max-width: 600px;
+    max-width: 550px;
     max-height: 80%;
-    padding: 30px;
+    padding: 1rem 10px;
     
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.30);
     color: #fff;
@@ -185,14 +204,14 @@
         "poster infos infos";
     }
 
-    .movie-poster {
+    .movie-poster-container {
         grid-area: poster;
     }
     
     .movie-title {
         grid-area: title;
     }
-    
+
     .movie-infos {
         grid-area: infos;
         display: inline-grid;
@@ -200,10 +219,15 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 700px) {
     
     .movie-poster img {
         width: 12rem;
+    }
+
+    .em-breve {
+        font-size: 1rem;
+        padding: 0.3rem;
     }
 
     .movie-title span {
@@ -219,12 +243,42 @@
             font-size: 1.3rem;
         }
     }
+    
+    .popup {
+        padding: 2rem 15px;
+
+        .popup-title {
+            font-size: 2.3rem;
+        }
+
+        .close-button {
+            font-size: 1.4rem;
+        }
+    }
+
+    .sinopse-popup {
+        span {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    .popup {
+        transform: translate(calc(-50% + 100px), -50%);
+        max-width: 700px;
+    }
 }
 
 @media screen and (min-width: 1200px) and (min-height: 650px) {
     
     .movie-poster img {
         width: 15rem;
+    }
+
+    .em-breve {
+        font-size: 1.3rem;
+        padding: 0.4rem;
     }
     
     .movie-title span {
@@ -240,6 +294,11 @@
             font-size: 1.4rem;
         }
     }
+
+    .popup {
+        max-width: 900px;
+        padding: 2rem;
+    }
 }
 
 @media screen and (min-width: 1400px) and (min-height: 800px) {
@@ -251,6 +310,11 @@
 
     .movie-poster img {
         width: 17rem;
+    }
+
+    .em-breve {
+        font-size: 1.5rem;
+        padding: 0.5rem;
     }
 
     .movie-title span {
@@ -282,6 +346,42 @@
         }
         
     }
+
+    .popup {
+        .popup-title {
+            font-size: 3rem;
+        }
+
+        .close-button {
+            font-size: 1.6rem;
+        }
+    }
+    
+    .sinopse-popup {
+        span {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media screen and (min-width: 2250px) and (min-height: 800px) {
+    .popup {
+        max-width: 1200px;
+        
+        .popup-title {
+            font-size: 4rem;
+        }
+
+        .close-button {
+            font-size: 2rem;
+        }
+    }
+    
+    .sinopse-popup {
+        span {
+            font-size: 1.8rem;
+        }
+    }
 }
 
 .genero{
@@ -311,6 +411,11 @@
     color: #ffc400;
 }
 
+.genero-Comédia {
+    border-color: #7c8011;
+    color: #d5db1f;
+}
+
 .genero-Drama {
     border-color: #794286;
     color: #bb65d1;
@@ -326,9 +431,19 @@
     color: #02ffff;
 }
 
+.genero-Faroeste {
+    border-color: #978f7f;
+    color: #feefd2;
+}
+
 .genero-Ficção {
     border-color: #01b7ff;
     color: #01b7ff;
+}
+
+.genero-Livre {
+    border-color: #00a31b;
+    color: #00ff2a;
 }
 
 .genero-Musical {

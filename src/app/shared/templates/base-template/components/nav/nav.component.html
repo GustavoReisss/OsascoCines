@@ -7,7 +7,7 @@
       [opened]="(isHandset$ | async) === false">
     
     <mat-toolbar class="menu-bar">
-      <span>
+      <span neonText primaryColor="white" [camadas]="2">
         Menu
       </span>
     </mat-toolbar>
@@ -17,6 +17,8 @@
          routerLinkActive="rotaAtiva" 
          routerLink="/home"
       >
+        <img src="../../../../../../assets/svgs/home.svg" alt="">
+        <!-- <i class="bi bi-house"></i> -->
         Página Inicial
       </a>
 
@@ -25,6 +27,7 @@
          routerLink="/theaters"
          [routerLinkActiveOptions]="{exact: true}"
       >
+        <i class="bi bi-film"></i>
         Cinemas
       </a>
 
@@ -32,6 +35,8 @@
          routerLinkActive="rotaAtiva" 
          routerLink="/movies/playing-movies"
       >
+        <img src="../../../../../../assets/svgs/movie.svg" alt="">
+
         Em cartaz!
       </a>
 
@@ -39,6 +44,7 @@
          routerLinkActive="rotaAtiva" 
          routerLink="/movies/comming-soon-movies"
       >
+        <i class="bi bi-stars"></i>
         Em breve!
       </a>
 
@@ -47,6 +53,7 @@
          routerLink="/movies"
          [routerLinkActiveOptions]="{exact: true}"
       >
+        <img src="../../../../../../assets/svgs/all-movies.svg" alt="">
         Todos os Filmes
       </a>
 
@@ -54,6 +61,7 @@
          routerLinkActive="rotaAtiva" 
          routerLink="/movies/genres"
       >
+        <img src="../../../../../../assets/svgs/genre.svg" alt="">
         Gêneros
       </a>
 

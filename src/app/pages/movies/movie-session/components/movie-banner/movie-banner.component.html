@@ -13,8 +13,11 @@
 
         <!-- CARTAZ DO FILME -->
 
-        <div class="movie-poster">
-            <img src="{{ movie.images![0].url }}" alt="">
+        <div class="movie-poster-container">
+            <div class="movie-poster">
+                <span *ngIf="movie.isPlaying != undefined && !movie.isPlaying" class="em-breve">Em Breve!</span>
+                <img src="{{ movie.images![0].url }}" alt="">
+            </div>
         </div>
 
         <!-- INFORMAÇÕES DO FILME -->
@@ -57,6 +60,8 @@
 
     </div>
 </section>
+<!-- 
+<div class="teste"></div> -->
 
 <!-- POPUP PARA O BOTÃO DE TRAILER -->
 <div class="popup trailer-popup" [class.active]="popup == 1">
