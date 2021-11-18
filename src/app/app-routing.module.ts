@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UserLoggedGuard } from './shared/guards/user-logged.guard';
 
-import { NotFoundComponent } from './shared/components/not-found/not-found.component'; 
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: "login",
-    loadChildren: () => import("./pages/login/login.module").then(m => m.LoginModule) 
+    loadChildren: () => import("./pages/login/login.module").then(m => m.LoginModule)
   },
   { path: "**",
     component: NotFoundComponent
