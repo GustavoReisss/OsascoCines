@@ -13,8 +13,8 @@ const routes: Routes = [
     path: "",
     component: BaseTemplateComponent,
     children: [
-      { path: "", component: HomeComponent }
-    ] 
+      { path: "", component: HomeComponent },
+    ]
   }
 ]
 
