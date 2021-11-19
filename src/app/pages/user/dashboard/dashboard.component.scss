@@ -1,0 +1,150 @@
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-box {
+    background-color: #212529;
+    width: max-content;
+    padding: 1rem;
+    border: 20px solid #1a1c1f;
+
+    div { 
+        label {
+            display: block;
+            margin: 0.1rem 0.3rem;
+            font-size: 1rem;
+            font-weight: 100;
+            color: rgb(155, 154, 154);
+        }
+
+        input {
+            width: 100%;
+            height: 2.5rem;
+            font-size: 1rem;
+            padding: 0 0.6rem;
+            font-weight: 100;
+            color: #757474;
+            cursor: pointer;
+            margin-bottom: 0.6rem;
+        }
+
+        input:focus {
+            color: #fff;
+            box-shadow: 0 0 2px 1px #495057;
+            border-bottom: 1px solid #495057;
+        }
+    }
+}
+
+.img-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid grey;
+
+    h1 {
+        font-weight: 100;
+        font-size: 2.5rem;
+        text-align: center;
+        line-height: 2.3rem;
+    }
+}
+
+.user-image {
+    width: 12rem;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.infos-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    gap: 3rem;
+
+    button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+#img-upload {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+#img-upload:hover {
+    box-shadow: 0 0 2px 1px #8f8f8f;
+    color: #8f8f8f;
+}
+
+#salvar {
+    float: right;
+    color: #4d9ffd86;
+}
+
+#salvar:hover {
+    box-shadow: 0 0 2px 1px #3191ff94;
+    color: #4d9ffd;
+}
+
+#voltar {
+    color: #ffa6009a;
+}
+
+#voltar:hover {
+    box-shadow: 0 0 2px 1px orange;
+    color: orange;
+}
+
+#deslogar {
+    color: #ce00009f;
+}
+
+#deslogar:hover {
+    box-shadow: 0 0 2px 1px red;
+    color: #ce0000;
+}
+
+@media screen and (min-width: 664px)  {
+
+    .user-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .img-box {
+        border: none;
+    }
+}
+
+@media screen and (min-width: 665px) {
+    .infos-container {
+        border-left: 1px solid grey;
+    }
+}
+
+@media screen and (min-width: 664px) and (min-height: 523px) {
+    .user-container {
+        height: calc(100% - 64px);
+    }
+}
+
+@media screen and (min-height: 922px) {
+    .user-container {
+        height: calc(100% - 64px);
+    }
+}

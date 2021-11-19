@@ -20,7 +20,7 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
   generos: generoMovies[] = [];
   filtroGenero: string = "Todos";
   hasQueryParam: boolean = false;
-  hasMovies: boolean = false;
+  hasMovies: boolean = true;
 
   constructor(
     private moviesService: MoviesService,
@@ -31,6 +31,8 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
     if(genero){
       this.filtroGenero = genero;
       this.hasQueryParam = true;
+      this.hasMovies = false;
+
     }
    }
 
