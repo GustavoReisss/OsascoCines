@@ -1,5 +1,6 @@
 <div *ngIf="!hasMovies && hasQueryParam">
-    <app-genre-not-found></app-genre-not-found>
+    <app-genre-not-found (hasMovie)="TodosGeneros()">
+    </app-genre-not-found>
 </div>
 
 <div *ngIf="hasMovies">

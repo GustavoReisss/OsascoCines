@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-genre-not-found',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenreNotFoundComponent implements OnInit {
 
+  @Output() hasMovie = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setHasMovie() {
+    this.hasMovie.emit();
+  }
 }
