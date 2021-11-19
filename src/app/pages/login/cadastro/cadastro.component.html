@@ -1,38 +1,38 @@
-<div class="displayTable">
-    <div class="displayTableCell">
-  
-      <div class="authBlock">
-        <h3>Sign Up</h3>
-  
-        <div class="formGroup">
-          <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+<div class="sign-in-container">
+  <div class="sign-in-box">
+    <div class="authBlock">
+      <h3>Sign Up</h3>
+
+      <div>
+        <input type="email" placeholder="E-mail" class="ipt-txt-oc" #userEmail required>
+      </div>
+
+      <div>
+        <input type="password" placeholder="Senha" class="ipt-txt-oc" #userPwd required>
+      </div>
+
+      <div>
+        <input type="button" class="btn-oc btn-oc-entrar" value="Inscrever-se"
+          (click)="authService.SignUp(userEmail.value, userPwd.value)">
+      </div>
+
+      <div class="or">
+        <span>Ou</span>
+      </div>
+
+      <!-- Continue with Google -->
+      <div>
+        <div class="col-md-12" (click)="authService.GoogleAuth()">
+          <a class="btn-oc btn-branco">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png">
+            Registrar usando Google</a>
         </div>
-  
-        <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPwd required>
+      </div>
+      <div id="info-adicional">
+        <div class="lbl-txt-oc">
+          <span routerLink="/login">Já tem uma conta? Entre</span>
         </div>
-  
-        <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-        </div>
-  
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-  
-        <!-- Continue with Google -->
-        <div class="formGroup">
-          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-            <i class="fab fa-google-plus-g"></i>
-            Continue with Google
-          </button>
-        </div>
-  
-    
-  
-      <div class="redirectToLogin">
-        <span>Already have an account? <span class="redirect" routerLink="/login">Log In</span></span>
       </div>
     </div>
-  
   </div>
+</div>

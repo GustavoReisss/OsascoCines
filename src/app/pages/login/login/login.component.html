@@ -8,11 +8,11 @@
       <h3>Entrar</h3>
 
       <div class="formGroup">
-        <input type="text" class="ipt-txt-oc" placeholder="Username" #userName required>
+        <input type="text" class="ipt-txt-oc" placeholder="Nome de usuário" #userName required>
       </div>
 
       <div class="formGroup">
-        <input type="password" class="ipt-txt-oc" placeholder="Password" #userPassword required>
+        <input type="password" class="ipt-txt-oc" placeholder="Senha" #userPassword required>
       </div>
 
       <!-- Calling SignIn Api from AuthService -->
@@ -21,12 +21,12 @@
           (click)="authService.SignIn(userName.value, userPassword.value)">
       </div>
 
-      <div class="formGroup or">
+      <div class="or">
         <span>Ou</span>
       </div>
 
       <!-- Calling GoogleAuth Api from AuthService -->
-      <div class="formGroup">
+      <div>
         <!-- <i class="fab fa-google-plus-g"></i> -->
         <div class="col-md-12" (click)="authService.GoogleAuth()">
           <a class="btn-oc btn-branco">
@@ -34,12 +34,10 @@
             Logar usando Google</a>
         </div>
       </div>
-      
+
       <div id="info-adicional">
-        <div>
-          <div class="lbl-txt-oc">
-            <span routerLink="/login/esqueci-a-senha">Esqueceu a senha?</span>
-          </div>
+        <div class="lbl-txt-oc">
+          <span routerLink="/login/esqueci-a-senha">Esqueceu a senha?</span>
         </div>
         <div class="lbl-txt-oc">
           <span routerLink="/login/cadastrar">Registrar-se</span>
@@ -48,3 +46,4 @@
 
     </div>
   </div>
+</div>
