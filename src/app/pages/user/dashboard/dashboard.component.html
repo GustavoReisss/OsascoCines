@@ -2,8 +2,7 @@
   <div class="user-box" *ngIf="authService.userData as user">
     
     <div class="img-box">
-      <!-- <h1> {{ (user.displayName) ? user.displayName : 'User' }}</h1> -->
-      <h1>Gustavo Antonio Pereira Reis</h1>
+      <h1> {{ (user.displayName) ? user.displayName : 'User' }}</h1>
       <img class="user-image" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
         alt="{{user.displayName}}">
       
