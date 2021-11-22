@@ -69,6 +69,32 @@ body {
   color: #f11c71;
 }
 
+.slct-oc {
+  height: 2.45rem;
+  width: 100%;
+  max-width: 235px;
+  background-color: #1f1f1f;
+  border: none;
+  border-bottom: 1px solid rgb(109, 109, 109);
+  color: white;
+  padding: 0 1rem;
+  margin-right: 2rem;
+  font-weight: bold;
+  font-family: 'Red Hat Display', sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.7s;   
+}
+
+.slct-oc:hover {
+  border: none;
+  box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
+}
+
+.slct-oc:focus {
+  border: none;
+}
+
 .ipt-txt-oc {
   background-color: #1f1f1f;
   border: none;
@@ -85,6 +111,16 @@ body {
   outline: none;
   box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
   border-bottom: 1px solid #f11c71;
+}
+
+.title-filmes-oc h1{
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 0;
+  line-height: 3.2rem;
+  text-shadow: 0.06em 0.06em 0.05em #c2185c;
 }
 
 .ipt-txt-oc-login {
@@ -148,56 +184,3 @@ body {
   }
 }
 
-//---------------CSS DE FILMES--------------\\
-.all-movies-container {
-    padding: 1rem;
-    
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-auto-rows: 392px;
-    gap: 1.5rem;
-}
-
-.movie-container:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    // transform: translateY(-3px) scale(1.05);
-}
-
-.movie-poster {
-    display: flex;
-    justify-content: flex-end;
-    width: fit-content;
-    height: 100%;
-    cursor: pointer;
-    
-    span {
-        position: absolute;
-        margin-top: 0.5rem;
-        z-index: 1;
-    }
-
-    img {
-        min-height: 100%;
-        min-width: 100%;
-    }
-}
-
-.em-breve {
-    font-size: 1.333rem;
-    font-weight: 500;
-    height: min-content;
-    padding: 0.333rem;
-    background-color: #c2185c;
-    border-left: 2px solid rgba(0, 0, 0, 0.102);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.29);
-    box-shadow: -3px 3px 5px 0px #00000087;
-    border-radius: 0 0 0 10px;
-}
-
-.title-filmes-oc h1{
-  font-size: 50px;
-  font-weight: 600;
-  text-align: center;
-  margin: 60px 0 60px 0;
-  text-shadow: 0.06em 0.06em 0.05em #c2185c
-}

@@ -6,13 +6,11 @@
 <div *ngIf="hasMovies">
 
     <div class="title-filmes-oc">
-        <h1>
-            TODOS OS FILMES - SEPARADOS POR GÊNERO
-        </h1>
-      </div>
+        <h1>GÊNEROS</h1>
+    </div>
     
     <div class="select-genre" *ngIf="!hasQueryParam">
-        <span style="display: block;">Gênero</span>
+        <span style="display: block;">Selecione:</span>
         <select name="generos" class="slct-oc" [(ngModel)]="filtroGenero">
             <option value="Todos">Todos</option>
             <option 

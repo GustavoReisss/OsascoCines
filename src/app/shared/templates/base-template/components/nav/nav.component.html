@@ -10,6 +10,14 @@
       <span neonText primaryColor="white" [camadas]="2">
         Menu
       </span>
+          
+      <mat-icon class="sid-nav-closer"
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async" 
+        aria-label="Side nav toggle icon">
+        close
+      </mat-icon>
+    
     </mat-toolbar>
 
     <mat-nav-list>
@@ -64,8 +72,6 @@
         <img src="../../../../../../assets/svgs/genre.svg" alt="">
         Gêneros
       </a>
-
-
 
     </mat-nav-list>
 
