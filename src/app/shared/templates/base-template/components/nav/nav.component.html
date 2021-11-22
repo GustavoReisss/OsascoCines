@@ -85,11 +85,7 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-
-        <span routerLink="/" class="logo" neonText
-        primaryColor="#fff"
-        secondaryColor="#640c2f"
-        [camadas]="7">OsascoCines</span>
+        <a href="#"><img class="cineoz" src="../../../assets/svgs/logo.svg"></a>
       </div>
 
       <div *ngIf="authService.userData as user" class="user-box">

@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subs.push(
-      this.moviesService.getHightlightMovies().subscribe(highlights => { 
-        highlights.forEach(highlight => this.highlights.push(highlight.event)); 
+      this.moviesService.getHightlightMovies().subscribe(highlights => {
+        highlights.forEach(highlight => this.highlights.push(highlight.event));
         console.log(this.highlights)
       }
     ))
@@ -30,5 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subs.map(sub => sub.unsubscribe());
   }
+
+  
 
 }
