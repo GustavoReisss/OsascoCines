@@ -65,8 +65,10 @@ body {
 }
 
 .btn-oc:hover {
-  box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
-  color: #f11c71;
+  box-shadow: 0 0 2px 1px #751313;
+  // box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
+  color: #c11a1a;
+  // color: #f11c71;
 }
 
 .slct-oc {
@@ -88,7 +90,8 @@ body {
 
 .slct-oc:hover {
   border: none;
-  box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
+  box-shadow: 0 0 2px 1px #c11a1a;
+  // box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
 }
 
 .slct-oc:focus {
@@ -109,8 +112,10 @@ body {
 
 .ipt-txt-oc:focus {
   outline: none;
-  box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
-  border-bottom: 1px solid #f11c71;
+  // box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
+  box-shadow: 0 0 2px 1px #700f0f;
+  // border-bottom: 1px solid #f11c71;
+  border-bottom: 1px solid #c11a1a;
 }
 
 .title-filmes-oc h1{
@@ -120,7 +125,7 @@ body {
   padding: 1.5rem 0;
   margin: 0;
   line-height: 3.2rem;
-  text-shadow: 0.06em 0.06em 0.05em #c2185c;
+  text-shadow: 0.06em 0.06em 0.05em #c11a1a;
 }
 
 .ipt-txt-oc-login {
@@ -140,8 +145,10 @@ body {
 
 .ipt-txt-oc-login:focus {
   outline: none;
-  box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
-  border-bottom: 1px solid #f11c71;
+  box-shadow: 0 0 2px 1px #751010;
+  // box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
+  border-bottom: 1px solid #c11a1a;
+  // border-bottom: 1px solid #f11c71;
 }
 
 .btn-branco {

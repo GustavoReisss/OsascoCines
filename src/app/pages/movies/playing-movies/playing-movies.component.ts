@@ -20,7 +20,9 @@ export class PlayingMoviesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.subs.push(this.moviesService.getAllPlayingMovies().subscribe(movies => this.movies = movies))
+    this.subs.push(
+      this.moviesService.getAllPlayingMovies().subscribe(
+        movies => this.movies = movies));
   }
 
   ngOnDestroy(): void {
