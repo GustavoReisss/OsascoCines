@@ -2,17 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&display=swap');
 
 #carouselExampleControls {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 
+  position: relative;
   img {
-    height: 100%;
-  }
+        width: 100%;
+    }
 
   .titulo-home {
     padding-top: 30px;
@@ -30,6 +24,6 @@
 
   h2 {
     margin: 0 auto;
-    text-shadow: 2px 2px 2px #000;
+    text-shadow: 2px 2px 1px #000;
   }
 }
