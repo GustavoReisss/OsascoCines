@@ -7,20 +7,22 @@ import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-
 
 import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
 import { HomeComponent } from './home.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 const routes: Routes = [
   {
     path: "",
     component: BaseTemplateComponent,
     children: [
-      { path: "", component: HomeComponent }
-    ] 
+      { path: "", component: HomeComponent },
+    ]
   }
 ]
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,

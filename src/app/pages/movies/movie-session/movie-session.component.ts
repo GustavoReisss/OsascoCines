@@ -16,6 +16,8 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   popup: number = 0;
   theaters: string[] = ['340', '845']; // cinemark e kinoplex
   date: any = null;
+  hasSessions: boolean = true;
+  hasMovie: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,12 +48,19 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
     this.popup = numDiv;
   }
 
+  setHasSessions(possui: boolean): void {
+    this.hasSessions = possui;
+  }
+
+  setHasMovie(possui: boolean): void {
+    this.hasMovie = possui;
+  }
+
   ngOnDestroy(): void {
     this.subs.map(
       sub => sub.unsubscribe()
     );
   }
-
 }
 
 

@@ -1,16 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginGuard } from '../shared/guards/login.guard';
 
 const routes: Routes = [
   {
-    path: "login",
-    loadChildren: () => import("./login/login.module").then(m => m.LoginModule) 
-  },
-  {
     path: "",
-    // canActivate: [LoginGuard],
     children: [
       {
         path: "",
@@ -28,19 +21,17 @@ const routes: Routes = [
       {
         path: "theaters",
         loadChildren: () => import("./theaters/theaters.module").then(m => m.TheatersModule)
+      },
+      {
+        path: "user",
+        loadChildren: () => import("./user/user.module").then(m => m.UserModule)
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class PagesModule { }

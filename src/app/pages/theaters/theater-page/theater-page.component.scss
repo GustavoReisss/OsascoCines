@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+    color: #f11c71;
+    font-weight: bold;
+    margin: 50px 0 30px 0;
+    font-size: 40px;
+
+}
+
+.select-area {
+    display: grid;
+    justify-items: end;
+    padding: 1rem;
+}
+
+select.slct-oc {
+    max-width: 290px;
+    margin: 0;
+    font-size: 1.3rem;
+}

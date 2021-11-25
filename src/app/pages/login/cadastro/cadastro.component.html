@@ -1,1 +1,38 @@
-<p>cadastro works!</p>
+<div class="sign-in-container">
+  <div class="sign-in-box">
+    <div class="authBlock">
+      <h3 class="title-oc">Sign Up</h3>
+
+      <div>
+        <input type="email" placeholder="E-mail" class="ipt-txt-oc-login" #userEmail required>
+      </div>
+
+      <div>
+        <input type="password" placeholder="Senha" class="ipt-txt-oc-login" #userPwd required>
+      </div>
+
+      <div>
+        <input type="button" class="btn-oc btn-oc-entrar" value="Inscrever-se"
+          (click)="authService.SignUp(userEmail.value, userPwd.value)">
+      </div>
+
+      <div class="or">
+        <span>Ou</span>
+      </div>
+
+      <!-- Continue with Google -->
+      <div>
+        <div class="col-md-12" (click)="authService.GoogleAuth()">
+          <a class="btn-oc btn-branco">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png">
+            Registrar usando Google</a>
+        </div>
+      </div>
+      <div class="info-adicional">
+        <div class="lbl-txt-oc">
+          <span routerLink="/login">Já tem uma conta? Entre</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

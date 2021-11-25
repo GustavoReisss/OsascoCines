@@ -9,6 +9,8 @@ import { DirectivesModule } from 'src/app/shared/directives/directives.module';
 import { MovieSessionComponent } from './movie-session.component';
 import { TheaterSessionsComponent } from './components/theater-sessions/theater-sessions.component';
 import { MovieBannerComponent } from './components/movie-banner/movie-banner.component';
+import { NoSessionsComponent } from './components/no-sessions/no-sessions.component';
+import { MovieNotFoundComponent } from './components/movie-not-found/movie-not-found.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,9 @@ const routes: Routes = [
   declarations: [
     MovieSessionComponent,
     TheaterSessionsComponent,
-    MovieBannerComponent
+    MovieBannerComponent,
+    NoSessionsComponent,
+    MovieNotFoundComponent
   ],
   imports: [
     CommonModule,

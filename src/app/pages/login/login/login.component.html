@@ -1,1 +1,49 @@
-<button mat-raised-button color="primary" (click)="fazerLogin()" >Logar</button>
+<div class="sign-in-container">
+  <div>
+    <img class="img-poltrona" src="../../../../assets/svgs/poltrona_cinema.svg">
+  </div>
+  <div class="sign-in-box">
+
+    <div class="authBlock">
+      <h3 class="title-oc">Entrar</h3>
+
+      <div class="formGroup">
+        <input type="text" class="ipt-txt-oc-login" placeholder="E-mail" #userName required>
+      </div>
+
+      <div class="formGroup">
+        <input type="password" class="ipt-txt-oc-login" placeholder="Senha" #userPassword required>
+      </div>
+
+      <!-- Calling SignIn Api from AuthService -->
+      <div>
+        <input type="button" class="btn-oc btn-oc-entrar" value="Entrar"
+          (click)="authService.SignIn(userName.value, userPassword.value)">
+      </div>
+
+      <div class="or">
+        <span>Ou</span>
+      </div>
+
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div>
+        <!-- <i class="fab fa-google-plus-g"></i> -->
+        <div class="col-md-12" (click)="authService.GoogleAuth()">
+          <a class="btn-oc btn-branco">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png">
+            Logar usando Google</a>
+        </div>
+      </div>
+
+      <div class="info-adicional">
+        <div class="lbl-txt-oc">
+          <span routerLink="/login/esqueci-a-senha">Esqueceu a senha?</span>
+        </div>
+        <div class="lbl-txt-oc">
+          <span routerLink="/login/cadastrar">Inscrever-se</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

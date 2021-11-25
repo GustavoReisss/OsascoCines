@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&display=swap');
+
+#carouselExampleControls {
+
+  position: relative;
+  img {
+        width: 100%;
+    }
+
+  .titulo-home {
+    padding-top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-family: 'Bangers', cursive, 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 6px 6px 1px #000, 6px 6px 10px #424242;
+  }
+
+  h2 {
+    margin: 0 auto;
+    text-shadow: 2px 2px 1px #000;
+  }
+}

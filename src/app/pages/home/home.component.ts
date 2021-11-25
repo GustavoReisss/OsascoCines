@@ -12,7 +12,7 @@ import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
 export class HomeComponent implements OnInit, OnDestroy {
 
   subs: Subscription[] = [];
-  highlights: Movie[] = [];
+  movies: Movie[] = [];
 
   constructor(
     private moviesService: MoviesService,
@@ -20,15 +20,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subs.push(
-      this.moviesService.getHightlightMovies().subscribe(highlights => { 
-        highlights.forEach(highlight => this.highlights.push(highlight.event)); 
-        console.log(this.highlights)
-      }
-    ))
+      this.moviesService.getAllPlayingMovies().subscribe(
+        movies => this.movies = movies));
   }
 
   ngOnDestroy(): void {
     this.subs.map(sub => sub.unsubscribe());
   }
+
+  
 
 }

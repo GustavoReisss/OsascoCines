@@ -1,18 +1,41 @@
- .cinemas{
-    display: flex;
-    flex-wrap: wrap;
- }
-.cinema{
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
+.body{
+    font-family: 'Red Hat Display', sans-serif;
 }
 
-.cinema:hover{
-    transform: scale(1.05);
+h1{
+  font-size: 40px;
+  font-weight: 500;
+  color: white;
+  text-shadow: 0.06em 0.06em 0.06em #c2185c
 }
 
-.itens-cinema{
-    margin: 0 auto;
-    margin-top: 10px;
+span{
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.infos{
+  font-size: 1.3rem;
+}
+
+.cinemas {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cinema {
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 30px;
+}
+
+.cinema:hover {
+  transform: scale(1.05);
+}
+
+.itens-cinema {
+  margin: 0 auto;
+  margin-top: 10px;
 }

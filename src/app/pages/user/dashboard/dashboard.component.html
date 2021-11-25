@@ -1,0 +1,39 @@
+<div class="user-container">
+  <div class="user-box" *ngIf="authService.userData as user">
+    
+    <div class="img-box">
+      <h1> {{ (user.displayName) ? user.displayName : 'User' }}</h1>
+      <img class="user-image" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+        alt="{{user.displayName}}">
+      
+      <button id="img-upload" class="btn-oc">Alterar Imagem</button>
+    </div>
+
+    <div class="infos-container">
+      <div class="user-infos">
+        
+        <label for="email">Email:</label>
+        <Input class="ipt-txt-oc" name="email" type="text" value="{{ user.email }}">
+        
+        <label for="nome">Nome:</label>
+        <Input class="ipt-txt-oc" name="nome" type="text" value="{{ user.displayName }}">
+        
+        <label for="senha">Senha:</label>
+        <Input class="ipt-txt-oc" name="senha" type="text" value="password">
+        
+        <button id="salvar" class="btn-oc">Salvar</button>
+      </div>
+
+      <div class="buttons-container">
+
+        <button id="voltar" class="btn-oc" routerLink="/">Voltar</button>
+
+        <button id="deslogar" class="btn-oc" (click)="authService.SignOut()">
+          Deslogar
+        </button>
+        
+      </div>
+        
+    </div>
+  </div>
+</div>

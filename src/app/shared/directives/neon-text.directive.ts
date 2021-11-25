@@ -41,7 +41,6 @@ export class NeonTextDirective implements OnChanges {
       }
     }
 
-    console.log(txtShadow)
     this.renderer.setStyle(el, 'text-shadow', txtShadow);
 
   }
