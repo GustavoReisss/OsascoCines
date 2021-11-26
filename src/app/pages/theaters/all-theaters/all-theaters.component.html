@@ -1,9 +1,9 @@
 <div class="cinemas">
   <div class="itens-cinema" *ngFor="let theater of theaters?.items">
+    <ngx-spinner></ngx-spinner>
     <div>
       <h1>{{ theater.name }}</h1>
       <img class="cinema" src="{{ theater.images![0].url }}" [routerLink]="['theater', theater.id]">
-
       <div class="theater-container">
         <!-- <span>{{ theater.name }}</span> <br> -->
         <!-- <span>Cidade: {{ theater.cityName }}</span> <br>

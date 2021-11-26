@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit {
   @Input() movies: Movie[] = [];
   img: number = 0;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {

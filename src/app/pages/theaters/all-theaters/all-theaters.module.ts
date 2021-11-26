@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { AllTheatersComponent } from './all-theaters.component'; 
-
+import { AllTheatersComponent } from './all-theaters.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +18,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxSpinnerModule
   ],
   exports: [
     RouterModule

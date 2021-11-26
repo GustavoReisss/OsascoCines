@@ -10,14 +10,14 @@
       <span neonText primaryColor="white" [camadas]="2">
         Menu
       </span>
-          
+
       <mat-icon class="sid-nav-closer"
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async" 
+        *ngIf="isHandset$ | async"
         aria-label="Side nav toggle icon">
         close
       </mat-icon>
-    
+
     </mat-toolbar>
 
     <mat-nav-list>
@@ -102,6 +102,6 @@
 
     <!--AQUI ENTRA O CONTEÚDO QUE SERÁ EXIBIDO NA PAGINA ABAIXO DO HEADER-->
     <ng-content></ng-content>
-
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

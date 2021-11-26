@@ -13,11 +13,13 @@ import { DirectivesModule } from '../../directives/directives.module';
 
 import { BaseTemplateComponent } from './base-template.component';
 import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     BaseTemplateComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

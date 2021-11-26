@@ -8,16 +8,17 @@
     <div class="title-filmes-oc">
         <h1>GÊNEROS</h1>
     </div>
-    
+
     <div class="select-genre" *ngIf="!hasQueryParam">
+      <ngx-spinner></ngx-spinner>
         <span style="display: block;">Selecione:</span>
         <select name="generos" class="slct-oc" [(ngModel)]="filtroGenero">
             <option value="Todos">Todos</option>
-            <option 
-            *ngFor="let genero of generos" 
+            <option
+            *ngFor="let genero of generos"
             value="{{ genero.name }}">{{ genero.name }} </option>
         </select>
-    </div>    
+    </div>
 
     <div *ngIf="hasQueryParam">
         <h1>Filmes encontrados com o gênero {{ filtroGenero }}:</h1>
@@ -27,8 +28,8 @@
 
     <div  *ngFor="let genero of obterGeneros()" class="genre-container">
 
-        <h1 class="genre-title" neonText primaryColor="#fff" [camadas]="1"> 
-            {{ genero.name }} 
+        <h1 class="genre-title" neonText primaryColor="#fff" [camadas]="1">
+            {{ genero.name }}
         </h1>
 
         <app-movie-list [movies]="genero.movies" [filtros]="false"></app-movie-list>

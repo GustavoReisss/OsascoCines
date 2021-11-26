@@ -6,6 +6,7 @@ import { MoviesService } from './../../../shared/services/movies.service';
 import { generoMovies } from 'src/app/shared/models/classes/generoMovies.class';
 import { Movie } from './../../../shared/models/interfaces/movie.interface';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -25,7 +26,8 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
   constructor(
     private moviesService: MoviesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     let genero = this.route.snapshot.queryParams['genre'];
     if(genero){
@@ -37,19 +39,24 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
+    this.spinner.show();
 
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 500);
     // FAZER UMA FUNÇÃO NO movies.service.ts RETORNANDO OS DADOS JÁ MAPEADOS
     this.subs.push(
       this.moviesService.getAllMovies().subscribe(allMovies => {
-        
+
         let generos: Map<string, any[]> = new Map<string, any[]>();
-          
-        allMovies.forEach(movie => {    
-          
+
+        allMovies.forEach(movie => {
+
           movie.genres?.forEach(genre => {
             let movies: Movie[] | undefined = [];
 
-            if(generos.has(genre)){
+            if(generos.has(genre)){this.spinner.show();
               movies = generos.get(genre);
             }
 
@@ -57,14 +64,14 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
             generos.set(genre, movies!);
           })
         })
-        
+
         generos.forEach((value, key) => {
           this.generos.push(new generoMovies(key, value));
         })
 
         this.generos.sort(
-          (genreA, genreB) => 
-            genreA.name.toLowerCase() > genreB.name.toLowerCase() ? 1 : -1 
+          (genreA, genreB) =>
+            genreA.name.toLowerCase() > genreB.name.toLowerCase() ? 1 : -1
         )
 
         if(this.hasQueryParam){

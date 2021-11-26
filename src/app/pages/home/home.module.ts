@@ -8,6 +8,7 @@ import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-
 import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
 import { HomeComponent } from './home.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 const routes: Routes = [
   {
@@ -22,13 +23,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    BannerComponent
+    BannerComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     BaseTemplateModule,
-    DirectivesModule
+    DirectivesModule,
+    NgxSpinnerModule
   ],
   exports: [
     RouterModule

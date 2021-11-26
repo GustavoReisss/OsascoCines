@@ -37,7 +37,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    BaseTemplateModule
+    BaseTemplateModule,
   ],
   exports: [
     RouterModule

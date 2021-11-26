@@ -1,0 +1,19 @@
+.footer{
+  position: static;
+  bottom:0;
+
+  display:flex;
+  justify-content:center;
+  font-weight: 300;
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+.v-middle {
+  vertical-align: middle;
+}
+
+img {
+  opacity: 0.2;
+  margin-left: 10px;
+}
