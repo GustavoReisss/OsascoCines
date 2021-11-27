@@ -1,72 +1,76 @@
-.sign-in-container {
-  display: flex;
+.login-img {
+  background-image: url("../../../../assets/img/login/cadastro.png");
 }
 
-.btn-oc-entrar{
-  border-radius: 5px;
-}
+// .sign-in-container {
+//   display: flex;
+// }
 
-@media (max-width: 1024px) {
+// .btn-oc-entrar{
+//   border-radius: 5px;
+// }
 
-  body {
-    background-color: black;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+// @media (max-width: 1024px) {
 
-  .btn-oc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #c11a1a;
-    color: white;
-    border: none;
-  }
+//   body {
+//     background-color: black;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
 
-  .login-img {
-    display: none;
-  }
+//   .btn-oc {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: #c11a1a;
+//     color: white;
+//     border: none;
+//   }
 
-  .sign-in-container {
-    margin: 0 auto;
-    margin-top: 150px;
-    max-height: 500px;
-    max-width: 375px;
-    border-radius: 25px;
-    padding-bottom: 30px;
-  }
+//   .login-img {
+//     display: none;
+//   }
 
-}
+//   .sign-in-container {
+//     margin: 0 auto;
+//     margin-top: 150px;
+//     max-height: 500px;
+//     max-width: 375px;
+//     border-radius: 25px;
+//     padding-bottom: 30px;
+//   }
 
-@media (max-width: 698px) {
-  body {
-    background-image: none;
-  }
+// }
 
-  .login-img {
-    display: none;
-  }
+// @media (max-width: 698px) {
+//   body {
+//     background-image: none;
+//   }
 
-  .sign-in-container {
-    margin-top: 100px;
-    padding-bottom: 30px;
-  }
-}
+//   .login-img {
+//     display: none;
+//   }
 
-@media (min-width: 321px) and (max-width: 651px) {
-  body {
-    background-image: none;
-  }
+//   .sign-in-container {
+//     margin-top: 100px;
+//     padding-bottom: 30px;
+//   }
+// }
 
-  .login-img {
-    display: none;
-  }
+// @media (min-width: 321px) and (max-width: 651px) {
+//   body {
+//     background-image: none;
+//   }
 
-  .sign-in-container {
-    margin: 0 auto;
-    margin-top: 50px;
-    border-radius: 25px;
-    padding: 10px;
-  }
+//   .login-img {
+//     display: none;
+//   }
 
-}
+//   .sign-in-container {
+//     margin: 0 auto;
+//     margin-top: 50px;
+//     border-radius: 25px;
+//     padding: 10px;
+//   }
+
+// }

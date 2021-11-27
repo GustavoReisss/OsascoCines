@@ -39,6 +39,7 @@
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/app/shared/styles/login-styles.scss",
               "src/styles.scss"
             ],
             "scripts": []

@@ -29,32 +29,6 @@
     gap: 0.5rem;
 }
 
-.slct-oc {
-    height: 2.45rem;
-    width: 100%;
-    max-width: 235px;
-    background-color: #1f1f1f;
-    border: none;
-    border-bottom: 1px solid rgb(109, 109, 109);
-    color: white;
-    padding: 0 1rem;
-    margin-right: 2rem;
-    font-weight: bold;
-    font-family: 'Red Hat Display', sans-serif;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.7s;   
-}
-
-.slct-oc:hover {
-    border: none;
-    box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
-}
-
-.slct-oc:focus {
-    border: none;
-}
-
 button.btn-oc {
     display: inline;
     font-size: 1rem;
