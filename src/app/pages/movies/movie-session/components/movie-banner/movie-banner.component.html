@@ -15,7 +15,7 @@
 
         <div class="movie-poster-container">
             <div class="movie-poster">
-                <span *ngIf="movie.isPlaying != undefined && !movie.isPlaying" class="em-breve">Em Breve!</span>
+                <span *ngIf="!jaLancou" class="em-breve">Em Breve!</span>
                 <img src="{{ movie.images![0].url }}" alt="">
             </div>
         </div>

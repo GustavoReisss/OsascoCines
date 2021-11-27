@@ -1,6 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import * as moment from 'moment';
+import { MoviesService } from './../../../shared/services/movies.service';
+
+import { Movie } from './../../../shared/models/interfaces/movie.interface';
 
 
 @Component({
@@ -12,14 +16,19 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   
   subs: Subscription[] = [];
 
+  movie!: Movie;
   movieId: string;
-  popup: number = 0;
   theaters: string[] = ['340', '845']; // cinemark e kinoplex
   date: any = null;
-  hasSessions: boolean = true;
+  popup: number = 0;
+  
+  hasSessions!: boolean;
+  retornoTheaterSession: number = 0;
   hasMovie: boolean = true;
+  jaLancou: boolean = true;
 
   constructor(
+    private moviesService: MoviesService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -36,9 +45,23 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.subs.push(
+      this.moviesService.getMovie(this.movieId).subscribe( 
+        movie => { 
+          this.movie = movie
+          console.log(this.movie); 
 
-  mostrarTodasSessoes(){
+          let now = moment();
+          this.jaLancou = now.isAfter(moment(new Date(this.movie.premiereDate.localDate)))
+          // console.log(this.jaLancou)
+        },
+        () => this.hasMovie=false
+    ))
+
+  }
+
+  mostrarTodasSessoes() {
     this.theaters = ['340', '845']; // cinemark e kinoplex
     this.date = null;
     this.router.navigate([`/movies/movie`, this.movieId])
@@ -48,12 +71,16 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
     this.popup = numDiv;
   }
 
-  setHasSessions(possui: boolean): void {
-    this.hasSessions = possui;
-  }
+  atualizaHasSession(possui: boolean) {
+    this.retornoTheaterSession++;
+    if(possui){
+      this.hasSessions = true;
+    }
 
-  setHasMovie(possui: boolean): void {
-    this.hasMovie = possui;
+    if(this.retornoTheaterSession == 2 && !this.hasSessions){
+      this.hasSessions = false;
+    }
+    console.log(this.hasSessions)
   }
 
   ngOnDestroy(): void {

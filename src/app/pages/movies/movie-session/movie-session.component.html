@@ -6,9 +6,10 @@
 <!-- Movie Banner -->
     <section>
         <app-movie-banner
-        (hasSessions)="setHasSessions($event)"
-        (hasMovie)="setHasMovie($event)"
-        (valorPopUp)="atualizaPopUp($event)">
+            (valorPopUp)="atualizaPopUp($event)"
+            [movie]="movie"
+            [jaLancou]="jaLancou"
+        >
         </app-movie-banner>
     </section>
 
@@ -22,17 +23,27 @@
             <!-- <h2>Ver todas as sessões</h2> -->
             <button class="btn-oc" (click)="mostrarTodasSessoes()">Ver todas as sessões</button>
         </div>
+        
+        <!-- Data de Estreia -->
+        <section *ngIf="!jaLancou">
+            <div class="estreia-container" *ngIf="movie?.premiereDate as estreia">
+                <span>estreia em {{ estreia.dayAndMonth }}/{{ estreia.year }}</span>
+            </div>
+        </section>
 
-        <!-- SESSÕES DO FILME NOS CINEMAS -->
+        <!-- SESSÕES -->
         <section class="Sessions-container" >
             <app-theater-sessions 
                 *ngFor="let theater of theaters"
                 [movieId]="movieId" 
                 [theaterId]="theater"
-                [date]="date">
+                [date]="date"
+                (hasSession)="atualizaHasSession($event)">
             </app-theater-sessions>
 
-            <app-no-sessions *ngIf="!hasSessions"></app-no-sessions>
+            <app-no-sessions *ngIf="hasSessions == false" [estreia]="movie?.premiereDate!">
+
+            </app-no-sessions>
         </section>
     </div>
 </div>
