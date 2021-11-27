@@ -27,7 +27,7 @@ export class MoviesService {
     let url = "/api" + ingressoApi.allMovie + ingressoApi.partner;
     return this.client.get<MovieList>(url).pipe(map(movieList => movieList.items.sort(
       (movieA, movieB) =>
-        movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1 
+        movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1
     )));
   }
 
@@ -36,7 +36,7 @@ export class MoviesService {
     return this.client.get<MovieList>(url).pipe(
       map(movieList => movieList.items.sort(
         (movieA, movieB) =>
-          movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1 
+          movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1
       )));
   }
 
@@ -44,9 +44,9 @@ export class MoviesService {
 
     return forkJoin([  // forkJoin retorna um array de Observables
       this.getAllPlayingMovies(),
-      this.getComingSoonMovies() 
-    ]).pipe(   // pipe() leva como argumentos as funções que desejamos combinar e retorna uma nova função que, quando executada, executa as funções compostas em sequência.  
-      map(resultFork => 
+      this.getComingSoonMovies()
+    ]).pipe(   // pipe() leva como argumentos as funções que desejamos combinar e retorna uma nova função que, quando executada, executa as funções compostas em sequência.
+      map(resultFork =>
         flatten(resultFork) // flatten transforma multiplos arrays em um unico array.
         .sort((movieA, movieB) => // ordenando os filmes do array pelo título
             movieA.title.toLowerCase() > movieB.title.toLowerCase() ? 1 : -1 )
@@ -56,6 +56,11 @@ export class MoviesService {
   getHightlightMovies(): Observable<Highlights[]> {
     let url = "/api" + ingressoApi.Highlights + ingressoApi.partner + '/?justEvents=true';
     return this.client.get<Highlights[]>(url);
+  }
+
+  getAllMoviesCarousel(): Observable<any[]> {
+    let url = "/api" + ingressoApi.allMovie + ingressoApi.partner;
+    return this.client.get<any[]>(url);
   }
 }
 
@@ -83,23 +88,23 @@ export class MoviesService {
     /* getAllMovies3(): Observable<Movie[]> {
         let allMovies: Movie[] = [];
         let allMovieBS = new BehaviorSubject<Movie[]>(allMovies);
-      
+
         this.getAllPlayingMovies().subscribe(
             playingMovies => {
               playingMovies.items?.forEach(
                 movie => allMovies.push(movie));
-              
+
               allMovieBS.next(allMovies)
             })
-      
+
         this.getComingSoonMovies().subscribe(
             comingSoonMovies => {
               comingSoonMovies.items?.forEach(
                 movie => allMovies.push(movie));
-              
+
                 allMovieBS.next(allMovies)
             })
-        
+
         return allMovieBS.asObservable();
     } */
 
@@ -109,10 +114,10 @@ export class MoviesService {
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-    
+
       /* getAllMovies4(): Observable<any> {
 
-          let allMovies = new ReplaySubject(1); 
+          let allMovies = new ReplaySubject(1);
 
           this.getAllPlayingMovies().subscribe(playingMovies => {
             allMovies.next(playingMovies.items)
@@ -122,7 +127,7 @@ export class MoviesService {
             allMovies.next(comingSoonMovies.items)
           })
 
-          return allMovies.asObservable(); 
+          return allMovies.asObservable();
       } */
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
