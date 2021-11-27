@@ -1,36 +1,46 @@
 <div class="sign-in-container">
+  <div class="login-img">
+    <img src="../../../../assets/img/login/cadastro.png">
+  </div>
   <div class="sign-in-box">
+    <div>
+      <img class="login-logo" src="../../../../assets/img/login/logo.png">
+    </div>
     <div class="authBlock">
-      <h3 class="title-oc">Sign Up</h3>
 
-      <div>
+      <div class="formGroup">
+        <label class="lbl-txt-oc">E-mail</label>
         <input type="email" placeholder="E-mail" class="ipt-txt-oc-login" #userEmail required>
       </div>
 
-      <div>
+      <div class="formGroup">
+        <label class="lbl-txt-oc">Senha</label>
         <input type="password" placeholder="Senha" class="ipt-txt-oc-login" #userPwd required>
       </div>
 
       <div>
-        <input type="button" class="btn-oc btn-oc-entrar" value="Inscrever-se"
+        <input type="button" class="btn-oc btn-oc-entrar" value="Cadastrar-se"
           (click)="authService.SignUp(userEmail.value, userPwd.value)">
       </div>
 
       <div class="or">
-        <span>Ou</span>
-      </div>
+        <div class="divider-custom divider-dark">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">ou</div>
+          <div class="divider-custom-line"></div>
+        </div>
 
       <!-- Continue with Google -->
-      <div>
+      <div class="cad-google">
         <div class="col-md-12" (click)="authService.GoogleAuth()">
           <a class="btn-oc btn-branco">
             <img src="https://img.icons8.com/color/16/000000/google-logo.png">
-            Registrar usando Google</a>
+            Cadastrar usando Google</a>
         </div>
       </div>
       <div class="info-adicional">
         <div class="lbl-txt-oc">
-          <span routerLink="/login">Já tem uma conta? Entre</span>
+         <span>Já tem uma conta? <span class="links" routerLink="/login">Entre</span></span>
         </div>
       </div>
     </div>
