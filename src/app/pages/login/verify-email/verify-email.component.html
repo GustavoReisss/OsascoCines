@@ -2,7 +2,7 @@
   <div class="sign-in-box">
 
     <div>
-      <h3>Obrigado por se registrar!</h3>
+      <h3 class="title-oc">Obrigado por se registrar!</h3>
 
       <div *ngIf="authService.userData as user">
         <span class="text-center">Nós mandamos um e-mail de verificação para <strong>{{user.email}}</strong>.</span><br>
@@ -11,7 +11,7 @@
 
       <!-- Calling SendVerificationMail() method using authService Api -->
       <div>
-        <button type="button" (click)="authService.SendVerificationMail()">
+        <button class="btn-oc" type="button" (click)="authService.SendVerificationMail()">
           <i class="fas fa-redo-alt"></i>
           Reenviar e-mail de verificação
         </button>
@@ -19,7 +19,7 @@
 
       <div class="info-adicional">
         <div class="lbl-txt-oc">
-          <span routerLink="/login">Voltar ao Login?</span>
+          <span class="links" routerLink="/login">Voltar ao Login?</span>
         </div>
       </div>
 

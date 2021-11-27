@@ -1,3 +1,4 @@
+import { MoviesService } from 'src/app/shared/services/movies.service';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 import { Movie } from './../../../../shared/models/interfaces/movie.interface';
@@ -11,19 +12,20 @@ export class BannerComponent implements OnInit {
 
   @Input() movies: Movie[] = [];
   img: number = 0;
+  listMovies: any = [];
+  imagens: any = [];
 
-  constructor() {
+  constructor(private moviesService: MoviesService) {
   }
 
   ngOnInit() {
-    setInterval(() => {this.mudarFilme(1)}, 5000)
+    this.getAllMoviesCarousel();
   }
 
-  mudarFilme(num: number): void {
-    if(this.img == 0 && num == -1) {
-      this.img = this.movies.length
-    }
-    console.log((this.img + num) % this.movies.length)
-    this.img = (this.img + num) % this.movies.length;
+  getAllMoviesCarousel() {
+    this.moviesService.getAllMoviesCarousel().subscribe((response: any) => {
+      this.listMovies = response;
+      this.imagens = this.listMovies.items.map((i: any) => i.images);
+    });
   }
 }

@@ -9,6 +9,7 @@ import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/ba
 import { HomeComponent } from './home.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { CarouselModule } from 'primeng/carousel'
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     BaseTemplateModule,
     DirectivesModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    CarouselModule
   ],
   exports: [
     RouterModule

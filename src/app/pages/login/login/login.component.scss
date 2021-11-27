@@ -1,8 +1,72 @@
 .sign-in-container {
   display: flex;
-  gap: 10rem;
 }
 
-.img-poltrona{
-    height: 450px;
+.btn-oc-entrar{
+  border-radius: 5px;
+}
+
+@media (max-width: 1024px) {
+
+  body {
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .btn-oc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c11a1a;
+    border-radius: 5px;
+    color: white;
+    border: none;
+  }
+
+  .login-img {
+    display: none;
+  }
+
+  .sign-in-container {
+    margin: 0 auto;
+    margin-top: 150px;
+    max-height: 500px;
+    max-width: 375px;
+    border-radius: 25px;
+    padding-bottom: 30px;
+  }
+
+}
+
+@media (max-width: 698px) {
+  body {
+    background-image: none;
+  }
+
+  .login-img {
+    display: none;
+  }
+
+  .sign-in-container {
+    margin-top: 100px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 651px) {
+  body {
+    background-image: none;
+  }
+
+  .login-img {
+    display: none;
+  }
+
+  .sign-in-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 25px;
+    padding: 10px;
+  }
 }
