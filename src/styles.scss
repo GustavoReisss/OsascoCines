@@ -19,6 +19,7 @@
 // font-family: 'Bangers', cursive, 'Roboto Condensed', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&display=swap');
 
+@import '../node_modules/ngx-toastr/toastr.css';
 html,
 body {
   height: 100%;
@@ -28,7 +29,7 @@ body {
   background-color: black;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  
+
 }
 
 //---------------SELECT--------------\\
@@ -47,7 +48,7 @@ body {
   font-family: 'Red Hat Display', sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.7s;   
+  transition: all 0.7s;
 }
 
 .slct-oc:hover {
@@ -90,7 +91,7 @@ body {
     text-decoration: underline;
     cursor: pointer;
   }
-  
+
 }
 
 .btn-oc {

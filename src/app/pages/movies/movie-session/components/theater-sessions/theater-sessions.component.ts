@@ -24,12 +24,12 @@ export class TheaterSessionsComponent implements OnInit {
 
     this.subs.push(
       this.sessionsService.getMovieSessions(this.movieId).subscribe(
-        movieSessions => { 
+        movieSessions => {
 
           movieSessions?.forEach(session => {
 
             session.theaters?.forEach(theater => {
-            
+
             // Salva as sessões do filme no cinema informado
 
               if(theater.id == this.theaterId){
@@ -40,13 +40,13 @@ export class TheaterSessionsComponent implements OnInit {
               }
             })
           })
-          
+
           if(this.theaterSessions.length > 0) {
             this.hasSession.emit(true);
           } else {
             this.hasSession.emit(false)
           }
-        }, () => this.hasSession.emit(false)), 
+        }, () => this.hasSession.emit(false)),
     )
   }
 
