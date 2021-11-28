@@ -95,7 +95,10 @@
       </div>
 
       <div *ngIf="authService.userData as user" class="user-box">
-        <button (click)="deslogar()">Deslogar</button>
+        <button (click)="deslogar()">
+          <ngx-spinner></ngx-spinner>
+          Logout
+        </button>
         <img [src]="user.photoURL" routerLink="/user/perfil" class="user-photo">
       </div>
     </mat-toolbar>
