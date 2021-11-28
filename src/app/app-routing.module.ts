@@ -9,7 +9,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import("./pages/pages.module").then(m => m.PagesModule)
   },
   {

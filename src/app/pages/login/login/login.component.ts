@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -11,13 +12,21 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
+    if (this.authService.isLoggedIn) {
+      this.navigateToDefaultRoute();
+    }
   }
 
   entrarComGoogle() {
     this.authService.GoogleAuth();
+  }
+
+  navigateToDefaultRoute(): void {
+    this.router.navigate(['home']);
   }
 }
