@@ -25,10 +25,9 @@ export class NavComponent {
 
     deslogar(): void {
       this.spinner.show();
-
       setTimeout(() => {
         this.spinner.hide();
-      }, 500);
-      this.authService.SignOut()
+      }, 2000);
+      this.authService.SignOut();
     }
 }

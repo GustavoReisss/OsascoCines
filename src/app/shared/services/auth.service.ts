@@ -41,7 +41,7 @@ export class AuthService {
         this.ngZone.run(() => {
           setTimeout(() => {
             this.router.navigate(['home']);
-          }, 1000)
+          }, 100)
           this.toast.success('Login realizado com sucesso!', 'Login', { timeOut: 4000 });
         });
         this.SetUserData(result.user);
@@ -141,13 +141,11 @@ export class AuthService {
 
   // Sign out
   SignOut() {
-    localStorage.clear();
-    this.toast.success('Logout realizado com sucesso!', 'Logout', { timeOut: 14000 });
+    // localStorage.clear();
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
-     })
+       this.toast.success('Logout realizado com sucesso!', 'Logout', { timeOut: 4000 });
+     });
   }
-
-
 }
