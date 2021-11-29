@@ -1,0 +1,16 @@
+section {
+    width: 90%;
+    max-width: 45rem;
+    display: flex;
+    justify-content: center;
+    border: 10px solid #282828;
+    margin: 25px auto 0 auto;
+    padding: 1rem;
+    border-style: groove;
+    box-shadow: 10px 16px 14px 9px black;
+
+    div > * {
+        margin: 0;
+        padding: 0;
+    }
+}

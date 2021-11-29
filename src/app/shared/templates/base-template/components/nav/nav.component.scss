@@ -125,12 +125,18 @@
 
 
 mat-sidenav-content {
+  // display: grid;
+  // grid-template-rows: auto auto 1fr auto;
+
   background-color: rgb(22, 21, 21);
   // background-image: url(../../../../../../assets/header.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   // opacity: 0.65;
+}
+.footer-container {
+  margin-top: auto;
 }
 
 .cineoz {

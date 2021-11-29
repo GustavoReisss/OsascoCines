@@ -13,30 +13,32 @@ import { TheatersService } from '../../../shared/services/theaters.service';
 })
 export class TheaterPageComponent implements OnInit, OnDestroy {
 
-  theaterid!: string;
+  theaterId!: string;
   private subs: Subscription[] = [];
   sessions: AllSessions[] = [];
   theater!: Theater;
 
   dia: string = "Todos";
 
+  popup: number = 0;
+
   constructor(
     private sessionsService: SessionsService,
     private theatersService: TheatersService,
     private activatedRoute: ActivatedRoute
   ) { 
-    this.theaterid = this.activatedRoute.snapshot.params["id"];
+    this.theaterId = this.activatedRoute.snapshot.params["id"];
   }
 
   ngOnInit(): void {
     this.subs.push(
-      this.sessionsService.getAllTheatherSections(this.theaterid).subscribe(
-        sessions => {this.sessions = sessions; console.log(this.sessions)}
+      this.sessionsService.getAllTheatherSections(this.theaterId).subscribe(
+        sessions => this.sessions = sessions
     ))
 
     this.subs.push(
-      this.theatersService.getTheater(this.theaterid).subscribe(
-        theater => {this.theater = theater; console.log(this.theater)}
+      this.theatersService.getTheater(this.theaterId).subscribe(
+        theater => this.theater = theater
     ))
   }
 
@@ -46,9 +48,14 @@ export class TheaterPageComponent implements OnInit, OnDestroy {
     }
 
     return this.sessions.filter(session => {
-      console.log(session)
+      // console.log(session)
       return (session.dayOfWeek == this.dia)
     }) 
+  }
+
+  popupMode(numDiv: number): void {
+    this.popup = numDiv;
+    // this.valorPopUp.emit(numDiv);
   }
 
   ngOnDestroy(): void {

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-template.module';
-
 import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
 
 

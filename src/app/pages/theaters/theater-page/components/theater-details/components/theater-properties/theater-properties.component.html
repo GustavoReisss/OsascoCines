@@ -1,0 +1,28 @@
+<!-- <h1>Características do Cinema</h1> -->
+
+<div class="detalhes" *ngIf="props">
+    <span *ngIf="props.hasBomboniere"> 
+        <mat-icon>storefront</mat-icon>
+        Possui Bomboniere
+    </span>
+    
+    <span *ngIf="props.hasSeatDistancePolicy">
+        <mat-icon>social_distance</mat-icon>
+        Politíca de distanciamento
+    </span>
+
+    <span *ngIf="props.hasContactlessWithdrawal">
+        <mat-icon>local_activity</mat-icon>
+        Possui retirada de ingresso no local
+    </span>
+
+    <span *ngIf="props.hasSeatDistancePolicyArena">
+        <mat-icon>safety_divider</mat-icon>
+        Politíca de distanciamento de assentos
+    </span>
+
+    <span *ngIf="props.hasSeatDistancePolicyArena">
+        <mat-icon>safety_divider</mat-icon>
+        mapa
+    </span>
+</div>

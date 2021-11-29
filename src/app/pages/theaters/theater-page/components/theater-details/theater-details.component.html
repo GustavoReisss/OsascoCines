@@ -9,7 +9,28 @@
     <span>Geo Location:{{ theater.geolocation | json }}</span> <br>
 </div> -->
 
-<div class="detalhes">
-    <span>Propriedades: {{ theater.properties | json }}</span>    
-    <span *ngIf="theater.properties.hasBomboniere">Possui</span>
-</div>
+<section class="theater-banner"
+    [style.background-image]=" (theater.id == '845') ? 'url(../../../../../../assets/img/theater/cinemark.jpg)' : 'url(../../../../../../assets/img/theater/kinoplex.jpg)'"
+    [class.bg-center-top]="theater.id == '845'"
+>
+
+
+<div class="conteudo-banner">
+        <span class="theater-name">{{ theater?.name }}</span>
+        
+        <img src="{{ theater.images![0].url }}" alt="">
+        
+        <div>
+            <!-- <button class="btn-oc">MAPA</button> -->
+            <app-theater-properties [props]="theater.properties">
+            </app-theater-properties>
+        </div>
+
+    </div>
+</section>
+
+<!-- <app-theater-properties [props]="theater.properties">
+</app-theater-properties> -->
+
+
+
