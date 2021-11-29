@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   userData: any; // Save logged in user data
+  public loading = false;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -36,8 +37,10 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email: any, password: any) {
+    this.loading = true;
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result: any) => {
+        this.loading = false;
         this.ngZone.run(() => {
           setTimeout(() => {
             this.router.navigate(['home']);
@@ -46,6 +49,7 @@ export class AuthService {
         });
         this.SetUserData(result.user);
       }).catch((error: any) => {
+        this.loading = false;
         this.toast.error('Usuário e/ou senha inválidos!');
       })
   }
@@ -59,7 +63,7 @@ export class AuthService {
         this.SendVerificationMail();
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        this.toast.error(error.message  );
       })
   }
 

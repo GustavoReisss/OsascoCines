@@ -1,7 +1,7 @@
 <!-- BANNER DO FILME -->
 <section *ngIf="movie" class="banner-container" [bgBlur]="popup != 0"
-[style.background-image]="(movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'url(' + movie.images![0].url + ')' )">    
-    
+[style.background-image]="(movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'url(' + movie.images![0].url + ')' )">
+
     <!-- CONTEÚDO DO BANNER -->
     <div class="movie-container" >
 
@@ -25,55 +25,53 @@
         <div class="movie-infos">
 
             <div class="generos-container">
-                <span 
+                <span
                 *ngFor="let genre of movie.genres"
-                [routerLink]="['/movies/genres']" [queryParams]="{ genre: genre}" 
-                class="genero genero-{{ genre }}"> 
-                    {{ genre }} 
+                [routerLink]="['/movies/genres']" [queryParams]="{ genre: genre}"
+                class="genero genero-{{ genre }}">
+                    {{ genre }}
                 </span>
             </div>
 
-            <span 
+            <span
             class="contentRating">
                 <span class="propertie-title-span"> Restrição de Idade: </span> <br>
                 {{ movie.contentRating }}
             </span>
 
-            <span 
+            <span
             class="duration">
-                <span class="propertie-title-span">Duração:</span> <br>  
-                {{ movie.duration }} minutos 
+                <span class="propertie-title-span">Duração:</span> <br>
+                {{ movie.duration }} minutos
             </span>
-            
-            <span 
-            class="cast"> 
+
+            <span
+            class="cast">
                 <span class="propertie-title-span"> Elenco:</span> <br>
-                {{ movie.cast }} 
+                {{ movie.cast }}
             </span>
-            
+
             <div class="buttons-container">
                 <button *ngIf="movie.trailers!.length > 0" class="sinopse-button" (click)="popupMode(1)"> Assistir Trailer</button>
                 <button class="trailer-button" (click)="popupMode(2)">Ler sinopse</button>
             </div>
-
         </div>
-
     </div>
 </section>
-<!-- 
+<!--
 <div class="teste"></div> -->
 
 <!-- POPUP PARA O BOTÃO DE TRAILER -->
 <div class="popup trailer-popup" [class.active]="popup == 1">
-    <span class="popup-title"> Trailer </span> 
+    <span class="popup-title"> Trailer </span>
     <div class="iframe-container">
 
         <!-- PRECISAMOS FAZER UM LOADING PARA QUANDO O PLAYER DO YOUTUBE ESTIVER SENDO CARREGADO -->
         <iframe *ngIf="movie != undefined && movie.trailers!.length > 0 && popup != 0"
             [src]="trailerUrl"
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; 
-            encrypted-media; gyroscope; picture-in-picture" 
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write;
+            encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>

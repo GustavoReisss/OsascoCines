@@ -15,7 +15,7 @@ import { MovieNotFoundComponent } from './components/movie-not-found/movie-not-f
 const routes: Routes = [
   {
     path: ":id",
-    component: MovieSessionComponent 
+    component: MovieSessionComponent
   }
 ]
 
@@ -31,7 +31,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatTabsModule,
-    DirectivesModule
+    DirectivesModule,
   ]
 })
 export class MovieSessionModule { }

@@ -10,10 +10,11 @@ import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
   styleUrls: ['./movie-banner.component.scss']
 })
 export class MovieBannerComponent implements OnChanges {
-  
+
   @Output() valorPopUp = new EventEmitter<number>();
   @Input() movie!: Movie;
   @Input() jaLancou!: boolean;
+  public loading = false;
 
   popup: number = 0;
   trailerUrl: any = "";
@@ -26,7 +27,7 @@ export class MovieBannerComponent implements OnChanges {
     if (this.movie?.images![1]){
       this.movie.images![1].url =  ` '${this.movie.images![1].url}' `
     }
-  
+
     if(this.movie?.trailers!.length > 0){
       this.getTrailerUrl();
     }

@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
-
+import { NgxLoadingModule } from 'ngx-loading';
 @NgModule({
   declarations: [
     AppComponent
@@ -31,7 +31,8 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 4000,
       closeButton: true,
       progressBar: true
-    })
+    }),
+    NgxLoadingModule.forRoot({})
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

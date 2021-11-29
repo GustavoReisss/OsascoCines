@@ -9,18 +9,18 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LogintemplateModule } from 'src/app/shared/templates/login-template/login-template.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
-
+import { NgxLoadingModule } from 'ngx-loading';
 const routes: Routes = [
   {
     path: "",
     component: LoginTemplateComponent,
     children: [
-      { 
-        path: "",  
-        component: LoginComponent 
+      {
+        path: "",
+        component: LoginComponent
       },
-      { 
-        path: "cadastrar", 
+      {
+        path: "cadastrar",
         component: CadastroComponent
       },
       {
@@ -45,7 +45,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    LogintemplateModule
+    LogintemplateModule,
+    NgxLoadingModule
   ]
 })
 export class LoginModule { }
