@@ -95,16 +95,23 @@
       </div>
 
       <div *ngIf="authService.userData as user" class="user-box">
-        <button (click)="deslogar()">Deslogar</button>
+        <button  (click)="deslogar()">
+          <ngx-spinner></ngx-spinner>
+          Logout
+        </button>
         <img [src]="user.photoURL" routerLink="/user/perfil" class="user-photo">
       </div>
     </mat-toolbar>
 
     <!--AQUI ENTRA O CONTEÚDO QUE SERÁ EXIBIDO NA PAGINA ABAIXO DO HEADER-->
     <ng-content></ng-content>
+<<<<<<< HEAD
     
     <div class="footer-container">
       <app-footer></app-footer>
     </div>
+=======
+    <app-footer></app-footer>
+>>>>>>> 3284b4b860b887acce185e287425a9c44013050a
   </mat-sidenav-content>
 </mat-sidenav-container>

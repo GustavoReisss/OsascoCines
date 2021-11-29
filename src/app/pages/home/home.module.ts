@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../shared/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,7 +17,11 @@ const routes: Routes = [
     path: "",
     component: BaseTemplateComponent,
     children: [
-      { path: "", component: HomeComponent },
+      {
+        path: "",
+        component: HomeComponent,
+        //canActivate: [AuthGuard]
+     },
     ]
   }
 ]

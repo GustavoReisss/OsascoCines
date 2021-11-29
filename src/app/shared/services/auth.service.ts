@@ -1,24 +1,26 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/interfaces/user.interface' 
+import { User } from '../models/interfaces/user.interface'
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import "firebase/auth";
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any; // Save logged in user data
-  
+
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
-    public router: Router,  
-    public ngZone: NgZone // NgZone service to remove outside scope warning
-  ) {    
-    /* Saving user data in localstorage when 
+    public router: Router,
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private toast: ToastrService
+  ) {
+    /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -37,11 +39,14 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result: any) => {
         this.ngZone.run(() => {
-          this.router.navigate(['home']);
+          setTimeout(() => {
+            this.router.navigate(['home']);
+          }, 100)
+          this.toast.success('Login realizado com sucesso!', 'Login', { timeOut: 4000 });
         });
         this.SetUserData(result.user);
       }).catch((error: any) => {
-        window.alert(error.message)
+        this.toast.error('Usuário e/ou senha inválidos!');
       })
   }
 
@@ -49,7 +54,7 @@ export class AuthService {
   SignUp(email: any, password: any) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
+        /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
@@ -92,7 +97,7 @@ export class AuthService {
     if( isEmptyObject(user) == true){
       this.router.navigate(['login'])
       return false
-      
+
   }
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
@@ -117,8 +122,8 @@ export class AuthService {
     })
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
+  /* Setting up user data when sign in with username/password,
+  sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
@@ -134,15 +139,13 @@ export class AuthService {
     })
   }
 
-  // Sign out 
+  // Sign out
   SignOut() {
+    // localStorage.clear();
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      setTimeout(() => {
-        this.router.navigate(['login']);
-      }, 1000)
-    })
+      this.router.navigate(['login']);
+       this.toast.success('Logout realizado com sucesso!', 'Logout', { timeOut: 4000 });
+     });
   }
-  
-
 }

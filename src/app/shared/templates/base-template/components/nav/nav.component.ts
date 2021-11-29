@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Component } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
@@ -18,10 +19,15 @@ export class NavComponent {
     );
 
   constructor(
-    private breakpointObserver: BreakpointObserver, 
-    public authService: AuthService) {}
+    private breakpointObserver: BreakpointObserver,
+    public authService: AuthService,
+    private spinner: NgxSpinnerService) {}
 
     deslogar(): void {
-      this.authService.SignOut()
+      this.spinner.show();
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 2000);
+      this.authService.SignOut();
     }
 }

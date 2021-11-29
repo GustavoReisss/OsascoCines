@@ -54,14 +54,14 @@
       outline: none;
       background: none;
       color: white;
-      font-size: 1.3rem;
+      font-size: 1rem;
       font-weight: 1000;
       cursor: pointer;
     }
 
     .user-photo {
-      height: 3rem;
-      width: 3rem;
+      height: 2rem;
+      width: 2rem;
       border: 2px solid #fff;
       box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.26), 0 0 15px 1px black;
       border-radius: 100%;
@@ -140,8 +140,8 @@ mat-sidenav-content {
 }
 
 .cineoz {
-  max-width: 150px !important;
-  max-height: 80px !important;
+  max-width: 120px !important;
+  max-height: 50px !important;
   display: inline-block;
   justify-content: flex-end;
 }
