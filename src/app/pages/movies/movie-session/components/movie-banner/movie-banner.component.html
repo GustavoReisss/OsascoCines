@@ -56,6 +56,9 @@
                 <button class="trailer-button" (click)="popupMode(2)">Ler sinopse</button>
             </div>
         </div>
+        <mat-progress-spinner [mode]="'indeterminate'"
+                              *ngIf="loading$ | async">
+        </mat-progress-spinner>
     </div>
 </section>
 <!--

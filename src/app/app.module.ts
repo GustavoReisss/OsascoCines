@@ -1,3 +1,5 @@
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule, } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +16,8 @@ import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -32,7 +36,13 @@ import { NgxLoadingModule } from 'ngx-loading';
       closeButton: true,
       progressBar: true
     }),
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    MatButtonModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule
+  ],
+  exports: [
+    MatProgressSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

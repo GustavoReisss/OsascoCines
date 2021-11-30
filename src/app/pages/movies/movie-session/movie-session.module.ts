@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -32,6 +33,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatTabsModule,
     DirectivesModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MovieSessionModule { }
