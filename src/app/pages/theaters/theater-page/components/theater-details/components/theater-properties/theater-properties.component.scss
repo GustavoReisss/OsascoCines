@@ -1,43 +1,104 @@
 // font-family: 'Barlow Condensed', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&display=swap');
 
-h1 {
-    width: fit-content;
-    
-    margin: 0 auto;
-    padding: 0;
-
-    font-family: 'Barlow Condensed', sans-serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    font-weight: 500;
-    text-shadow: 3px 3px 1px #aa0000;
-    
-}
-
 .detalhes {
     width: fit-content;
     
     display: grid;
     grid-template-columns: 1fr 1fr;
-    // gap: 1rem;
+    // grid-template-rows: 44px;
+    gap: 0.5rem;
 
-    // padding: 1rem;
-    // margin: 20px auto;
-
-    // border-bottom: 2px solid #a7a7a754;
+    // padding: 0.2rem;
+    background-color: #00000003;
 
     span {
         display: flex;
         align-items: center;
         gap: 7px;
         
-        font-family: 'Barlow Condensed', sans-serif;
+        width: 100%;
+
+        color: #e9e9e9;
+        font-family: "Red Hat Display", sans-serif;
         font-size: 1rem;
         font-weight: 400;
         text-shadow: 0px 0px 10px #000000;
-        // text-shadow: 0px 0px 10px #ff0000;
 
-        border-bottom: 2px dotted #a7a7a754;
+        background-color: #0000000a;
+        
+        padding: 0 0.2rem;
+        border-radius: 8px;
+        border-bottom: 2px dotted #a7a7a714;
+    }
+
+    .mapa {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 500;
+        transition: all 1s;
+
+        width: fit-content;
+        padding: 0.2rem 1rem;
+
+        grid-column-start: 1;
+        grid-column-end: -1;
+
+        margin: 0 auto;
+    }
+
+    .mapa:hover {
+        text-shadow: 0px 0px 10px #000000, 0px 0px 15px #000000;
+        color: #d32846;
+        font-size: 1.32rem;
+    }
+
+    .text-end {
+        // text-align: end;
+        // margin-left: auto;
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .detalhes {
+        span {
+            font-size: min(0.016 * 90vw, 2rem);
+            margin-right: auto;
+        }
+
+        .mapa {
+            font-size: min(0.0185 * 90vw, 2rem);
+            padding: 0;
+            width: 100%;
+            margin: 0;
+            grid-column-end: 1;
+
+        }
+    
+        .mapa:hover {
+            font-size: min(0.0187 * 90vw, 2rem);
+        }
+    
+        .text-end {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    .detalhes {
+        span {
+            font-size: min(0.012 * 90vw, 2rem);
+        }
+
+        .mapa {
+            font-size: min(0.0125 * 90vw, 2rem);
+        }
+    
+        .mapa:hover {
+            font-size: min(0.013 * 90vw, 2rem);
+        }
     }
 }

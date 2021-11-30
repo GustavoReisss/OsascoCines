@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-theater-properties',
@@ -8,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TheaterPropertiesComponent implements OnInit {
 
   @Input() props: any
-
+  @Output() mapa = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  abrirMapa(): void {
+    this.mapa.emit();
+  }
 }

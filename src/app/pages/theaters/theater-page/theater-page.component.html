@@ -1,8 +1,11 @@
 <section *ngIf="theater" [bgBlur]="popup != 0">
-    <app-theater-details [theater]="theater"></app-theater-details>
+    <app-theater-details 
+    [theater]="theater"
+    (mapa)="popupMode(1)">
+    </app-theater-details>
 </section>
 
-<button class="btn-oc" (click)="popupMode(1)">Mapa</button>
+<!-- <button class="btn-oc" (click)="popupMode(1)">Mapa</button> -->
 
 
 <div class="popup" [class.active]="popup == 1">
@@ -28,28 +31,28 @@
 
 <section [bgBlur]="popup != 0">
 
-<h1>Sessões Disponíveis</h1>
+    <h1 class="sessoes">Sessões Disponíveis</h1>
 
-<div class="select-area">
-    <select name="dia" [(ngModel)]="dia" class="slct-oc">
-        <option value="Todos">Todos</option>
+    <div class="select-area">
+        <select name="dia" [(ngModel)]="dia" class="slct-oc">
+            <option value="Todos">Todos</option>
 
-        <option *ngFor="let session of sessions"
-        value="{{ session?.dayOfWeek }}">
-            {{ session?.dayOfWeek }} - {{ session?.dateFormatted }}
-        </option>
-    </select>
-</div>
+            <option *ngFor="let session of sessions"
+            value="{{ session?.dayOfWeek }}">
+                {{ session?.dayOfWeek }} - {{ session?.dateFormatted }}
+            </option>
+        </select>
+    </div>
 
-<mat-tab-group>
-    <mat-tab *ngFor="let session of obterSessoes()" label="{{ session.dayOfWeek }} {{ session.dateFormatted}}">
-        <app-movie-list 
-            [movies]="session?.movies!" 
-            [filtros]="false"
-            [queryParams]="true"
-            [theater]="theaterId"
-            [date]="session.dateFormatted">
-        </app-movie-list>
-    </mat-tab>
-</mat-tab-group>
+    <mat-tab-group>
+        <mat-tab *ngFor="let session of obterSessoes()" label="{{ session.dayOfWeek }} {{ session.dateFormatted}}">
+            <app-movie-list 
+                [movies]="session?.movies!" 
+                [filtros]="false"
+                [queryParams]="true"
+                [theater]="theaterId"
+                [date]="session.dateFormatted">
+            </app-movie-list>
+        </mat-tab>
+    </mat-tab-group>
 </section>
