@@ -71,8 +71,8 @@
 .movie-infos {
     padding-top: 1rem;
     flex-direction: column;
-    gap: 0.5rem;
-
+    gap: 0.2rem;
+    font-family: 'Red Hat Display', sans-serif;
 
     span {
         font-size: 1rem;
@@ -81,9 +81,9 @@
     }
 
     button {
-        border-radius: 10px;
+        border-radius: 5px;
         cursor: pointer;
-        padding: 0.5rem;
+        padding: 0.4rem;
         font-size: 1rem;
         font-weight: bold;
         border: 0.1rem solid;
@@ -100,11 +100,13 @@
     .propertie-title-span{
         font-size: 1.2rem;
         font-weight: 600;
-        color: #c11a1a;
+        color: #b70c0c;
+        font-style: italic;
     }
 
     .generos-container{
         gap: 0.5rem;
+        padding-bottom: 0.5rem;
     }
 
     .buttons-container {
@@ -135,17 +137,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, calc(-50% + 32px));
+
     width: 100%;
     max-width: 550px;
     max-height: 80%;
     padding: 1rem 10px;
 
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.30);
-    color: #fff;
     background-color: rgba(0, 0, 0, 0.288);
+    
+    color: #fff;
     text-align: center;
-
-
+    font-family: 'Red Hat Display', sans-serif;
+    
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
@@ -159,13 +163,13 @@
     }
 
     .close-button {
-        border-radius: 10%;
+        border-radius: 20px;
         cursor: pointer;
         padding: 0.5rem;
-        color: #fd0065;
+        color: #e50c0c;
         font-size: 1rem;
         font-weight: bold;
-        border: 0.1rem solid #a10041;
+        border: 0.2rem solid #72000b;
         background-color: rgba(0, 0, 0, 0.369);
     }
 
@@ -340,8 +344,8 @@
         }
 
         button {
-            padding: 1rem;
-            font-size: 2rem;
+            padding: 0.6rem;
+            font-size: 1.6rem;
         }
 
         .generos-container{
@@ -395,6 +399,7 @@
 .genero{
     border: 1px solid;
     padding: 0.2rem;
+    transform: skew(-18deg);
     background-color: rgba(0, 0, 0, 0.336);
     cursor: pointer;
     transition: all 0.1s;

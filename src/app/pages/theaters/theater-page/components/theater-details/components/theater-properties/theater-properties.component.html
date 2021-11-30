@@ -1,14 +1,12 @@
-<!-- <h1>Características do Cinema</h1> -->
-
 <div class="detalhes" *ngIf="props">
     <span *ngIf="props.hasBomboniere"> 
         <mat-icon>storefront</mat-icon>
         Possui Bomboniere
     </span>
     
-    <span *ngIf="props.hasSeatDistancePolicy">
-        <mat-icon>social_distance</mat-icon>
+    <span *ngIf="props.hasSeatDistancePolicy" class="text-end">
         Politíca de distanciamento
+        <mat-icon>social_distance</mat-icon>
     </span>
 
     <span *ngIf="props.hasContactlessWithdrawal">
@@ -16,13 +14,13 @@
         Possui retirada de ingresso no local
     </span>
 
-    <span *ngIf="props.hasSeatDistancePolicyArena">
-        <mat-icon>safety_divider</mat-icon>
+    <span *ngIf="props.hasSeatDistancePolicyArena" class="text-end">
         Politíca de distanciamento de assentos
+        <mat-icon>safety_divider</mat-icon>
     </span>
 
-    <span *ngIf="props.hasSeatDistancePolicyArena">
+    <span *ngIf="props.hasSeatDistancePolicyArena" class="mapa" (click)="abrirMapa()">
         <mat-icon>place</mat-icon>
-        mapa
+        Ver no mapa
     </span>
 </div>

@@ -32,18 +32,14 @@ iframe {
     height: 80%;
     max-width: 600px;
     max-height: 400px;
-    
-    // width: 90vw;
-    // height: calc(.75 * 90vw);
-    // max-width: 800px;
-    // max-height: 600px;
-
-    padding: 1rem 10px;
-    
-    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.30);
-    color: #fff;
     background-color: #0000009c;
+    padding: 1rem 10px;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.30);
+    
+    color: #fff;
     text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+
 
     
     visibility: hidden;
@@ -59,13 +55,13 @@ iframe {
     }
 
     .close-button {
-        border-radius: 10%;
+        border-radius: 20px;
         cursor: pointer;
         padding: 0.5rem;
-        color: #fd0065;
+        color: #e50c0c;
         font-size: 1rem;
         font-weight: bold;
-        border: 0.1rem solid #a10041;
+        border: 0.2rem solid #72000b;
         background-color: rgba(0, 0, 0, 0.369);
     }
 
@@ -75,6 +71,17 @@ iframe {
     visibility: visible;
     opacity: 1;
     transition: 0.5s;
+}
+
+.sessoes {
+    font-size: 1.9rem;
+    text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+    text-shadow: 0 0 20px black, 0 0 5px white;
+    border-bottom: 1px solid #8080804f;
+    width: 90%;
+    padding-bottom: 0.5rem;
+    margin: 2rem auto 1rem auto;
 }
 
 @media screen and (min-width: 700px) {
@@ -88,6 +95,14 @@ iframe {
         .close-button {
             font-size: 1.4rem;
         }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .sessoes {
+        font-size: min(0.05 * 90vw, 3rem);
+        margin-top: 4rem;
+        width: 85%;
     }
 }
 
@@ -122,6 +137,10 @@ iframe {
         .close-button {
             font-size: 1.6rem;
         }
+    }
+
+    .sessoes {
+        margin-top: 5rem;
     }
 }
 

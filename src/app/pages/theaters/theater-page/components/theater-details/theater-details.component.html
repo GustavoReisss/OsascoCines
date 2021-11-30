@@ -10,7 +10,9 @@
         
         <div>
             <!-- <button class="btn-oc">MAPA</button> -->
-            <app-theater-properties [props]="theater.properties">
+            <app-theater-properties 
+            [props]="theater.properties"
+            (mapa)="abrirMapa()">
             </app-theater-properties>
         </div>
 

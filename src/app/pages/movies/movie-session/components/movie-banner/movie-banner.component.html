@@ -52,8 +52,8 @@
             </span>
 
             <div class="buttons-container">
-                <button *ngIf="movie.trailers!.length > 0" class="sinopse-button" (click)="popupMode(1)"> Assistir Trailer</button>
-                <button class="trailer-button" (click)="popupMode(2)">Ler sinopse</button>
+                <button *ngIf="movie.trailers!.length > 0" class="trailer-button" (click)="popupMode(1)"> Assistir Trailer</button>
+                <button class="sinopse-button" (click)="popupMode(2)">Ler sinopse</button>
             </div>
         </div>
         <mat-progress-spinner [mode]="'indeterminate'"
