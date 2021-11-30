@@ -205,6 +205,10 @@
     }
 }
 
+.no-image-banner {
+    aspect-ratio: 10 / 16;
+}
+
 @media screen and (min-width: 550px) {
     .movie-container{
         display: grid;
