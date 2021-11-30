@@ -8,7 +8,6 @@ import { AllSessions } from '../models/interfaces/allSessions.interface';
 import { MovieSessions } from '../models/interfaces/movieSessions.interface';
 
 
-
 @Injectable({
   providedIn: 'root'
 })

@@ -30,7 +30,7 @@ export class AllMoviesComponent implements OnInit, OnDestroy {
       }, 500);
     this.subs.push(
       this.moviesService.getAllMovies().subscribe(
-        allMovies => this.movies = allMovies
+        allMovies => {this.movies = allMovies;console.log(allMovies)}
       ));
   }
 

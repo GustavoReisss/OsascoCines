@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin, BehaviorSubject, ReplaySubject } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ingressoApi } from './../../../environments/environment';
@@ -32,7 +32,9 @@ export class MoviesService {
   }
 
   getComingSoonMovies(): Observable<Movie[]> {
-    let url = "/api" + ingressoApi.comingSoon + ingressoApi.partner;
+    const {comingSoon, partner} = ingressoApi; // Descontruindo objeto
+    let url = `/api${comingSoon}${partner}`;
+
     return this.client.get<MovieList>(url).pipe(
       map(movieList => movieList.items.sort(
         (movieA, movieB) =>

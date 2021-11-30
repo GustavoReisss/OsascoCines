@@ -1,6 +1,6 @@
 <!-- BANNER DO FILME -->
 <section *ngIf="movie" class="banner-container" [bgBlur]="popup != 0"
-[style.background-image]="(movie?.images![1] != null ? 'url(' + movie.images![1].url + ')' : 'url(' + movie.images![0].url + ')' )">
+[style.background-image]="(movie?.images![1] != null) ? 'url(' + movie.images![1]?.url + ')' : 'url(' + movie.images![0]?.url + ')'">
 
     <!-- CONTEÚDO DO BANNER -->
     <div class="movie-container" >
@@ -16,7 +16,11 @@
         <div class="movie-poster-container">
             <div class="movie-poster">
                 <span *ngIf="!jaLancou" class="em-breve">Em Breve!</span>
-                <img src="{{ movie.images![0].url }}" alt="">
+                <img *ngIf="movie.images![0]?.type == 'PosterPortrait'" src="{{ movie.images![0]?.url }}" alt="">
+                <img class="no-image-banner"
+                    *ngIf="movie.images?.length == 0 || movie.images![0]?.type != 'PosterPortrait'"
+                    src="https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg"
+                >
             </div>
         </div>
 

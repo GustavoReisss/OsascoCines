@@ -13,11 +13,15 @@
 
 <section class="all-movies-container">
     
-    <div *ngFor="let movie of obterFilmes()" class="movie-container">
+    <div *ngFor="let movie of obterFilmes()" class="movie-container" (click)="AcessarFilme(movie.id)">
 
         <div class="movie-poster">
             <span *ngIf="movie.isPlaying != undefined && !movie.isPlaying" class="em-breve">Em Breve!</span>
-            <img src="{{ movie.images![0].url }}" (click)="AcessarFilme(movie.id)">
+            <img *ngIf="movie.images![0]?.type == 'PosterPortrait'" src="{{ movie.images![0]?.url }}">
+            <img class="no-image"
+                *ngIf="movie.images?.length == 0 || movie.images![0]?.type != 'PosterPortrait'"
+                src="https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg"
+            >
         </div>
     </div>
 </section>
