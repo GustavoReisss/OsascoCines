@@ -1,14 +1,14 @@
 <!-- Filtros dos filmes -->
 
-    
+
 <div class="filtros-container" *ngIf="movies && movies.length > 0 && filtros">
-    
-    
+
+
     <button class="btn-oc" (click)="reverteArray()">
         <i class="bi bi-sort-alpha-down{{ sorting }}"></i>
     </button>
     <input type="text" class="ipt-txt-oc" [(ngModel)]="filtro">
-    
+
 </div>
 
 <section class="all-movies-container">

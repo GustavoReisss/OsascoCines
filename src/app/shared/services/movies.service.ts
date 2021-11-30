@@ -61,7 +61,8 @@ export class MoviesService {
   }
 
   getAllMoviesCarousel(): Observable<any[]> {
-    let url = "/api" + ingressoApi.allMovie + ingressoApi.partner;
+    const { allMovie, partner } = ingressoApi;
+    let url = `/api${allMovie}${partner}`;
     return this.client.get<any[]>(url);
   }
 }

@@ -40,3 +40,13 @@ span{
   margin: 0 auto;
   margin-top: 10px;
 }
+
+// footer responsivo em telas de notebook e monitores
+@media screen and (min-height:680px){
+  .cinemas {
+    height: 86%;
+  }
+}
+
+
+

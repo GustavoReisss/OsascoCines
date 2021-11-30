@@ -32,6 +32,7 @@ export class AllMoviesComponent implements OnInit, OnDestroy {
       this.moviesService.getAllMovies().subscribe(
         allMovies => {this.movies = allMovies;console.log(allMovies)}
       ));
+      console.log(this.subs);
   }
 
   ngOnDestroy(): void {
