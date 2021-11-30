@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.js -o",
+    "start": "ng serve --proxy-config proxy.config.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -24,6 +24,7 @@
     "bootstrap": "^5.1.3",
     "firebase": "^7.24.0",
     "moment": "^2.29.1",
+    "ngx-loading": "^8.0.0",
     "ngx-spinner": "^12.0.0",
     "ngx-toastr": "^14.2.1",
     "primeicons": "^4.1.0",

@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,7 +16,7 @@ import { MovieNotFoundComponent } from './components/movie-not-found/movie-not-f
 const routes: Routes = [
   {
     path: ":id",
-    component: MovieSessionComponent 
+    component: MovieSessionComponent
   }
 ]
 
@@ -31,7 +32,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatTabsModule,
-    DirectivesModule
+    DirectivesModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MovieSessionModule { }

@@ -1,5 +1,6 @@
 <div class="page-container">
-  <div class="login-img">
+
+  <div class="login-img" #customLoadingTemplate>
     <!-- <img src="../../../../assets/img/login/login.png"> -->
   </div>
   <div class="sign-in-container">
@@ -11,7 +12,7 @@
 
         <div class="formGroup">
           <label class="lbl-txt-oc">E-mail</label>
-          <input type="text" class="ipt-txt-oc-login" placeholder="E-mail" #userName required>
+          <input type="text" class="ipt-txt-oc-login" placeholder="E-mail" #userName required email>
         </div>
 
         <div class="formGroup">
@@ -56,4 +57,6 @@
       </div>
     </div>
   </div>
+
+  <!-- <ngx-loading [show]="authService.loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading> -->
 </div>
