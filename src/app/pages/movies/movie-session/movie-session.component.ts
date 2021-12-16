@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 import * as moment from 'moment';
 import { MoviesService } from './../../../shared/services/movies.service';
 
@@ -30,7 +32,8 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   constructor(
     private moviesService: MoviesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.movieId = this.route.snapshot.params["id"]
     
@@ -46,17 +49,25 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void { 
+    this.spinner.show()
+
     this.subs.push(
       this.moviesService.getMovie(this.movieId).subscribe( 
         movie => { 
           this.movie = movie
-          console.log(this.movie); 
+          // console.log(this.movie); 
 
           let now = moment();
           this.jaLancou = now.isAfter(moment(new Date(this.movie.premiereDate.localDate)))
           // console.log(this.jaLancou)
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
         },
-        () => this.hasMovie=false
+        () => {
+          this.hasMovie=false;
+          this.spinner.hide();
+        }
     ))
 
   }

@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import { ComponentsModule } from './../../../shared/components/components.module';
 
 import { TheaterPageComponent } from './theater-page.component';
@@ -38,7 +40,8 @@ const routes: Routes = [
     MatTabsModule,
     MatIconModule,
     ComponentsModule,
-    DirectivesModule
+    DirectivesModule,
+    NgxSpinnerModule
   ]
 })
 export class TheaterPageModule { }

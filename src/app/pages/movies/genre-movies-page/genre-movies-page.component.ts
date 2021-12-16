@@ -33,18 +33,12 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
     if(genero){
       this.filtroGenero = genero;
       this.hasQueryParam = true;
-      this.hasMovies = false;
-
     }
    }
 
   ngOnInit(): void {
     this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 500);
+    
     // FAZER UMA FUNÇÃO NO movies.service.ts RETORNANDO OS DADOS JÁ MAPEADOS
     this.subs.push(
       this.moviesService.getAllMovies().subscribe(allMovies => {
@@ -80,8 +74,11 @@ export class GenreMoviesPageComponent implements OnInit, OnDestroy {
               this.hasMovies = true;
             }
           })
+          if(this.hasMovies != true){
+            this.hasMovies = false;
+          }
         }
-
+        this.spinner.hide();
         console.log(this.generos);
 
       })

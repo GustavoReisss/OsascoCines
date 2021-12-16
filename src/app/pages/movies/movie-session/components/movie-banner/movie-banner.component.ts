@@ -15,14 +15,14 @@ export class MovieBannerComponent implements OnChanges {
   @Output() valorPopUp = new EventEmitter<number>();
   @Input() movie!: Movie;
   @Input() jaLancou!: boolean;
-  public loading$ = this.loader.loading$;
+  // public loading$ = this.loader.loading$;
 
   popup: number = 0;
   trailerUrl: any = "";
 
   constructor(
-    private sanitizer: DomSanitizer,
-    private loader: LoadingService
+    private sanitizer: DomSanitizer
+    // private loader: LoadingService
   ) { }
 
   ngOnChanges(){
@@ -36,10 +36,10 @@ export class MovieBannerComponent implements OnChanges {
   }
 
   popupMode(numDiv: number): void {
-    this.loader.show();
-    setTimeout(() => {
-      this.loader.hide();
-    }, 3000);
+    // // this.loader.show();
+    // setTimeout(() => {
+    //   this.loader.hide();
+    // }, 3000);
     this.popup = numDiv;
     this.valorPopUp.emit(numDiv);
   }

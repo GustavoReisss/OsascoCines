@@ -24,15 +24,14 @@ export class AllMoviesComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
       this.spinner.show();
 
-      setTimeout(() => {
-        /** spinner ends after 5 seconds */
-        this.spinner.hide();
-      }, 500);
     this.subs.push(
       this.moviesService.getAllMovies().subscribe(
-        allMovies => {this.movies = allMovies;console.log(allMovies)}
+        allMovies => {
+          this.movies = allMovies;      
+          setTimeout(() => this.spinner.hide(), 500);
+        }
       ));
-      console.log(this.subs);
+      // console.log(this.subs);
   }
 
   ngOnDestroy(): void {

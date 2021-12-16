@@ -15,7 +15,6 @@ import { DirectivesModule } from '../../directives/directives.module';
 import { BaseTemplateComponent } from './base-template.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatSidenavModule,
     MatListModule,
     DirectivesModule,
-    NgxSpinnerModule,
   ],
   exports: [
     BaseTemplateComponent,

@@ -1,3 +1,5 @@
+<ngx-spinner></ngx-spinner>
+
 <div *ngIf="!hasMovies && hasQueryParam">
     <app-genre-not-found (hasMovie)="TodosGeneros()">
     </app-genre-not-found>
@@ -10,7 +12,6 @@
     </div>
 
     <div class="select-genre" *ngIf="!hasQueryParam">
-      <ngx-spinner></ngx-spinner>
         <span style="display: block;">Selecione:</span>
         <select name="generos" class="slct-oc" [(ngModel)]="filtroGenero">
             <option value="Todos">Todos</option>
@@ -21,7 +22,7 @@
     </div>
 
     <div *ngIf="hasQueryParam">
-        <h1>Filmes encontrados com o gênero {{ filtroGenero }}:</h1>
+        <h1 class="filmes-encontrados">Filmes encontrados com o gênero {{ filtroGenero }}:</h1>
         <!-- <span>Ver todos os gêneros</span> -->
         <button class="btn-oc" (click)="TodosGeneros()">Ver todos os gêneros</button>
     </div>

@@ -24,13 +24,12 @@ export class PlayingMoviesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.spinner.show();
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 500);
     this.subs.push(
       this.moviesService.getAllPlayingMovies().subscribe(
-        movies => this.movies = movies));
+        movies => {
+          this.movies = movies;
+          setTimeout(() => this.spinner.hide(), 500);
+        }));
   }
 
   ngOnDestroy(): void {

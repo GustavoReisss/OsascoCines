@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Route, RouterModule} from '@angular/router';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
 
@@ -22,7 +24,8 @@ const routes: Route[] = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxSpinnerModule
   ],
   exports: [
     RouterModule

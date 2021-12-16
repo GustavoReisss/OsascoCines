@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import { DirectivesModule } from 'src/app/shared/directives/directives.module';
 
 import { MovieSessionComponent } from './movie-session.component';
@@ -33,7 +35,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatTabsModule,
     DirectivesModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxSpinnerModule
   ]
 })
 export class MovieSessionModule { }

@@ -1,21 +1,28 @@
+<ngx-spinner></ngx-spinner>
+
 <div class="cinemas">
-  <div class="itens-cinema" *ngFor="let theater of theaters?.items">
-    <ngx-spinner></ngx-spinner>
-    <div>
-      <h1>{{ theater.name }}</h1>
-      <img class="cinema" src="{{ theater.images![0].url }}" [routerLink]="['theater', theater.id]">
-      <div class="theater-container">
-        <!-- <span>{{ theater.name }}</span> <br> -->
-        <!-- <span>Cidade: {{ theater.cityName }}</span> <br>
-            <span>UF: {{ theater.uf }}</span> <br> -->
-        <span><span class="infos">Endereço:</span> {{ theater.address }} {{ theater.number }},
-          {{ theater.neighborhood }}</span><br>
-        <!-- <span>Número: {{ theater.number }}</span> <br> -->
-        <span *ngFor="let telefone of theater.telephones"><span class="infos">Telefone:</span> {{ telefone }}</span>
-        <br>
-        <!-- <span>Geo Location:{{ theater.geolocation | json }}</span> <br> -->
-      </div>
+    
+  <div class="cinema-box" *ngFor="let theater of theaters?.items">
+    
+    <h1>{{ theater.name }}</h1>
+    
+    <img class="cinema" src="{{ theater.images![0].url }}" [routerLink]="['theater', theater.id]">
+    
+    <div class="theater-container">
+
+      <span>
+        <span class="infos">Endereço:</span> 
+        {{ theater.address }} {{ theater.number }}, {{ theater.neighborhood }}
+      </span>
+      
+      <br>
+      
+      <span *ngFor="let telefone of theater.telephones">
+        <span class="infos">Telefone:</span> {{ telefone }}
+      </span>
     </div>
+
   </div>
+
 </div>
 

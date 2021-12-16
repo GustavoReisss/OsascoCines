@@ -12,11 +12,11 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  subs: Subscription[] = [];
-  movies: Movie[] = [];
+  // subs: Subscription[] = [];
+  // movies: Movie[] = [];
 
   constructor(
-    private moviesService: MoviesService,
+    // private moviesService: MoviesService,
     private spinner: NgxSpinnerService
     ) { }
 
@@ -27,13 +27,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
       }, 500);
-    this.subs.push(
-      this.moviesService.getAllPlayingMovies().subscribe(
-        movies => this.movies = movies));
+    // this.subs.push(
+    //   this.moviesService.getAllPlayingMovies().subscribe(
+    //     movies => this.movies = movies));
   }
 
   ngOnDestroy(): void {
-    this.subs.map(sub => sub.unsubscribe());
+    // this.subs.map(sub => sub.unsubscribe());
   }
 
 

@@ -5,7 +5,7 @@
 
 section {
   width: 100%;
-  height: 87%;
+  height: calc(100% - 64px);
 }
 
 header {
@@ -30,7 +30,8 @@ header {
   font-size: 3em;
   font-weight: bolder;
   text-transform: uppercase;
-  padding: 100px 0 0 100px;
+  margin-top: 10vh;
+  padding: 0 0 0 100px;
   position: relative;
   z-index: 2;
 }
@@ -84,25 +85,42 @@ header {
   color: white;
 }
 
-@media(min-width:1024px) {
-  section {
-    width: 100%;
-    height: 83%;
+@media(min-width: 0px){
+
+  .background-home h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 0 30px 0 30px;
+    position: relative;
+    z-index: 2;
+    line-height: 100%;
+  }
+
+  .background-home p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 0 30px 0 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .button-wrapper-cta {
+    display: block;
+    text-align: inherit;
+    padding-left: 20px;
+    padding-top: 10px;
   }
 }
 
 @media(min-width:360px){
-  section {
-    width: 100%;
-    height: 84%;
-  }
-
   .background-home h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 3em;
     font-weight: bolder;
     text-transform: uppercase;
-    padding: 120px 30px 0 30px;
+    padding: 0 30px 0 30px;
     position: relative;
     z-index: 2;
     line-height: 100%;
@@ -124,35 +142,16 @@ header {
   }
 }
 
-@media(min-width: 0px){
+@media (max-width: 599px) {
   section {
-    width: 100%;
-    height: 84%;
+    height: calc(100% - 56px);
   }
+}
 
+// Distanciamento do Bem Vindo do header
+
+@media screen and (min-height: 800px) {
   .background-home h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 3em;
-    font-weight: bolder;
-    text-transform: uppercase;
-    padding: 120px 30px 0 30px;
-    position: relative;
-    z-index: 2;
-    line-height: 100%;
-  }
-
-  .background-home p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    padding: 0 30px 0 30px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .button-wrapper-cta {
-    display: block;
-    text-align: inherit;
-    padding-left: 20px;
-    padding-top: 10px;
+    margin-top: 15vh;
   }
 }

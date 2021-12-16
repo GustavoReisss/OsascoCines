@@ -1,52 +1,76 @@
 .body{
-    font-family: 'Red Hat Display', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.cinema-box {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 600px;
+  
+  padding: 1.5rem;
+  
+  border: 11px solid #282828;
+  border-radius: 20px; 
+  box-shadow: 0 0 5px 0 #3d3d3d;
+  
+  background-color: #262626;
+}
+
+.cinema-box > * {
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 h1{
-  font-size: 40px;
-  font-weight: 500;
-  color: white;
-  text-shadow: 0.06em 0.06em 0.06em #c2185c
+  display: block;
+  padding-top: 3%;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: min(calc(0.13 * 90vw), 3rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 100%;
+  text-shadow: 3px 4px 1px #292727, 3px 3px 11px #292727;
 }
 
 span{
-  margin-top: 10px;
+  // margin-top: 10px;
   font-size: 1rem;
+  text-transform: lowercase;
 }
 
 .infos{
-  font-size: 1.3rem;
+  display: block;
+  text-transform: capitalize;
+  font-family: 'Orbitron', sans-serif;
+  font-size: min(calc(0.13 * 90vw), 2rem);
+  padding-block: 0.5rem;
+  font-weight: 400;
+  line-height: 100%;
+  text-shadow: 3px 4px 1px #292727, 3px 3px 11px #292727;
 }
 
 .cinemas {
-  margin-top: 40px;
-  display: flex;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  height: 80%;
+  padding: 1rem;
+  gap: 2rem;
   flex-wrap: wrap;
-  height: 76%;
 }
 
 .cinema {
   border-radius: 7px;
   cursor: pointer;
   transition: all 0.2s;
-  margin-bottom: 30px;
+  width: 85%;
 }
 
 .cinema:hover {
   transform: scale(1.05);
 }
-
-.itens-cinema {
-  margin: 0 auto;
-  margin-top: 10px;
-}
-
-// footer responsivo em telas de notebook e monitores
-@media screen and (min-height:680px){
-  .cinemas {
-    height: 86%;
-  }
-}
-
-
-

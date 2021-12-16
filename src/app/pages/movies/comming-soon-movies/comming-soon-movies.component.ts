@@ -22,13 +22,12 @@ export class CommingSoonMoviesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.spinner.show();
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 500);
     this.subs.push(
       this.moviesService.getComingSoonMovies().subscribe(
-        soonMovies => {this.soonMovies = soonMovies; console.log(this.soonMovies)}
+        soonMovies => {
+          this.soonMovies = soonMovies;
+          setTimeout(() => this.spinner.hide(), 500) 
+        }
     ))
   }
 

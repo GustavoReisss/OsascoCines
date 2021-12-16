@@ -5,6 +5,7 @@ import { AllSessions } from '../../../shared/models/interfaces/allSessions.inter
 import { Subscription } from 'rxjs';
 import { Theater } from '../../../shared/models/interfaces/theater.interface';
 import { TheatersService } from '../../../shared/services/theaters.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-theater-page',
@@ -25,15 +26,21 @@ export class TheaterPageComponent implements OnInit, OnDestroy {
   constructor(
     private sessionsService: SessionsService,
     private theatersService: TheatersService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { 
     this.theaterId = this.activatedRoute.snapshot.params["id"];
   }
 
   ngOnInit(): void {
+    this.spinner.show()
+
     this.subs.push(
       this.sessionsService.getAllTheatherSections(this.theaterId).subscribe(
-        sessions => this.sessions = sessions
+        sessions => {
+          this.sessions = sessions;
+          setTimeout(() => this.spinner.hide(), 500);
+        }
     ))
 
     this.subs.push(

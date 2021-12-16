@@ -96,7 +96,6 @@
 
       <div *ngIf="authService.userData as user" class="user-box">
         <button  (click)="deslogar()">
-          <ngx-spinner></ngx-spinner>
           Logout
         </button>
         <img [src]="user.photoURL" routerLink="/user/perfil" class="user-photo">
@@ -105,6 +104,6 @@
 
     <!--AQUI ENTRA O CONTEÚDO QUE SERÁ EXIBIDO NA PAGINA ABAIXO DO HEADER-->
     <ng-content></ng-content>
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

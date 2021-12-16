@@ -22,16 +22,16 @@ export class AllTheatersComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.spinner.show();
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 500);
-
     this.subs.push(
       this.theatersService.getAllTheaters().subscribe(
         theaters => {
           this.theaters = theaters;
-          console.log(this.theaters);
+          // console.log(this.theaters);
+          
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
+        
         })
     )
   }
