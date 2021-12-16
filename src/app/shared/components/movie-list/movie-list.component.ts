@@ -36,7 +36,7 @@ export class MovieListComponent {
     })
   }
 
-  AcessarFilme(movieId: string): void {
+  AcessarFilme(movieId: string) {
     if(this.queryParams && this.theater && this.date) {
       this.router.navigate(
         ['/movies/movie', movieId],
