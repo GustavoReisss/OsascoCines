@@ -1,15 +1,20 @@
-<!-- <div class="theater-container">
-    <span>nome: {{ theater.name }}</span> 
-    <span>cidade: {{ theater.cityName }}</span> <br>
-    <span>UF: {{ theater.uf }}</span> <br>
-    <span>endereço: {{ theater.address }}</span> <br>
-    <span>bairro: {{ theater.neighborhood }}</span> <br>
-    <span>número: {{ theater.number }}</span> <br>
-    <span *ngFor="let telefone of theater.telephones">telefone: {{ telefone }}</span> <br>
-    <span>Geo Location:{{ theater.geolocation | json }}</span> <br>
-</div> -->
+<section class="theater-banner"
+    [style.background-image]=" (theater.id == '845') ? 'url(../../../../../../assets/img/theater/cinemark.jpg)' : 'url(../../../../../../assets/img/theater/kinoplex.jpg)'"
+    [class.bg-center-top]="theater.id == '845'"
+>
 
-<div class="detalhes">
-    <span>Propriedades: {{ theater.properties | json }}</span>    
-    <span *ngIf="theater.properties.hasBomboniere">Possui</span>
-</div>
+<div class="conteudo-banner">
+        <span class="theater-name">{{ theater?.name }}</span>
+        
+        <img src="{{ theater.images![0].url }}" alt="">
+        
+        <div>
+            <!-- <button class="btn-oc">MAPA</button> -->
+            <app-theater-properties 
+            [props]="theater.properties"
+            (mapa)="abrirMapa()">
+            </app-theater-properties>
+        </div>
+
+    </div>
+</section>

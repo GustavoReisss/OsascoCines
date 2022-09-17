@@ -1,0 +1,25 @@
+<p-carousel [numVisible]="4"
+              [value]="imagens"
+              [numScroll]="1"
+              [circular]="true"
+              [autoplayInterval]="5000">
+  <ng-template let-imagem pTemplate="imagem">
+    <div class="product-item">
+      <div class="product-item-content">
+        <div class="p-mb-3">
+          <img src="{{imagem[0].url}}" [alt]="imagem[1].url" class="product-image" />
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+<div class="titulo-home">
+  <h1 class="pt-4 text-center">
+    Bem-vindo
+        <span class="span">ao Cineoz!</span>
+      </h1>
+      <h2 class="text-center">Aproveite o melhor do cinema em Osasco!</h2>
+    </div>
+</div>

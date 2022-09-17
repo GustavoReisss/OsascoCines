@@ -1,0 +1,26 @@
+<div class="detalhes" *ngIf="props">
+    <span *ngIf="props.hasBomboniere"> 
+        <mat-icon>storefront</mat-icon>
+        Possui Bomboniere
+    </span>
+    
+    <span *ngIf="props.hasSeatDistancePolicy" class="text-end">
+        Politíca de distanciamento
+        <mat-icon>social_distance</mat-icon>
+    </span>
+
+    <span *ngIf="props.hasContactlessWithdrawal">
+        <mat-icon>local_activity</mat-icon>
+        Possui retirada de ingresso no local
+    </span>
+
+    <span *ngIf="props.hasSeatDistancePolicyArena" class="text-end">
+        Politíca de distanciamento de assentos
+        <mat-icon>safety_divider</mat-icon>
+    </span>
+
+    <span *ngIf="props.hasSeatDistancePolicyArena" class="mapa" (click)="abrirMapa()">
+        <mat-icon>place</mat-icon>
+        Ver no mapa
+    </span>
+</div>

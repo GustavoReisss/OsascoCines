@@ -1,6 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+import * as moment from 'moment';
+import { MoviesService } from './../../../shared/services/movies.service';
+
+import { Movie } from './../../../shared/models/interfaces/movie.interface';
 
 
 @Component({
@@ -12,14 +18,22 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
   
   subs: Subscription[] = [];
 
+  movie!: Movie;
   movieId: string;
-  popup: number = 0;
   theaters: string[] = ['340', '845']; // cinemark e kinoplex
   date: any = null;
+  popup: number = 0;
+  
+  hasSessions!: boolean;
+  retornoTheaterSession: number = 0;
+  hasMovie: boolean = true;
+  jaLancou: boolean = true;
 
   constructor(
+    private moviesService: MoviesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.movieId = this.route.snapshot.params["id"]
     
@@ -34,9 +48,31 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.spinner.show()
 
-  mostrarTodasSessoes(){
+    this.subs.push(
+      this.moviesService.getMovie(this.movieId).subscribe( 
+        movie => { 
+          this.movie = movie
+          // console.log(this.movie); 
+
+          let now = moment();
+          this.jaLancou = now.isAfter(moment(new Date(this.movie.premiereDate.localDate)))
+          // console.log(this.jaLancou)
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
+        },
+        () => {
+          this.hasMovie=false;
+          this.spinner.hide();
+        }
+    ))
+
+  }
+
+  mostrarTodasSessoes() {
     this.theaters = ['340', '845']; // cinemark e kinoplex
     this.date = null;
     this.router.navigate([`/movies/movie`, this.movieId])
@@ -46,12 +82,23 @@ export class MovieSessionComponent implements OnInit, OnDestroy {
     this.popup = numDiv;
   }
 
+  atualizaHasSession(possui: boolean) {
+    this.retornoTheaterSession++;
+    if(possui){
+      this.hasSessions = true;
+    }
+
+    if(this.retornoTheaterSession == 2 && !this.hasSessions){
+      this.hasSessions = false;
+    }
+    console.log(this.hasSessions)
+  }
+
   ngOnDestroy(): void {
     this.subs.map(
       sub => sub.unsubscribe()
     );
   }
-
 }
 
 

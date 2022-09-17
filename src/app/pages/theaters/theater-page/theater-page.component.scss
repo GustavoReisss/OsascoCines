@@ -1,0 +1,161 @@
+.select-area {
+    display: grid;
+    justify-items: end;
+    padding: 1rem;
+}
+
+select.slct-oc {
+    max-width: 290px;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.popup {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    gap: 1rem;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 32px));
+    
+    width: 100%;
+    height: 80%;
+    max-width: 600px;
+    max-height: 400px;
+    background-color: #0000009c;
+    padding: 1rem 10px;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.30);
+    
+    color: #fff;
+    text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+
+
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    overflow-y: auto;
+
+    .popup-title {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 0px 0px 5px black, 0 0 10px black;
+    }
+
+    .close-button {
+        border-radius: 20px;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: #e50c0c;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 0.2rem solid #72000b;
+        background-color: rgba(0, 0, 0, 0.369);
+    }
+
+}
+
+.popup.active {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.sessoes {
+    font-size: 1.9rem;
+    text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+    text-shadow: 0 0 20px black, 0 0 5px white;
+    border-bottom: 1px solid #8080804f;
+    width: 90%;
+    padding-bottom: 0.5rem;
+    margin: 2rem auto 1rem auto;
+}
+
+@media screen and (min-width: 700px) {
+    .popup {
+        padding: 1rem 15px;
+
+        .popup-title {
+            font-size: 2.3rem;
+        }
+
+        .close-button {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .sessoes {
+        font-size: min(0.05 * 90vw, 3rem);
+        margin-top: 4rem;
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 830px) {
+    .popup {
+        max-width: 800px;
+        max-height: 600px;
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    .popup {
+        transform: translate(calc(-50% + 100px), -50%);
+    }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 650px) {
+    .popup {
+        max-width: 900px;
+        max-height: 675px;
+
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 1400px) and (min-height: 800px) {
+    .popup {
+        .popup-title {
+            font-size: 3rem;
+        }
+
+        .close-button {
+            font-size: 1.6rem;
+        }
+    }
+
+    .sessoes {
+        margin-top: 5rem;
+    }
+}
+
+@media screen and (min-width: 2250px) and (min-height: 800px) {
+    .popup {
+        max-width: 1200px;
+        max-height: 900px;
+
+        
+        .popup-title {
+            font-size: 4rem;
+        }
+
+        .close-button {
+            font-size: 2rem;
+        }
+    }
+}

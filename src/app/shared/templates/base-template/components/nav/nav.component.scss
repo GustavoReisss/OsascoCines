@@ -13,6 +13,18 @@
   z-index: 1000;
 }
 
+.sid-nav-closer {
+  cursor: pointer;
+  margin: 5% -4% auto auto;;
+  transition: all 1s;
+}
+
+.sid-nav-closer:hover {
+  background-color: #ffffff1a;
+  border-radius: 50%;
+  transform: scale(1.2);
+}
+
 .sidenav {
   width: 200px;
   background-color: rgb(36, 36, 36);
@@ -22,11 +34,47 @@
   border-right: solid 1px #41001a38;
 }
 
-.mat-toolbar.mat-primary {
+.header-bar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: inset 2px 0px 7px 0px #000000;
+  // box-shadow: inset 2px 0px 10px 2px #000000;
+  // box-shadow: inset 0px 6px 20px 0px #000000;
+  box-shadow: inset -1px 5px 20px 4px #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c11a1a;
+
+  .user-box {
+    display: flex;
+
+    button {
+      border: none;
+      outline: none;
+      background: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 1000;
+      cursor: pointer;
+    }
+
+    .user-photo {
+      height: 2rem;
+      width: 2rem;
+      border: 2px solid #fff;
+      box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.26), 0 0 15px 1px black;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+  }
+}
+
+.logo-container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -34,12 +82,25 @@
   color: white;
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  margin-left: 1rem;
+  // margin-left: 1rem;
 }
 
 .mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   font-family: 'Red Hat Display', sans-serif;
   font-weight: 500;
+
+  i {
+    font-size: 19px;
+    margin-right: 12px;
+    margin-left: 3px;
+  }
+
+  img {
+    margin-right: 10px;
+  }
 }
 
 .mat-list-item:hover {
@@ -48,9 +109,10 @@
   background-color: #1a1a1a;
 }
 
+
 .rotaAtiva {
   color: white;
-  // box-shadow: 0px 0px 5px -1px #3a3a3a;
+  text-shadow: 0px 0px 5px #fff;
   box-shadow: 0px 0px 6px 0px #05050596;
   background-color: #1a1a1a;
   z-index: 100;
@@ -63,5 +125,23 @@
 
 
 mat-sidenav-content {
+  // display: grid;
+  // grid-template-rows: auto auto 1fr auto;
+
   background-color: rgb(22, 21, 21);
+  // background-image: url(../../../../../../assets/header.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // opacity: 0.65;
+}
+.footer-container {
+  margin-top: auto;
+}
+
+.cineoz {
+  max-width: 120px !important;
+  max-height: 50px !important;
+  display: inline-block;
+  justify-content: flex-end;
 }

@@ -13,41 +13,118 @@
 // font-family: 'Allerta', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Allerta&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// fonte Roboto
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap%27');
 
+// font-family: 'Bangers', cursive, 'Roboto Condensed', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&display=swap');
 
-.btn-oc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1f1f1f;
-    border-radius: 5px;
-    color: rgb(109, 109, 109);
-    border: none;
-    cursor: pointer;
-    transition: all 0.7s;   
+@import '../node_modules/ngx-toastr/toastr.css';
+html,
+body {
+  height: 100%;
 }
 
-.btn-oc:hover {
-    box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
-    color: #f11c71;
+body {
+  background-color: black;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
 }
+
+//---------------SELECT--------------\\
+
+.slct-oc {
+  height: 2.45rem;
+  width: 100%;
+  max-width: 235px;
+  background-color: #1f1f1f;
+  border: none;
+  border-bottom: 1px solid rgb(109, 109, 109);
+  color: white;
+  padding: 0 1rem;
+  margin-right: 2rem;
+  font-weight: bold;
+  font-family: 'Red Hat Display', sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.7s;
+}
+
+.slct-oc:hover {
+  border: none;
+  box-shadow: 0 0 2px 1px #c11a1a;
+}
+
+.slct-oc:focus {
+  border: none;
+}
+
+//---------------TEXT INPUT--------------\\
 
 .ipt-txt-oc {
-    background-color: #1f1f1f;
-    border: none;
-    border-bottom: 1px solid rgb(109, 109, 109);
-    color: white;
-    font-family: 'Red Hat Display', sans-serif;
-    padding: 0 0.5rem;
-    font-weight: 500;
-    border-radius: 5px;
-    transition: all 0.7s;
+  background-color: #1f1f1f;
+  border: none;
+  border-bottom: 1px solid rgb(109, 109, 109);
+  color: white;
+  font-family: 'Red Hat Display', sans-serif;
+  padding: 0 0.5rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.7s;
 }
 
 .ipt-txt-oc:focus {
-    outline: none;
-    box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
-    border-bottom: 1px solid #f11c71;
+  outline: none;
+  // box-shadow: 0 0 2px 1px rgba(255, 3, 104, 0.582);
+  box-shadow: 0 0 2px 1px #700f0f;
+  // border-bottom: 1px solid #f11c71;
+  border-bottom: 1px solid #c11a1a;
+}
+
+
+.lbl-txt-oc {
+  font-family: 'Red Hat Display', sans-serif;
+  color: white;
+  margin-bottom: 5px;
+  .links{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+}
+
+.btn-oc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  color: rgb(109, 109, 109);
+  border: none;
+  cursor: pointer;
+  transition: all 0.7s;
+}
+
+.btn-oc:hover {
+  box-shadow: 0 0 2px 1px #751313;
+  color: #c11a1a;
+}
+
+//    TELA DE FILMES
+.title-filmes-oc h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 0;
+  line-height: 3.2rem;
+  text-shadow: 0.06em 0.06em 0.05em #c11a1a;
+}
+
+
+.no-image {
+    width: 266px;
+    height: 392px;
+    background-color: #fff;
 }

@@ -1,14 +1,125 @@
-// .control_notfound{
-//     height: 40em;
-//     position: relative }
-// .notfound {
-//     margin: 0;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     margin-right: -50%;
-//     transform: translate(-50%, -50%) }
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 
-.notfound{
-    text-align: center;
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+img {
+  max-width: 350px;
+  max-height: 350px;
+  bottom: -500px;
+  padding-bottom: 20px;
+}
+
+.fundo {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #161515;
+  color: #fff;
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-oc{
+  display: inline;
+  font-size: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 2em;
+  border: 1px solid #efefef;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #161515;
+  color:#fff;
+}
+
+.button:click {
+  background-color: #161515;
+  color:#fff;
+}
+
+p {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 100;
+}
+
+h1 {
+  text-align: center;
+  font-size: 9em;
+  font-weight: 100;
+  position: fixed top;
+  bottom: 6%;
+  text-align: center;
+  font-family: "Acme", sans-serif;
+}
+
+@media(max-width:738px){
+  img {
+    max-width: 330px;
+    max-height: 330px;
+    bottom: -500px;
+  }
+}
+
+.btn-oc{
+  display: inline;
+  font-size: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 2em;
+  border: 1px solid #efefef;
+  color: #fff;
+}
+
+
+@keyframes scatter {
+	0% {
+		top: 0;
+	}
+	50% {
+		top: -10px;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+.playful span {
+	position: relative;
+	color: #fff;
+	animation: scatter 1.75s infinite;
+}
+
+.playful span:nth-child(2n) {
+	color: #c2185b;
+	animation-delay: 0.3s;
+}
+
+.playful span:nth-child(3n) {
+	color: #fff;
+	animation-delay: 0.15s;
 }

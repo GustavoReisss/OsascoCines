@@ -1,7 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+.movie-container {
+    position: relative;
+}
+
 button.btn-oc {
     display: inline;
     font-size: 1rem;
     padding: 1rem;
-    font-family: 'Red Hat Display', sans-serif;
     margin-left: 1rem;
+    box-shadow: 0px 0px 5px white;
+    color: white;
+    transition: all 0.5s;
+}
+
+button.btn-oc:hover {
+    transform: scale(105%);
+    box-shadow: 0px 0px 7px white;
+}
+
+.estreia-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 45rem;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    justify-content: center;
+    padding: 1.3rem;
+    border-radius: 16px;
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+    box-shadow: 11px 13px 11px 0 black;
+
+    span {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+}
+
+.sessoes {
+    font-size: 1.9rem;
+    text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+    text-shadow: 0 0 20px black, 0 0 5px white;
+    border-bottom: 1px solid #8080804f;
+    width: 90%;
+    padding-bottom: 0.5rem;
+    margin: 2rem auto 1rem auto;
 }

@@ -30,6 +30,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "firebase",
+              "@angular/common/locales/fr",
+              "lodash/dropRight",
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/database",
+              "@firebase/firestore",
+              "@firebase/functions",
+              "@firebase/performance",
+              "@firebase/remote-config"
+          ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -39,6 +52,7 @@
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/app/shared/styles/login-styles.scss",
               "src/styles.scss"
             ],
             "scripts": []

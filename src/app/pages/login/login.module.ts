@@ -2,31 +2,34 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MatButtonModule } from '@angular/material/button';
-
 import { LoginTemplateComponent } from 'src/app/shared/templates/login-template/login-template.component';
 
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LogintemplateModule } from 'src/app/shared/templates/login-template/login-template.module';
-
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { NgxLoadingModule } from 'ngx-loading';
 const routes: Routes = [
   {
     path: "",
     component: LoginTemplateComponent,
     children: [
-      { 
-        path: "", 
-        redirectTo: "entrar", 
-        pathMatch: "full" 
+      {
+        path: "",
+        component: LoginComponent
       },
-      { 
-        path: "entrar", 
-        component: LoginComponent 
-      },
-      { 
-        path: "cadastrar", 
+      {
+        path: "cadastrar",
         component: CadastroComponent
+      },
+      {
+        path: "verificar-email",
+        component: VerifyEmailComponent
+      },
+      {
+        path: "esqueci-a-senha",
+        component: ForgotPasswordComponent
       }
     ]
   }
@@ -35,13 +38,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     LogintemplateModule,
-    MatButtonModule
+    NgxLoadingModule
   ]
 })
 export class LoginModule { }

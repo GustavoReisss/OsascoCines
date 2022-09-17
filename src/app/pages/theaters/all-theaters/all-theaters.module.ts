@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { NgxSpinnerModule } from "ngx-spinner";
 
-import { AllTheatersComponent } from './all-theaters.component'; 
+import { AllTheatersComponent } from './all-theaters.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxSpinnerModule
   ],
   exports: [
     RouterModule

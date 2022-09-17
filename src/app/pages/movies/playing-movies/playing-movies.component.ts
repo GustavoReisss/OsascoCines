@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 
 import { Movie } from 'src/app/shared/models/interfaces/movie.interface';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-playing-movies',
@@ -16,11 +17,19 @@ export class PlayingMoviesComponent implements OnInit, OnDestroy {
   movies!: Movie[];
 
   constructor(
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    this.subs.push(this.moviesService.getAllPlayingMovies().subscribe(movies => this.movies = movies))
+    this.spinner.show();
+
+    this.subs.push(
+      this.moviesService.getAllPlayingMovies().subscribe(
+        movies => {
+          this.movies = movies;
+          setTimeout(() => this.spinner.hide(), 500);
+        }));
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { SessionsService } from 'src/app/shared/services/sessions.service';
 import { Subscription } from 'rxjs';
@@ -12,6 +12,7 @@ export class TheaterSessionsComponent implements OnInit {
 
   subs: Subscription[] = [];
 
+  @Output() hasSession = new EventEmitter<boolean>();
   @Input() theaterId!: string;
   @Input() movieId!: string;
   @Input() date?: any;
@@ -23,12 +24,12 @@ export class TheaterSessionsComponent implements OnInit {
 
     this.subs.push(
       this.sessionsService.getMovieSessions(this.movieId).subscribe(
-        movieSessions => { 
+        movieSessions => {
 
           movieSessions?.forEach(session => {
 
             session.theaters?.forEach(theater => {
-            
+
             // Salva as sessões do filme no cinema informado
 
               if(theater.id == this.theaterId){
@@ -39,9 +40,14 @@ export class TheaterSessionsComponent implements OnInit {
               }
             })
           })
-        })
+
+          if(this.theaterSessions.length > 0) {
+            this.hasSession.emit(true);
+          } else {
+            this.hasSession.emit(false)
+          }
+        }, () => this.hasSession.emit(false)),
     )
-    console.log(this.date)
   }
 
   // Filtra as sessões de acordo com a data do input

@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 import { AllMoviesComponent } from './all-movies.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+    NgxSpinnerModule
   ]
 })
 export class AllMoviesModule { }

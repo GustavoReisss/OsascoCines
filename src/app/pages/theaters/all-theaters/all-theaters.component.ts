@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TheatersService } from './../../../shared/services/theaters.service';
 import { AllTheaters } from '../../../shared/models/interfaces/allTheaters.interface';
 import { Subscription } from 'rxjs';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-all-theaters',
@@ -14,16 +15,23 @@ export class AllTheatersComponent implements OnInit, OnDestroy {
   theaters!: AllTheaters;
 
   constructor(
-    private theatersService: TheatersService
+    private theatersService: TheatersService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
 
     this.subs.push(
       this.theatersService.getAllTheaters().subscribe(
         theaters => {
           this.theaters = theaters;
-          console.log(this.theaters);
+          // console.log(this.theaters);
+          
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
+        
         })
     )
   }

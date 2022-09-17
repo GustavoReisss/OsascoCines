@@ -1,1 +1,62 @@
-<button mat-raised-button color="primary" (click)="fazerLogin()" >Logar</button>
+<div class="page-container">
+
+  <div class="login-img" #customLoadingTemplate>
+    <!-- <img src="../../../../assets/img/login/login.png"> -->
+  </div>
+  <div class="sign-in-container">
+    <div class="sign-in-box">
+      <div>
+        <img class="login-logo" src="../../../../assets/img/login/logo.png">
+      </div>
+      <div class="authBlock">
+
+        <div class="formGroup">
+          <label class="lbl-txt-oc">E-mail</label>
+          <input type="text" class="ipt-txt-oc-login" placeholder="E-mail" #userName required email>
+        </div>
+
+        <div class="formGroup">
+          <label class="lbl-txt-oc">Senha</label>
+          <input type="password" class="ipt-txt-oc-login" placeholder="Senha" #userPassword required>
+        </div>
+
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="cad-google">
+          <input type="button" class="btn-oc btn-oc-entrar" value="Entrar"
+            (click)="authService.SignIn(userName.value, userPassword.value)">
+        </div>
+
+        <div class="lbl-txt-oc">
+          <span class="links" routerLink="/login/esqueci-a-senha">Esqueceu a senha?</span>
+        </div>
+
+        <div class="or">
+          <div class="divider-custom divider-dark">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">ou</div>
+            <div class="divider-custom-line"></div>
+          </div>
+
+        </div>
+
+        <!-- Calling GoogleAuth Api from AuthService -->
+        <div class="cad-google">
+          <div (click)="authService.GoogleAuth()">
+            <a class="btn-oc btn-branco">
+              <img src="https://img.icons8.com/color/16/000000/google-logo.png">
+              Logar usando Google</a>
+          </div>
+        </div>
+
+        <div class="info-adicional">
+          <div class="lbl-txt-oc">
+            <span>Ainda não tem conta? <span class="links" routerLink="/login/cadastrar">Cadastre-se!</span></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <ngx-loading [show]="authService.loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading> -->
+</div>

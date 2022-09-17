@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Theater } from './../../../../../shared/models/interfaces/theater.interface';
 
 @Component({
@@ -9,11 +9,16 @@ import { Theater } from './../../../../../shared/models/interfaces/theater.inter
 export class TheaterDetailsComponent implements OnInit {
 
   @Input() theater!: Theater;
+  @Output() mapa = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
     
+  }
+
+  abrirMapa(): void {
+    this.mapa.emit();
   }
 
 }

@@ -9,13 +9,13 @@ import { Movie } from '../../models/interfaces/movie.interface';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent {
-  
+
   @Input() movies: any[] = [];
   @Input() filtros: boolean = true;
   @Input() queryParams: boolean = false;
   @Input() theater?: string;
   @Input() date?: string;
-  
+
   filtro: string = "";
   sorting: string = "-alt";
 

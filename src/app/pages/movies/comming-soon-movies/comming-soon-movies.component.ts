@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 import { Movie } from './../../../shared/models/interfaces/movie.interface';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-comming-soon-movies',
@@ -14,13 +15,19 @@ export class CommingSoonMoviesComponent implements OnInit, OnDestroy {
   soonMovies!: Movie[];
 
   constructor(
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.subs.push(
       this.moviesService.getComingSoonMovies().subscribe(
-        soonMovies => {this.soonMovies = soonMovies; console.log(this.soonMovies)}
+        soonMovies => {
+          this.soonMovies = soonMovies;
+          setTimeout(() => this.spinner.hide(), 500) 
+        }
     ))
   }
 

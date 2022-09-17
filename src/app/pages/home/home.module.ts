@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../shared/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,26 +8,36 @@ import { BaseTemplateModule } from 'src/app/shared/templates/base-template/base-
 
 import { BaseTemplateComponent } from 'src/app/shared/templates/base-template/base-template.component';
 import { HomeComponent } from './home.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { CarouselModule } from 'primeng/carousel'
 
 const routes: Routes = [
   {
     path: "",
     component: BaseTemplateComponent,
     children: [
-      { path: "", component: HomeComponent }
-    ] 
+      {
+        path: "",
+        component: HomeComponent,
+        //canActivate: [AuthGuard]
+     },
+    ]
   }
 ]
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    BannerComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     BaseTemplateModule,
-    DirectivesModule
+    DirectivesModule,
+    NgxSpinnerModule,
+    CarouselModule
   ],
   exports: [
     RouterModule
